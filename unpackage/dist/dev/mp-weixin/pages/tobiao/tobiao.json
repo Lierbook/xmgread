@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "dn-icon": "/components/dn-icon/dn-icon"
+  }
+}

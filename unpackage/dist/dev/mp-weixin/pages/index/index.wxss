@@ -1,0 +1,12 @@
+
+.content {
+	position: absolute;
+	height: 100%;
+}
+.xxx {
+	font-size: 42rpx;
+	font-weight: bold;
+	padding: 10rpx 0;
+	text-align: center;
+}
+
