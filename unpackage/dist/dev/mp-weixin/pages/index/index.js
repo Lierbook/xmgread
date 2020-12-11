@@ -105,6 +105,9 @@ var components = {
   },
   lvSelect: function() {
     return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 60))
+  },
+  booklist: function() {
+    return __webpack_require__.e(/*! import() | components/booklist/booklist */ "components/booklist/booklist").then(__webpack_require__.bind(null, /*! @/components/booklist/booklist.vue */ 67))
   }
 }
 var render = function() {
@@ -142,7 +145,8 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var booklist = function booklist() {__webpack_require__.e(/*! require.ensure | components/booklist/booklist */ "components/booklist/booklist").then((function () {return resolve(__webpack_require__(/*! ../../components/booklist/booklist.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
 
 
 
@@ -172,7 +176,8 @@ __webpack_require__.r(__webpack_exports__);
 {
   components: {
     aloysTab: aloysTab,
-    lvSelect: lvSelect },
+    lvSelect: lvSelect,
+    booklist: booklist },
 
 
   data: function data() {

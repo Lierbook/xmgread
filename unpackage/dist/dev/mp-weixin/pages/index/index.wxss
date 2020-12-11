@@ -4,6 +4,7 @@
 	height: 100%;
 }
 .xxx {
+	width: 100%;
 	font-size: 42rpx;
 	font-weight: bold;
 	padding: 10rpx 0;
