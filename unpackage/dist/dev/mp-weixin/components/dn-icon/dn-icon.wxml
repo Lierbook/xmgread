@@ -1,0 +1,1 @@
+<text class="{{['dn-icon','icon-'+type]}}" style="{{'color:'+(color)+';'+('font-size:'+(size+'px')+';')}}"></text>
