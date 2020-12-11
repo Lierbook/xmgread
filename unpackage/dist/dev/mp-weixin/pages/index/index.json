@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "龟田免费小说",
-  "usingComponents": {
-    "aloys-tab": "/components/aloys-tab/aloys-tab",
-    "lv-select": "/components/lv-select/lv-select",
-    "booklist": "/components/booklist/booklist"
-  }
-}
