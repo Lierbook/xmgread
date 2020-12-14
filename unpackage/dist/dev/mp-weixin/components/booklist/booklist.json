@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "component": true
+  "component": true,
+  "usingComponents": {
+    "dn-icon": "/components/dn-icon/dn-icon",
+    "icon": "/components/dn-icon/dn-icon"
+  }
 }

@@ -25,12 +25,14 @@
 	import aloysTab from "@/components/aloys-tab/aloys-tab.vue"
 	import lvSelect from '../../components/lv-select/lv-select'
 	import booklist from '../../components/booklist/booklist.vue'
+	import icon from '../../components/dn-icon/dn-icon.vue'
 
 	export default {
 		components: {
 			aloysTab,
 			lvSelect,
-			booklist
+			booklist,
+			icon
 		
 		},
 		data() {

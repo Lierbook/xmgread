@@ -24,9 +24,6 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-page {
-  background-color: #0055ff;
-}
 swiper-item image {
   width: 100%;
 }
@@ -63,11 +60,16 @@ swiper-item image {
 .recommend {
   background-color: white;
   position: relative;
-  height: 135rpx;
   top: 50rpx;
   width: 100%;
   padding-left: 30rpx;
   padding-right: 30rpx;
+}
+.fengequyu {
+  width: 100%;
+  height: 20rpx;
+  background-color: #e8e8e8;
+  margin-top: 100rpx;
 }
 .recommendbox1 image {
   width: 100rpx;
@@ -82,12 +84,16 @@ swiper-item image {
 .top {
   position: absolute;
   width: 190rpx;
+  font-weight: 400rpx;
   height: 40rpx;
   left: 120rpx;
   top: 20rpx;
   font-size: 28rpx;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: left;
+  font-weight: 500;
 }
 .bottom {
   position: absolute;
@@ -119,5 +125,195 @@ swiper-item image {
 .bookbox {
   height: 138rpx;
   margin-bottom: 20rpx;
+}
+.titlebox2 {
+  padding: 20rpx 30rpx 20rpx 30rpx;
+  height: 40rpx;
+}
+.titlebox2 view {
+  display: inline;
+}
+.hotname {
+  float: left;
+  font-size: 35rpx;
+  line-height: 40rpx;
+}
+.change {
+  float: right;
+  color: #a6a6a6;
+  font-size: 27rpx;
+  line-height: 40rpx;
+}
+.hotbooks {
+  width: 100%;
+  height: 300rpx;
+  padding-left: 30rpx;
+}
+.hotbooks view {
+  width: 200rpx;
+  font-size: 28rpx;
+  float: left;
+  text-align: left;
+}
+.hotbooks text {
+  font-weight: 500;
+}
+.hotbooks1 {
+  margin-right: 45rpx;
+}
+.hotbooks2 {
+  margin-right: 45rpx;
+}
+.Fantasy {
+  margin-top: 70rpx;
+  width: 100%;
+  background-color: #f8f8f8;
+  height: 780rpx;
+  padding-top: 30rpx;
+}
+.Fantasybox {
+  width: 690rpx;
+  height: 740rpx;
+  margin: 0rpx 0rpx 10rpx 30rpx;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  background-color: white;
+}
+.Fantasyhead {
+  height: 200rpx;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right bottom, from(#ff8952), to(#ffc59e));
+  background: -webkit-linear-gradient(top left, #ff8952, #ffc59e);
+  background: linear-gradient(to bottom right, #ff8952, #ffc59e);
+  opacity: 0.9;
+  -webkit-border-top-left-radius: 10rpx;
+          border-top-left-radius: 10rpx;
+  -webkit-border-top-right-radius: 10rpx;
+          border-top-right-radius: 10rpx;
+  position: relative;
+  z-index: 3;
+}
+.TOP {
+  float: left;
+  margin-left: 50rpx;
+  font-size: 50rpx;
+  z-index: 2;
+}
+.headtitle {
+  position: absolute;
+  float: left;
+  top: 25rpx;
+  left: 50rpx;
+  color: white;
+}
+.Fantasymore {
+  color: #a6a6a6;
+  font-size: 27rpx;
+  color: white;
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+.Fantasybody {
+  width: 100%;
+  height: 540rpx;
+  padding-left: 20rpx;
+}
+#Fantasybookbox {
+  margin-top: 20rpx;
+}
+#Cityhead {
+  background: -webkit-gradient(linear, left top, right bottom, from(#528fff), to(#9dc0ff));
+  background: -webkit-linear-gradient(top left, #528fff, #9dc0ff);
+  background: linear-gradient(to bottom right, #528fff, #9dc0ff);
+}
+.Citytop {
+  color: #919191;
+  font-weight: 400;
+  font-family: #c8c7cc;
+}
+.HotBoutiquebox {
+  padding: 0rpx 30rpx 0rpx 30rpx;
+  width: 100%;
+  height: 300rpx;
+}
+.HotBoutiquebooks {
+  position: relative;
+}
+.HotBoutiquebooks image {
+  width: 200rpx;
+  position: absolute;
+  left: 0px;
+}
+.HotBoutiquebooksname {
+  font-size: 35rpx;
+  position: absolute;
+  left: 220rpx;
+  top: 10rpx;
+  font-weight: 400;
+  width: 400rpx;
+  height: 40rpx;
+  text-align: left;
+}
+.HotBoutiquebookstitle {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+          flex: 3;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  height: 40rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 40rpx;
+  width: 300rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
+}
+.completeState {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  margin: 0rpx;
+  font-weight: 400;
+  font-size: 20rpx;
+  border: 1px solid red;
+  width: 50rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #ff5101;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  margin-left: 30rpx;
+  float: right;
+}
+.author {
+  position: absolute;
+  left: 220rpx;
+  top: 80rpx;
+  font-size: 25rpx;
+  color: #a8a8a8;
+  font-weight: 400;
+}
+.desc {
+  font-weight: 400;
+  font-size: 25rpx;
+  position: absolute;
+  left: 220rpx;
+  top: 160rpx;
+  width: 460rpx;
+  height: 100rpx;
+  overflow: hidden;
+  color: #a8a8a8;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
 }
 
