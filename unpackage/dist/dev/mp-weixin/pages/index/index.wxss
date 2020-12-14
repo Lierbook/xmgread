@@ -1,12 +1,111 @@
 
 .content {
 	position: absolute;
-	height: 100%;
+	height: 300%;
 }
-.xxx {
-	font-size: 42rpx;
-	font-weight: bold;
-	padding: 10rpx 0;
-	text-align: center;
+
+
+/* 轮播图css */
+.carousel {
+	width: 100%;
+	height: 450rpx;
+}
+
+
+/* 书籍列表css */
+.super-hot {
+	margin-top: 12rpx;
+	padding: 20rpx;
+}
+.hot-title {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+}
+.poster {
+	width: 210rpx;
+	height: 270rpx;
+}
+.bookName {}
+.booker {
+	width: 100%;
+	height: 900rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-justify-content: space-around;
+	        justify-content: space-around;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+}
+.books-item {
+	width: 210rpx;
+}
+.booker2 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+		-webkit-justify-content: space-around;
+		        justify-content: space-around;
+}
+.books-item2 {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+
+		-webkit-justify-content: space-around;
+
+		        justify-content: space-around;
+}
+.tong {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+}
+.completeState {
+	padding-left: 10px;
+}
+.author {
+	padding-top: 10px;
+	font-size: 15px;
+}
+.desc {
+	padding-top: 10px;
+	font-size: 13px;
+}
+.category {
+	padding-top: 30px;
+	font-size: 13px;
+}
+.w {
+	margin-top: 70px;
+}
+.desc{
+
+	width: 470rpx;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 }
 
