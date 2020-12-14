@@ -13,7 +13,7 @@
 			        type = "success "
 			        :uniShadow = "true"
 			        ></lv-select>
-			
+			<booklist></booklist>
 			</view>
 			<view slot="content1" class="xxx">B</view>
 			<view slot="content2" class="xxx">C</view>
@@ -24,11 +24,15 @@
 <script>
 	import aloysTab from "@/components/aloys-tab/aloys-tab.vue"
 	import lvSelect from '../../components/lv-select/lv-select'
+	import booklist from '../../components/booklist/booklist.vue'
+	import icon from '../../components/dn-icon/dn-icon.vue'
 
 	export default {
 		components: {
 			aloysTab,
-			lvSelect
+			lvSelect,
+			booklist,
+			icon
 		
 		},
 		data() {
@@ -86,6 +90,7 @@
 	}
 
 	.xxx {
+		width: 100%;
 		font-size: 42rpx;
 		font-weight: bold;
 		padding: 10rpx 0;

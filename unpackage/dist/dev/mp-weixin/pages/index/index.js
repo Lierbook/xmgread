@@ -11,9 +11,9 @@
 /* 9 */,
 /* 10 */,
 /* 11 */
-/*!**********************************************************************************!*\
-  !*** E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/main.js?{"page":"pages%2Findex%2Findex"} ***!
-  \**********************************************************************************/
+/*!**************************************************************************!*\
+  !*** E:/微信小程序/20201208/小说阅读器项目/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26,9 +26,9 @@ createPage(_index.default);
 
 /***/ }),
 /* 12 */
-/*!***************************************************************!*\
-  !*** E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue ***!
-  \***************************************************************/
+/*!*******************************************************!*\
+  !*** E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -66,9 +66,9 @@ component.options.__file = "pages/index/index.vue"
 
 /***/ }),
 /* 13 */
-/*!**********************************************************************************************!*\
-  !*** E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue?vue&type=template&id=57280228& ***!
-  \**********************************************************************************************/
+/*!**************************************************************************************!*\
+  !*** E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue?vue&type=template&id=57280228& ***!
+  \**************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -87,9 +87,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 14 */
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue?vue&type=template&id=57280228& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue?vue&type=template&id=57280228& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -105,6 +105,9 @@ var components = {
   },
   lvSelect: function() {
     return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 60))
+  },
+  booklist: function() {
+    return __webpack_require__.e(/*! import() | components/booklist/booklist */ "components/booklist/booklist").then(__webpack_require__.bind(null, /*! @/components/booklist/booklist.vue */ 67))
   }
 }
 var render = function() {
@@ -120,9 +123,9 @@ render._withStripped = true
 
 /***/ }),
 /* 15 */
-/*!****************************************************************************************!*\
-  !*** E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************/
+/*!********************************************************************************!*\
+  !*** E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -135,14 +138,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 16 */
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 51));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 60));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var booklist = function booklist() {__webpack_require__.e(/*! require.ensure | components/booklist/booklist */ "components/booklist/booklist").then((function () {return resolve(__webpack_require__(/*! ../../components/booklist/booklist.vue */ 67));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var icon = function icon() {__webpack_require__.e(/*! require.ensure | components/dn-icon/dn-icon */ "components/dn-icon/dn-icon").then((function () {return resolve(__webpack_require__(/*! ../../components/dn-icon/dn-icon.vue */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -172,7 +177,9 @@ __webpack_require__.r(__webpack_exports__);
 {
   components: {
     aloysTab: aloysTab,
-    lvSelect: lvSelect },
+    lvSelect: lvSelect,
+    booklist: booklist,
+    icon: icon },
 
 
   data: function data() {
@@ -223,9 +230,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 17 */
-/*!************************************************************************************************!*\
-  !*** E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
-  \************************************************************************************************/
+/*!****************************************************************************************!*\
+  !*** E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -238,9 +245,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 18 */
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!E:/微信小程序/20201208/小说阅读器项目/小说阅读器项目/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!E:/微信小程序/20201208/小说阅读器项目/pages/index/index.vue?vue&type=style&index=0&lang=css& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
