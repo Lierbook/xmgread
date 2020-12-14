@@ -1,0 +1,55 @@
+
+.zi {
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+	font-weight: 800;
+	text-align: center;
+	margin-top: 20rpx;
+}
+image {
+	height: 85px !important;
+	width: 65px !important;
+}
+.uni-title {
+	margin-left: 15rpx;
+}
+.uni-ellipsis-2 {
+	font-size: 33rpx;
+	color: #333333;
+}
+.swyd {
+
+	margin: 15rpx;
+	margin-left: 25rpx;
+}
+.zz {
+	color: #777777;
+	font-size: 25rpx;
+}
+.shop-price {
+	margin: 15rpx;
+	margin-left: 25rpx;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.shop-price-text {
+	color: #777777;
+	font-size: 25rpx;
+}
+.uni-list--border-top {
+	display: none;
+}
+.uni-list--border {
+	display: none;
+}
+.ny {
+
+	border: 1rpx solid red;
+	margin: 15rpx;
+	padding: 5rpx 8rpx;
+	font-size: 20rpx;
+	font-weight: 100;
+	color: red;
+}
+

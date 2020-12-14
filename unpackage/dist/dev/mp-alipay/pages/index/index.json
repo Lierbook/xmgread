@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "书城",
+  "usingComponents": {
+    "aloys-tab": "/components/aloys-tab/aloys-tab",
+    "lv-select": "/components/lv-select/lv-select"
+  }
+}

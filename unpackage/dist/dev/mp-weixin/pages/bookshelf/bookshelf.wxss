@@ -1,0 +1,73 @@
+
+.zi {
+	width: 100%;
+	height: 30px;
+	font-size: 20px;
+	font-weight: 800;
+	text-align: center;
+	margin-top: 20rpx;
+}
+image {
+	height: 85px !important;
+	width: 65px !important;
+}
+.uni-title {
+	margin-left: 15rpx;
+}
+.uni-ellipsis-2 {
+	font-size: 33rpx;
+	color: #333333;
+}
+.swyd {
+
+	margin: 15rpx;
+	margin-left: 25rpx;
+}
+.zz {
+	color: #777777;
+	font-size: 25rpx;
+}
+.shop-price {
+	margin: 15rpx;
+	margin-left: 12rpx;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.shop-price-text {
+	color: #777777;
+	font-size: 25rpx;
+}
+.uni-list--border-top {
+	display: none;
+}
+.uni-list--border {
+	display: none;
+}
+.ny {
+
+	border: 1rpx solid red;
+	margin: 10rpx;
+	padding: 5rpx 8rpx;
+	font-size: 20rpx;
+	font-weight: 100;
+	color: red;
+}
+.zt{
+	margin-left: 30rpx;
+	margin-bottom: 20rpx;
+}
+.z1{
+	color: #777777;
+}
+.jiu{
+	color: red;
+	font-size: 45rpx;
+	margin: 0 5rpx;
+}
+.delete{
+	float: right;
+	margin-top: -70rpx;
+	margin-right: 20rpx;
+}
+
+
