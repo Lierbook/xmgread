@@ -84,12 +84,16 @@ swiper-item image {
 .top {
   position: absolute;
   width: 190rpx;
+  font-weight: 400rpx;
   height: 40rpx;
   left: 120rpx;
   top: 20rpx;
   font-size: 28rpx;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   text-align: left;
+  font-weight: 500;
 }
 .bottom {
   position: absolute;
@@ -150,6 +154,9 @@ swiper-item image {
   font-size: 28rpx;
   float: left;
   text-align: left;
+}
+.hotbooks text {
+  font-weight: 500;
 }
 .hotbooks1 {
   margin-right: 45rpx;
@@ -226,7 +233,9 @@ swiper-item image {
   font-family: #c8c7cc;
 }
 .HotBoutiquebox {
-  padding: 10rpx 30rpx 10rpx 30rpx;
+  padding: 0rpx 30rpx 0rpx 30rpx;
+  width: 100%;
+  height: 300rpx;
 }
 .HotBoutiquebooks {
   position: relative;
@@ -242,18 +251,69 @@ swiper-item image {
   left: 220rpx;
   top: 10rpx;
   font-weight: 400;
-}
-.HotBoutiquebooksname view {
   width: 400rpx;
+  height: 40rpx;
+  text-align: left;
+}
+.HotBoutiquebookstitle {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+          flex: 3;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  height: 40rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  line-height: 40rpx;
+  width: 300rpx;
   overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
 }
 .completeState {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  margin: 0rpx;
   font-weight: 400;
   font-size: 20rpx;
+  border: 1px solid red;
+  width: 50rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  color: #ff5101;
+  -webkit-border-radius: 10rpx;
+          border-radius: 10rpx;
+  margin-left: 30rpx;
+  float: right;
 }
 .author {
+  position: absolute;
   left: 220rpx;
-  top: 60rpx;
-  font-size: 20rpx;
+  top: 80rpx;
+  font-size: 25rpx;
+  color: #a8a8a8;
+  font-weight: 400;
+}
+.desc {
+  font-weight: 400;
+  font-size: 25rpx;
+  position: absolute;
+  left: 220rpx;
+  top: 160rpx;
+  width: 460rpx;
+  height: 100rpx;
+  overflow: hidden;
+  color: #a8a8a8;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
 }
 

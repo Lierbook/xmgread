@@ -186,7 +186,7 @@
 					</view>
 
 				</view>
-				
+
 				<view class="Fantasybody" style="font-size: 20rpx;">
 					<view class="recommendbox1" :wx:for="Citybooks" wx:for-item="Citybooks" style="margin-top: 30rpx;font-size: 20rpx;">
 						<image v-bind:src="Citybooks.picUrl" mode="widthFix" class="img001"></image>
@@ -204,18 +204,19 @@
 				<view class="change">查看更多<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
 				</view>
 			</view>
-			
-			<view class="HotBoutiquebox">
+
+			<view class="HotBoutiquebox" :wx:for="HotBoutique" wx:for-item="HotBoutique">
 				<view class="HotBoutiquebooks">
-					<image :src="HotBoutique[0].picUrl" mode="widthFix"></image>
-					<view class="HotBoutiquebooksname"><view>{{HotBoutique[0].bookName}}</view>
-					<text class="completeState">　　{{HotBoutique[0].completeState}}</text>
+					<image :src="HotBoutique.picUrl" mode="widthFix"></image>
+					<view class="HotBoutiquebooksname">
+						<view class="HotBoutiquebookstitle">{{HotBoutique.bookName}}</view>
+						<view class="completeState">{{HotBoutique.completeState}} </view>
 					</view>
-					
+
 					<!-- <text class="state">{{HotBoutique[0].completeState}}</text> -->
-					<view class="author">{{HotBoutique[0].author}}</view>
-					<!-- <text class="desc">{{HotBoutique[0].desc}}</text> -->
-					
+					<view class="author">{{HotBoutique.author}}</view>
+					<text class="desc">{{HotBoutique.desc}}</text>
+
 				</view>
 			</view>
 
@@ -286,8 +287,8 @@
 					console.log(HotBoutique[0].bookName)
 					const hotname = res.data.body.data[4]
 					this.hotname = hotname
-					
-					
+
+
 				}
 			})
 		},
@@ -393,13 +394,17 @@
 	.top {
 		position: absolute;
 		width: 190rpx;
+		font-weight: 400rpx;
 		height: 40rpx;
 		left: 120rpx;
 		top: 20rpx;
 		font-size: 28rpx;
 		// display: block;
 		overflow: hidden;
+		white-space:nowrap; 
+		text-overflow: ellipsis;
 		text-align: left;
+		font-weight: 500;
 	}
 
 	.bottom {
@@ -477,6 +482,9 @@
 			text-align: left;
 
 
+		}
+		text{
+			font-weight: 500;
 		}
 	}
 
@@ -565,39 +573,96 @@
 		font-weight: 400;
 		font-family: $uni-border-color;
 	}
-	.HotBoutiquebox{
-		padding: 10rpx 30rpx 10rpx 30rpx;
+
+	.HotBoutiquebox {
+		padding: 0rpx 30rpx 0rpx 30rpx;
+		width: 100%;
+		height: 300rpx;
 	}
+
 	.HotBoutiquebooks {
 		position: relative;
+
 		// width: 500rpx;
-		image{
-		width: 200rpx;
-		position: absolute;
-		left: 0px;
-	}
-	}
-	.HotBoutiquebooksname{
-		    font-size: 35rpx;
+		image {
+			width: 200rpx;
 			position: absolute;
-			left: 220rpx;
-			top: 10rpx;
-			font-weight: 400;
-			
-			view{
-			width: 400rpx;
-			overflow: hidden;
-			}
+			left: 0px;
+
+		}
 	}
-	.completeState{
+
+	.HotBoutiquebooksname {
+		font-size: 35rpx;
+		position: absolute;
+		left: 220rpx;
+		top: 10rpx;
+		font-weight: 400;
+		width: 400rpx;
+		height: 40rpx;
+		text-align: left;
+		// overflow: hidden;
+
+	}
+
+	.HotBoutiquebookstitle {
+		flex: 3;
+		display: -webkit-flex;
+		display: flex;
+		height: 40rpx;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: inline-block;
+		line-height: 40rpx;
+		width: 300rpx;
+		overflow: hidden;
+		// -webkit-box-orient: vertical;
+		// -webkit-line-clamp: 1;
+		text-overflow: ellipsis;
+		float: left;
+
+	}
+
+	.completeState {
+		display: -webkit-flex;
+		display: flex;
+		flex: 1;
+		margin: 0rpx;
 		font-weight: 400;
 		font-size: 20rpx;
-		
-		
+		border: 1px solid red;
+		width: 50rpx;
+		height: 30rpx;
+		line-height: 30rpx;
+		color: #ff5101;
+		border-radius: 10rpx;
+		margin-left: 30rpx;
+		float: right;
 	}
-	.author{
+
+	.author {
+		position: absolute;
 		left: 220rpx;
-		top: 60rpx;
-		font-size:20rpx ;
+		top: 80rpx;
+		font-size: 25rpx;
+		color: #a8a8a8;
+		font-weight: 400;
+	}
+
+	.desc {
+		font-weight: 400;
+		font-size: 25rpx;
+		position: absolute;
+		left: 220rpx;
+		top: 160rpx;
+		width: 460rpx;
+		height: 100rpx;
+		overflow: hidden;
+		color: #a8a8a8;
+		text-align: left;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		text-overflow: ellipsis;
 	}
 </style>

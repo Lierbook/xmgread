@@ -52,15 +52,15 @@
             }
             
         }
-        // ,{
-        //     "path" : "components/booklist/booklist",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
+        ,{
+            "path" : "pages/bookdetail/bookdetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "书籍详情",
+                "enablePullDownRefresh": false
+            }
+         
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
