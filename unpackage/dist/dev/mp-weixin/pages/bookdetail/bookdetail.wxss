@@ -1,0 +1,155 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 小说详情的样式 */
+.book_detail {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  height: 300%;
+  width: 100%;
+  background-color: #EDEDED;
+}
+.book_detail .book_theme {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  background-color: #8B8970;
+  width: 100%;
+  height: 300rpx;
+}
+.book_detail .book_theme .book_name {
+  color: #FAFAFA;
+  font-size: 34rpx;
+  margin-top: 50rpx;
+  margin-left: 30rpx;
+}
+.book_detail .book_theme .book_name .title {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.book_detail .book_theme .pic {
+  width: 200rpx;
+  height: 230rpx;
+  background-color: #007AFF;
+  margin-left: 200rpx;
+  margin-top: 40rpx;
+}
+.book_detail .introduction {
+  width: 100%;
+  height: 300rpx;
+  background-color: #F4F4F4;
+}
+.book_detail .introduction .description {
+  width: 100%;
+  height: 230rpx;
+  color: #808080;
+  font-size: 38rpx;
+  border-bottom: 1rpx solid #C8C7CC;
+}
+.book_detail .introduction .catalogue {
+  width: 100%;
+  height: 70rpx;
+}
+.book_detail .introduction .catalogue .list {
+  color: #000;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.book_detail .introduction .catalogue .situation {
+  margin-top: -55rpx;
+  font-size: 32rpx;
+  margin-left: 520rpx;
+}
+.book_detail .introduction .catalogue .situation .state2 {
+  color: #FF0000;
+}
+.book_detail .introduction .catalogue .situation .number {
+  padding-left: 20rpx;
+  color: #0D0D0D;
+}
+.book_detail .comment {
+  width: 100%;
+  height: 900rpx;
+  background-color: #F4F4F4;
+  margin-top: 10rpx;
+  border-bottom: 1rpx solid #C8C7CC;
+}
+.book_detail .comment .hotCom {
+  color: #000;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.book_detail .comment .comPer {
+  width: 200rpx;
+  height: 50rpx;
+}
+.book_detail .comment .comCon {
+  width: 100%;
+  height: 250rpx;
+}
+.book_detail .read {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 100rpx;
+  background-color: #F4F4F4;
+}
+.book_detail .read .share,
+.book_detail .read .add {
+  width: 25%;
+  color: #000;
+  font-size: 24rpx;
+  margin-top: 60rpx;
+  padding-left: 20rpx;
+}
+.book_detail .read .add {
+  padding-left: 80rpx;
+}
+.book_detail .read .readNow {
+  width: 50%;
+  color: #FAFAFA;
+  line-height: 100rpx;
+  font-size: 38rpx;
+  background-color: #EE0000;
+  text-align: center;
+}
+
