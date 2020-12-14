@@ -56,7 +56,7 @@
 			}
 		},
 		onLoad() {
-
+			console.log("onload")
 		},
 		methods: {
 			onTabChange(obj) {
