@@ -105,6 +105,9 @@ var components = {
   },
   lvSelect: function() {
     return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 66))
+  },
+  publish: function() {
+    return __webpack_require__.e(/*! import() | components/publish/publish */ "components/publish/publish").then(__webpack_require__.bind(null, /*! @/components/publish/publish.vue */ 73))
   }
 }
 var render = function() {
@@ -142,94 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 57));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 57));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var publish = function publish() {__webpack_require__.e(/*! require.ensure | components/publish/publish */ "components/publish/publish").then((function () {return resolve(__webpack_require__(/*! ../../components/publish/publish.vue */ 73));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -257,7 +173,8 @@ __webpack_require__.r(__webpack_exports__);
 {
   components: {
     aloysTab: aloysTab,
-    lvSelect: lvSelect },
+    lvSelect: lvSelect,
+    publish: publish },
 
 
   data: function data() {
@@ -280,62 +197,11 @@ __webpack_require__.r(__webpack_exports__);
       {
         title: '女生' },
       {
-        title: '出版' }],
+        title: '出版' }] };
 
-      //轮播图
-      carouselList: [],
-      guessUlikeList: [],
-      booksUlikeList: [] };
 
   },
   onLoad: function onLoad() {
-
-    var me = this;
-    // 轮播图js代码
-    uni.request({
-      url: 'https://wechat.idejian.com/api/wechat/chuban',
-      success: function success(res) {
-        console.log(res);
-
-        var carouselList = res.data.body.data[0].items;
-        me.carouselList = carouselList;
-
-      } });
-
-
-    //轮播图代码结束
-    // 书籍列表
-    var me = this;
-    uni.request({
-      url: 'https://wechat.idejian.com/api/wechat/chuban',
-
-      success: function success(res) {
-        console.log(res);
-
-        var guessUlikeList = res.data.body.data[1].books;
-        // var guessUlikeList = res.data.body.data[2].books;
-        me.guessUlikeList = guessUlikeList;
-
-      } });
-
-
-
-    var me = this;
-    uni.request({
-      url: 'https://wechat.idejian.com/api/wechat/chuban',
-
-      success: function success(res) {
-        console.log(res);
-
-        var booksUlikeList = res.data.body.data[2].books;
-        // var guessUlikeList = res.data.body.data[2].books;
-        me.booksUlikeList = booksUlikeList;
-
-      } });
-
-
-
-
 
 
 
