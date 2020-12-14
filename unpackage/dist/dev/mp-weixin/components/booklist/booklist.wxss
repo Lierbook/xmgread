@@ -145,7 +145,8 @@ swiper-item image {
   line-height: 40rpx;
 }
 .hotbooks {
-  width: 100%;
+  width: 29%;
+  display: inline-block;
   height: 300rpx;
   padding-left: 30rpx;
 }
@@ -273,6 +274,7 @@ swiper-item image {
   float: left;
 }
 .completeState {
+  text-align: center;
   display: -webkit-flex;
   display: -webkit-box;
   display: flex;
@@ -287,8 +289,8 @@ swiper-item image {
   height: 30rpx;
   line-height: 30rpx;
   color: #ff5101;
-  -webkit-border-radius: 10rpx;
-          border-radius: 10rpx;
+  -webkit-border-radius: 6rpx;
+          border-radius: 6rpx;
   margin-left: 30rpx;
   float: right;
 }
@@ -298,14 +300,14 @@ swiper-item image {
   top: 80rpx;
   font-size: 25rpx;
   color: #a8a8a8;
-  font-weight: 400;
+  font-weight: 500;
 }
 .desc {
   font-weight: 400;
   font-size: 25rpx;
   position: absolute;
   left: 220rpx;
-  top: 160rpx;
+  top: 120rpx;
   width: 460rpx;
   height: 100rpx;
   overflow: hidden;
@@ -315,5 +317,29 @@ swiper-item image {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   text-overflow: ellipsis;
+}
+.category {
+  font-weight: 400;
+  font-size: 20rpx;
+  position: absolute;
+  left: 220rpx;
+  top: 234rpx;
+  width: 60rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border: 1px solid #a8a8a8;
+  -webkit-border-radius: 4rpx;
+          border-radius: 4rpx;
+  color: #a8a8a8;
+}
+.goodworks {
+  width: 100%;
+  white-space: nowrap;
+}
+.goodname {
+  display: block;
+}
+.newbook {
+  margin-top: 20rpx;
 }
 

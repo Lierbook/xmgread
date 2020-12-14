@@ -349,6 +349,50 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   components: {
     icon: icon },
@@ -365,9 +409,13 @@ __webpack_require__.r(__webpack_exports__);
       Fantasybooks: [],
       Citybooks: [],
       HotBoutique: [],
-      hotname: ""
+      hotname: "",
+      good: "",
+      goodworks: [],
       // HotBoutiquebooks:[],
-    };
+      newbook: [],
+      newbookname: "" };
+
   },
   onReady: function onReady() {var _this = this;
     uni.request({
@@ -404,15 +452,37 @@ __webpack_require__.r(__webpack_exports__);
         // 火爆精品
         var HotBoutique = res.data.body.data[4].books;
         _this.HotBoutique = HotBoutique;
-        console.log(HotBoutique[0].bookName);
+        // console.log(HotBoutique[0].bookName)
         var hotname = res.data.body.data[4];
         _this.hotname = hotname;
-
-
+        // 口碑佳作
+        var good = res.data.body.data[5];
+        _this.good = good;
+        // console.log(good.name)
+        var goodworks = res.data.body.data[5].books;
+        // console.log(goodworks)
+        _this.goodworks = goodworks;
+        // 新书优选
+        var newbook = res.data.body.data[6].books;
+        _this.newbook = newbook;
+        var newbookname = res.data.body.data[6];
+        _this.newbookname = newbookname;
       } });
 
+
+
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    forEach: function forEach() {
+      var arr = [1, 2, 3, 4, 5];
+
+      arr.forEach(function (item) {
+        if (item === 3) {
+          return;
+        }
+        console.log(item);
+      });
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

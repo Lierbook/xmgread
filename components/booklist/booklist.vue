@@ -137,19 +137,12 @@
 			</view>
 		</view>
 
-		<view class="hotbooks">
+		<view class="hotbooks" :wx:for="hotbooks" wx:for-item="hotbooks">
 			<view class="hotbooks1">
-				<image :src="hotbooks[0].picUrl" mode="widthFix"></image>
-				<text>{{hotbooks[0].bookName}}</text>
+				<image :src="hotbooks.picUrl" mode="widthFix"></image>
+				<text>{{hotbooks.bookName}}</text>
 			</view>
-			<view class="hotbooks2">
-				<image :src="hotbooks[1].picUrl" mode="widthFix"></image>
-				<text>{{hotbooks[1].bookName}}</text>
-			</view>
-			<view class="hotbooks3">
-				<image :src="hotbooks[2].picUrl" mode="widthFix"></image>
-				<text>{{hotbooks[2].bookName}}</text>
-			</view>
+			
 		</view>
 		<!-- 玄幻人气榜 -->
 		<view class="Fantasy">
@@ -213,17 +206,68 @@
 						<view class="completeState">{{HotBoutique.completeState}} </view>
 					</view>
 
-					<!-- <text class="state">{{HotBoutique[0].completeState}}</text> -->
+					
 					<view class="author">{{HotBoutique.author}}</view>
 					<text class="desc">{{HotBoutique.desc}}</text>
-
+					<view class="category">{{HotBoutique.category}}</view>
 				</view>
 			</view>
 
 		</view>
+		<!-- 口碑佳作区域 -->
+		
+		<view class="titlebox2">
+					<view class="hotname">{{good.name}}</view>
+					<view class="change">换一换<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
+					</view>
+				</view>
+		
+		<scroll-view scroll-x="true" class="goodworks">
+		
+				
+				
+				
+				<view class="hotbooks" :wx:for="goodworks" wx:for-item="goodworks">
+					<view class="hotbooks1">
+						<image :src="goodworks.picUrl" mode="widthFix"></image>
+						<text class="goodname">{{goodworks.bookName}}</text>
+					</view>
+					
+				</view>
+			
+		</scroll-view>
+		
+		<!-- 新书优选 -->
+		<view class="newbook ">
+			
+		
+		<view class="HotBoutique">
+			<view class="titlebox2">
+				<view class="hotname">{{newbookname.name}}</view>
+				<view class="change">查看更多<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
+				</view>
+			</view>
+		
+			<view class="HotBoutiquebox" :wx:for="newbook" wx:for-item="newbook">
+				<view class="HotBoutiquebooks">
+					<image :src="newbook.picUrl" mode="widthFix"></image>
+					<view class="HotBoutiquebooksname">
+						<view class="HotBoutiquebookstitle">{{newbook.bookName}}</view>
+						<view class="completeState">{{newbook.completeState}} </view>
+					</view>
+		
+					
+					<view class="author">{{newbook.author}}</view>
+					<text class="desc">{{newbook.desc}}</text>
+					<view class="category">{{newbook.category}}</view>
+				</view>
+			</view>
+		
+		</view>
+		
 	</view>
 
-
+</view>
 
 </template>
 
@@ -246,7 +290,11 @@
 				Citybooks: [],
 				HotBoutique: [],
 				hotname: "",
+				good:"",
+				goodworks:[],
 				// HotBoutiquebooks:[],
+				newbook:[],
+				newbookname:"",
 			}
 		},
 		onReady: function() {
@@ -284,16 +332,37 @@
 					// 火爆精品
 					const HotBoutique = res.data.body.data[4].books
 					this.HotBoutique = HotBoutique
-					console.log(HotBoutique[0].bookName)
+					// console.log(HotBoutique[0].bookName)
 					const hotname = res.data.body.data[4]
 					this.hotname = hotname
-
-
+					// 口碑佳作
+					const good = res.data.body.data[5]
+					this.good = good
+					// console.log(good.name)
+					const goodworks = res.data.body.data[5].books
+					// console.log(goodworks)
+					this.goodworks = goodworks
+					// 新书优选
+					const newbook = res.data.body.data[6].books
+					this.newbook = newbook
+					const newbookname = res.data.body.data[6]
+					this.newbookname = newbookname
 				}
 			})
+			
+			
 		},
 		methods: {
-
+			forEach(){
+				var arr = [1, 2, 3, 4, 5];
+				
+				arr.forEach(function (item) {
+				    if (item === 3) {
+				        return;
+				    }
+				    console.log(item);
+				});
+			}
 		}
 	}
 </script>
@@ -471,7 +540,8 @@
 	}
 
 	.hotbooks {
-		width: 100%;
+		width: 29%;
+		display: inline-block;
 		height: 300rpx;
 		padding-left: 30rpx;
 
@@ -624,6 +694,7 @@
 	}
 
 	.completeState {
+		text-align: center;
 		display: -webkit-flex;
 		display: flex;
 		flex: 1;
@@ -635,7 +706,7 @@
 		height: 30rpx;
 		line-height: 30rpx;
 		color: #ff5101;
-		border-radius: 10rpx;
+		border-radius: 6rpx;
 		margin-left: 30rpx;
 		float: right;
 	}
@@ -646,7 +717,7 @@
 		top: 80rpx;
 		font-size: 25rpx;
 		color: #a8a8a8;
-		font-weight: 400;
+		font-weight: 500;
 	}
 
 	.desc {
@@ -654,7 +725,7 @@
 		font-size: 25rpx;
 		position: absolute;
 		left: 220rpx;
-		top: 160rpx;
+		top: 120rpx;
 		width: 460rpx;
 		height: 100rpx;
 		overflow: hidden;
@@ -664,5 +735,29 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 		text-overflow: ellipsis;
+	}
+	.category{
+		font-weight: 400;
+		font-size: 20rpx;
+		position: absolute;
+		left: 220rpx;
+		top: 234rpx;
+		width: 60rpx;
+		height: 30rpx;
+		line-height: 30rpx;
+		border: 1px solid #a8a8a8;
+		border-radius: 4rpx;
+		color: #a8a8a8;
+	}
+	.goodworks{
+		width: 100%;
+		white-space: nowrap;
+		// height: 160rpx;
+	}
+	.goodname{
+		display: block;
+	}
+	.newbook{
+		margin-top: 20rpx;
 	}
 </style>
