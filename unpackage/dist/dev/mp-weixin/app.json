@@ -6,6 +6,7 @@
     "pages/Ranking/Ranking",
     "pages/tobiao/tobiao",
     "pages/classification/classification",
+    "pages/details/details",
     "components/booklist/booklist"
   ],
   "subPackages": [],

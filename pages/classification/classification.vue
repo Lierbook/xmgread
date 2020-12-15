@@ -5,20 +5,20 @@
 		</scroll-view>
 		<scroll-view class="right" scroll-y>
 			<block v-for="item in items" :key="item.categoryId">
-				<view class="right-box">
+				<!-- 跳转详情页面 -->
+				<view class="right-box" @click="details(item)">
 					<view class="right-boxs" style="width: 100%; height: 100%;">
-						<text>{{ item.name}}</text>
+						<text space="nbsp">{{   item.name}}</text>
 						<view class="img">
-							<image @click="previewImg(item.img_url)" :src="item.pics[1]">
+							<!-- <image @click="previewImg(item.img_url)" :src="item.pics[1]"> -->
+								<image :src="item.pics[0]">
 							</image>
 						</view>
 					</view>
 				</view>
-			</block>
+			</block> 
 		</scroll-view>
-
 	</view>
-
 </template>
 
 <script>
@@ -29,7 +29,6 @@
 				//当前激活的分类
 				active: 0,
 				name: "",
-				title: "",
 			};
 		},
 		onReady: function() {
@@ -40,7 +39,6 @@
 					// console.log(name,"fffffffffffffffffffffffffffffffffffffff")
 					this.name = name;
 					this.items = this.name[0].items;
-
 				}
 			})
 		},
@@ -53,6 +51,12 @@
 				// console.log(index)
 				this.items = resobj;
 				// console.log(this.name[index], "sdfdfdfjhjjj ")
+			},
+			//跳转详情页面
+			details(item){
+				uni.navigateTo({
+					url:"../details/details?id="+item.categoryId
+				})
 			}
 		}
 
@@ -63,6 +67,7 @@
 	.pics {
 		font-size: 28rpx;
 		display: flex;
+
 		.left {
 			flex: 1;
 			width: 150rpx;
@@ -89,9 +94,8 @@
 			width: 600rpx;
 			height: 100%;
 			margin-left: 20rpx;
+
 			.right-box {
-
-
 				width: 25%;
 				// margin-top: 10rpx;
 				margin: 40rpx 2.4%;
@@ -100,7 +104,7 @@
 				background: #F1F1F1;
 
 				.right-boxs {
-					text-align: center;
+					// text-align: center;
 					border-radius: 10rpx;
 					position: relative;
 					// border: 1px solid red;
@@ -116,7 +120,7 @@
 
 					.img {
 
-						// text-align: center;
+						text-align: center;
 						position: absolute;
 						left: 0rpx;
 						top: 67rpx;

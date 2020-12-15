@@ -7,23 +7,28 @@
     "urlCheck": false
   },
   "compileType": "miniprogram",
-  "libVersion": "",
+  "libVersion": "2.9.2",
   "appid": "touristappid",
   "projectname": "小说阅读器项目",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/classification/classification",
+          "pathName": "pages/classification/classification",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

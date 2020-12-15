@@ -51,15 +51,21 @@
                 "enablePullDownRefresh": false
             }
             
-        }
+        },
+		{
+		    "path" : "pages/details/details",
+		    "style" :  {
+                "navigationBarTitleText": "都市",
+                "enablePullDownRefresh": false
+            }
+		}
         ,{
             "path" : "components/booklist/booklist",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
-            }
-            
+            }   
         }
     ],
 	"globalStyle": {
