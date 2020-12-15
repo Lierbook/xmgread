@@ -8,8 +8,7 @@
 	export default {
 		data() {
 			return {
-				num: 1,
-				a: 2
+				
 			}
 		},
 		methods: {

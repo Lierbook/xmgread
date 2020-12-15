@@ -30,31 +30,30 @@ swiper-tab{
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.tabs.data-v-1fff95d2 {
+.tabs.data-v-8c573292 {
   width: 750rpx;
   height: 75rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
 }
-.tabs .tab-item.data-v-1fff95d2 {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-          flex: 1;
-  text-align: center;
-  color: grey;
-  line-height: 73rpx;
-  font-size: 32rpx;
-  height: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+.tabs .tab-item.data-v-8c573292 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+            flex: 1;
+    text-align: center;
+    color: grey;
+    line-height: 73rpx;
+    font-size: 32rpx;
+    height: 100%;
+    box-sizing: border-box;
 }
-.tabs .tab-item.active.data-v-1fff95d2 {
-  color: red;
-  font-weight: bold;
-  border-bottom: 2rpx solid red;
+.tabs .tab-item.active.data-v-8c573292 {
+      color: red;
+      font-weight: bold;
+      border-bottom: 2rpx solid red;
 }
-.swiper-box.data-v-1fff95d2 {
+.swiper-box.data-v-8c573292 {
   width: 100%;
   height: calc(100% - 75rpx);
   overflow: auto;

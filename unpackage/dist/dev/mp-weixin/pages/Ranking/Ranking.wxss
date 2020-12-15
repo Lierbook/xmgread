@@ -1,0 +1,23 @@
+
+.desc {
+	font-size: 32rpx;
+	color: #777777;
+	/* 超出部分隐藏 */
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+}
+.author {
+	color: #777777;
+	font-size: 30rpx;
+}
+.category {
+	border: 1px solid gray;
+	float: right;
+	margin-right: 50rpx;
+	color: gray;
+	font-size: 25rpx;
+	padding: 2rpx 15rpx;
+}
+

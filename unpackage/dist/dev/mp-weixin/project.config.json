@@ -4,26 +4,32 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false
+    "urlCheck": false,
+    "es6": true,
+    "minified": true
   },
   "compileType": "miniprogram",
-  "libVersion": "",
-  "appid": "touristappid",
+  "libVersion": "2.9.2",
+  "appid": "wx35ae78e7e6f5327e",
   "projectname": "小说阅读器项目",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/Ranking/Ranking",
+          "pathName": "pages/Ranking/Ranking",
+          "scene": null
+        }
+      ]
     }
   }
 }
