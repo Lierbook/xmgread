@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,yO;AACAA,UAAU,CAACC,uBAAD,CAAV,C","file":"components/booklistman/booklistworman.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './components/booklistman/booklistworman.vue'\ncreatePage(Page)"],"sourceRoot":""}

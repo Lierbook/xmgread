@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "dn-icon": "/components/dn-icon/dn-icon",
+    "icon": "/components/dn-icon/dn-icon",
+    "uni-load-more": "/components/uni-load-more/uni-load-more"
+  }
+}

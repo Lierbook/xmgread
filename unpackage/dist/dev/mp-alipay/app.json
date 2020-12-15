@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my/my",
+    "pages/bookshelf/bookshelf",
+    "pages/Ranking/Ranking",
+    "pages/tobiao/tobiao",
+    "pages/classification/classification"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "uni-app",
+    "pullRefresh": true,
+    "titleBarColor": "#ffffff",
+    "backgroundColor": "#d0fffe"
+  },
+  "tabBar": {
+    "textColor": "#ffffff",
+    "selectedColor": "#aaaa00",
+    "backgroundColor": "#CCCCCC",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "书城",
+        "icon": "static/tabbar/书城.png",
+        "activeIcon": "static/logo.png"
+      },
+      {
+        "pagePath": "pages/bookshelf/bookshelf",
+        "name": "书架",
+        "icon": "static/tabbar/书架.png",
+        "activeIcon": "static/logo.png"
+      },
+      {
+        "pagePath": "pages/Ranking/Ranking",
+        "name": "排行",
+        "icon": "static/tabbar/排行.png",
+        "activeIcon": "static/logo.png"
+      },
+      {
+        "pagePath": "pages/classification/classification",
+        "name": "分类",
+        "icon": "static/tabbar/分类.png",
+        "activeIcon": "static/logo.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "name": "我的",
+        "icon": "static/tabbar/我的.png",
+        "activeIcon": "static/logo.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

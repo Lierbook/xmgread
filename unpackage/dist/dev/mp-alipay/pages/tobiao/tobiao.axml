@@ -1,0 +1,1 @@
+<view class="page"><text>图表插件预览</text><view><view class="icon-item" a:for="{{iconClassList}}" a:for-item="item" a:for-index="index" a:key="index"><dn-icon vue-id="{{'65ec91d6-1-'+index}}" type="{{item}}" size="40" color onVueInit="__l"></dn-icon><text>{{item}}</text></view></view></view>

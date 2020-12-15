@@ -12,7 +12,10 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#d0fffe"
+    "backgroundColor": "#d0fffe",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "disableScroll": true
   },
   "tabBar": {
     "color": "#ffffff",

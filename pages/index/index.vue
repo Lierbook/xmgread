@@ -7,7 +7,7 @@
 			        @change = "change"
 			        placeholder = "请输入信息"
 			        :infoList = "infoList"
-			        :showValue = "showValue"
+					:showValue = "showValue"
 			        v-model = "searchValue"
 			        :loading = "loading"
 			        type = "success "
@@ -15,7 +15,20 @@
 			        ></lv-select>
 			<booklist></booklist>
 			</view>
-			<view slot="content1" class="xxx">B</view>
+			<view slot="content1" class="xxx">
+				<lv-select
+				        @handleSearch = "handleSearch"
+				        @change = "change"
+				        placeholder = "请输入信息"
+				        :infoList = "infoList"
+						:showValue = "showValue"
+				        v-model = "searchValue"
+				        :loading = "loading"
+				        type = "success "
+				        :uniShadow = "true"
+				        ></lv-select>
+				<booklistworman></booklistworman>
+			</view>
 			<view slot="content2" class="xxx">C</view>
 		</aloys-tab>
 	</view>
@@ -26,13 +39,16 @@
 	import lvSelect from '../../components/lv-select/lv-select'
 	import booklist from '../../components/booklist/booklist.vue'
 	import icon from '../../components/dn-icon/dn-icon.vue'
+	import booklistworman from '../../components/booklist/booklistworman.vue'
 
 	export default {
+		
 		components: {
 			aloysTab,
 			lvSelect,
 			booklist,
-			icon
+			icon,
+			booklistworman
 		
 		},
 		data() {
@@ -59,9 +75,7 @@
 				}]
 			}
 		},
-		onLoad() {
-
-		},
+		
 		methods: {
 			onTabChange(obj) {
 				uni.showToast({
@@ -79,8 +93,24 @@
 			                    this.infoList = this.infoLists
 			                }, 2000)
 			            },
-		}
+						
+						
+
+		},
+		
+		      // onLoad: function (options) {
+		      //      setTimeout(function () {
+		      //          console.log('start pulldown');
+		      //      }, 1000);
+		      //      uni.startPullDownRefresh();
+		      //  },
+		      onPullDownRefresh(){
+		      	console.log('触发下拉刷新了')
+		      }
+
+		
 	}
+	
 </script>
 
 <style>

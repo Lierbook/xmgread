@@ -3,7 +3,8 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "龟田免费小说"
+				"navigationBarTitleText": "龟田免费小说",
+				"enablePullDownRefresh": true
 				
 			}
 		}
@@ -52,21 +53,28 @@
             }
             
         }
-        // ,{
-        //     "path" : "components/booklist/booklist",
-        //     "style" :                                                                                    
-        //     {
-        //         "navigationBarTitleText": "",
-        //         "enablePullDownRefresh": false
-        //     }
-            
-        // }
+      
+    
+    
+      
+
+   
+     
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#ffffff",
-		"backgroundColor": "#d0fffe"
+		"backgroundColor": "#d0fffe",
+		"enablePullDownRefresh":true,
+		"backgroundTextStyle":"dark",
+		"disableScroll": true,
+						"h5": {
+							"pullToRefresh": {
+								"color": "#007AFF"
+							}
+						}
+		
 	},
 	"tabBar":{
 		 "color": "#ffffff",

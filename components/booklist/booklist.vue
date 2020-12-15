@@ -34,15 +34,19 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[0].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox1" id="recommendbox" >
+					<image v-bind:src="recommend[0].picUrl" mode="widthFix" class="img001">
+						<view class="ranking">1</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[0].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[0].rankValue}}</text> </view>
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[1].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[1].picUrl" mode="widthFix" class="img001">
+						<view class="ranking">2</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[1].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[1].rankValue}}</text> </view>
@@ -54,14 +58,18 @@
 
 
 				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[2].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[2].picUrl" mode="widthFix" class="img001">
+						<view class="ranking">3</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[2].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[2].rankValue}}</text> </view>
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[3].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[3].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankingmiddle">4</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[3].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[3].rankValue}}</text> </view>
@@ -73,14 +81,18 @@
 
 
 				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[4].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[4].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankingmiddle">5</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[4].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[4].rankValue}}</text> </view>
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[5].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[5].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankingmiddle">6</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[5].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[5].rankValue}}</text> </view>
@@ -92,14 +104,18 @@
 
 
 				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[6].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[6].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">7</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[6].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[6].rankValue}}</text> </view>
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[7].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[7].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">8</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[7].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[7].rankValue}}</text> </view>
@@ -111,14 +127,18 @@
 
 
 				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[8].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[8].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">9</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[8].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[8].rankValue}}</text> </view>
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[9].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[9].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">10</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[9].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[9].rankValue}}</text> </view>
@@ -142,7 +162,7 @@
 				<image :src="hotbooks.picUrl" mode="widthFix"></image>
 				<text>{{hotbooks.bookName}}</text>
 			</view>
-			
+
 		</view>
 		<!-- 玄幻人气榜 -->
 		<view class="Fantasy">
@@ -198,15 +218,15 @@
 				</view>
 			</view>
 
-			<view class="HotBoutiquebox" :wx:for="HotBoutique" wx:for-item="HotBoutique">
+			<view class="HotBoutiquebox" :wx:for="HotBoutique" wx:for-item="HotBoutique" vx:key="index">
 				<view class="HotBoutiquebooks">
 					<image :src="HotBoutique.picUrl" mode="widthFix"></image>
 					<view class="HotBoutiquebooksname">
 						<view class="HotBoutiquebookstitle">{{HotBoutique.bookName}}</view>
-						<view class="completeState">{{HotBoutique.completeState}} </view>
+						<view class="completeState" style="hotbookscolor[index]">{{HotBoutique.completeState}} </view>
 					</view>
 
-					
+
 					<view class="author">{{HotBoutique.author}}</view>
 					<text class="desc">{{HotBoutique.desc}}</text>
 					<view class="category">{{HotBoutique.category}}</view>
@@ -215,59 +235,59 @@
 
 		</view>
 		<!-- 口碑佳作区域 -->
-		
+
 		<view class="titlebox2">
-					<view class="hotname">{{good.name}}</view>
-					<view class="change">换一换<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
-					</view>
-				</view>
-		
+			<view class="hotname">{{good.name}}</view>
+			<view class="change">换一换<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
+			</view>
+		</view>
+
 		<scroll-view scroll-x="true" class="goodworks">
-		
-				
-				
-				
-				<view class="hotbooks" :wx:for="goodworks" wx:for-item="goodworks">
-					<view class="hotbooks1">
-						<image :src="goodworks.picUrl" mode="widthFix"></image>
-						<text class="goodname">{{goodworks.bookName}}</text>
-					</view>
-					
+
+
+
+
+			<view class="hotbooks" :wx:for="goodworks" wx:for-item="goodworks">
+				<view class="hotbooks1">
+					<image :src="goodworks.picUrl" mode="widthFix"></image>
+					<text class="goodname">{{goodworks.bookName}}</text>
 				</view>
-			
+
+			</view>
+
 		</scroll-view>
-		
+
 		<!-- 新书优选 -->
 		<view class="newbook ">
-			
-		
-		<view class="HotBoutique">
-			<view class="titlebox2">
-				<view class="hotname">{{newbookname.name}}</view>
-				<view class="change">查看更多<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
-				</view>
-			</view>
-		
-			<view class="HotBoutiquebox" :wx:for="newbook" wx:for-item="newbook">
-				<view class="HotBoutiquebooks">
-					<image :src="newbook.picUrl" mode="widthFix"></image>
-					<view class="HotBoutiquebooksname">
-						<view class="HotBoutiquebookstitle">{{newbook.bookName}}</view>
-						<view class="completeState">{{newbook.completeState}} </view>
-					</view>
-		
-					
-					<view class="author">{{newbook.author}}</view>
-					<text class="desc">{{newbook.desc}}</text>
-					<view class="category">{{newbook.category}}</view>
-				</view>
-			</view>
-		
-		</view>
-		
-	</view>
 
-</view>
+
+			<view class="HotBoutique">
+				<view class="titlebox2">
+					<view class="hotname">{{newbookname.name}}</view>
+					<view class="change">查看更多<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
+					</view>
+				</view>
+
+				<view class="HotBoutiquebox" :wx:for="newbook" wx:for-item="newbook" wx:key="index">
+					<view class="HotBoutiquebooks">
+						<image :src="newbook.picUrl" mode="widthFix"></image>
+						<view class="HotBoutiquebooksname">
+							<view class="HotBoutiquebookstitle">{{newbook.bookName}}</view>
+							<view class="completeState" :style="newbookcolor[index]">{{newbook.completeState}} </view>
+						</view>
+
+
+						<view class="author">{{newbook.author}}</view>
+						<text class="desc">{{newbook.desc}}</text>
+						<view class="category">{{newbook.category}}</view>
+					</view>
+				</view>
+
+			</view>
+
+		</view>
+
+	</view>
 
 </template>
 
@@ -284,17 +304,19 @@
 				recommend: [],
 				hot: [],
 				hotbooks: [],
+				hotbookscolor:[],
 				headtitle: "",
 				headtitle1: "",
 				Fantasybooks: [],
 				Citybooks: [],
 				HotBoutique: [],
 				hotname: "",
-				good:"",
-				goodworks:[],
+				good: "",
+				goodworks: [],
 				// HotBoutiquebooks:[],
-				newbook:[],
-				newbookname:"",
+				newbook: [],
+				newbookname: "",
+				newbookcolor: [],
 			}
 		},
 		onReady: function() {
@@ -347,32 +369,58 @@
 					this.newbook = newbook
 					const newbookname = res.data.body.data[6]
 					this.newbookname = newbookname
+
+					// 新书优选标签颜色筛选
+					const newbook1 = this.newbook;
+					newbook1.forEach((item ,index)=> {
+						if (item.completeState === "完结") {
+							// console.log("123123");
+							console.log(this)
+							// document.querySelector(".querySelector").style="color=blue"
+							this.newbookcolor[index] = "color:blue;border-color:blue"
+						}else{
+							this.newbookcolor[index] = "color:red;border-color:red"
+							console.log(this.newbookcolor )
+						}
+
+					});
+					// 火爆精品标签颜色筛选
+					const HotBoutique1 = this.HotBoutique;
+					HotBoutique1.forEach((item ,index)=> {
+						if (item.completeState === "完结") {
+							// console.log("123123");
+							console.log(this)
+							// document.querySelector(".querySelector").style="color=blue"
+							this.hotbookscolor[index] = "color:blue;border-color:blue"
+						}else{
+							this.hotbookscolor[index] = "color:red;border-color:red"
+							console.log(this.hotbookscolor )
+						}
+					
+					});
+					
+					
+
+
 				}
 			})
-			
-			
+
+
 		},
+
 		methods: {
-			forEach(){
-				var arr = [1, 2, 3, 4, 5];
-				
-				arr.forEach(function (item) {
-				    if (item === 3) {
-				        return;
-				    }
-				    console.log(item);
-				});
-			}
+
 		}
 	}
-</script>
-<style lang="scss">
+</script >
+<style lang="scss" style="scoped">
 	// body{
 	// 	background-color: #0055ff;
 	// }
 	swiper-item {
 		image {
 			width: 100%;
+			
 		}
 	}
 
@@ -387,7 +435,6 @@
 		font-size: 35rpx;
 		padding: 30rpx;
 		padding-bottom: 15rpx;
-
 	}
 
 	.more {
@@ -408,7 +455,6 @@
 
 	.newstext {
 		display: inline-block;
-
 		position: absolute;
 		left: 30rpx;
 	}
@@ -422,8 +468,6 @@
 		padding-left: 30rpx;
 		padding-right: 30rpx;
 		// background-color: #e8e8e8;
-
-
 	}
 
 	.fengequyu {
@@ -439,7 +483,6 @@
 	// 	border: 2px solid black;
 	// 	border-radius: 10px;
 	// 	image{
-
 	// 	}
 	// }
 	.recommendbox1 {
@@ -447,9 +490,7 @@
 			width: 100rpx;
 			position: absolute;
 			left: 0rpx;
-
 		}
-
 	}
 
 	.recommendbox2 {
@@ -470,7 +511,7 @@
 		font-size: 28rpx;
 		// display: block;
 		overflow: hidden;
-		white-space:nowrap; 
+		white-space: nowrap;
 		text-overflow: ellipsis;
 		text-align: left;
 		font-weight: 500;
@@ -495,7 +536,6 @@
 		// border: 1px solid black;
 		border-radius: 10rpx;
 		position: relative;
-
 	}
 
 	.recommendbox2 {
@@ -506,7 +546,6 @@
 		// border: 1px solid black;
 		border-radius: 10rpx;
 		position: relative;
-
 	}
 
 	.bookbox {
@@ -521,7 +560,6 @@
 
 		view {
 			display: inline;
-
 		}
 	}
 
@@ -536,7 +574,6 @@
 		color: #a6a6a6;
 		font-size: 27rpx;
 		line-height: 40rpx;
-
 	}
 
 	.hotbooks {
@@ -550,10 +587,9 @@
 			font-size: 28rpx;
 			float: left;
 			text-align: left;
-
-
 		}
-		text{
+
+		text {
 			font-weight: 500;
 		}
 	}
@@ -574,18 +610,14 @@
 		// padding-left: 30rpx;
 		// padding-right: 30rpx;
 		padding-top: 30rpx;
-
 	}
 
 	.Fantasybox {
 		width: 690rpx;
-
 		height: 740rpx;
 		margin: 0rpx 0rpx 10rpx 30rpx;
 		border-radius: 10rpx;
 		background-color: white;
-
-
 	}
 
 	.Fantasyhead {
@@ -612,7 +644,6 @@
 		top: 25rpx;
 		left: 50rpx;
 		color: white;
-
 	}
 
 	.Fantasymore {
@@ -658,7 +689,6 @@
 			width: 200rpx;
 			position: absolute;
 			left: 0px;
-
 		}
 	}
 
@@ -672,7 +702,6 @@
 		height: 40rpx;
 		text-align: left;
 		// overflow: hidden;
-
 	}
 
 	.HotBoutiquebookstitle {
@@ -690,14 +719,13 @@
 		// -webkit-line-clamp: 1;
 		text-overflow: ellipsis;
 		float: left;
-
 	}
 
 	.completeState {
 		text-align: center;
-		display: -webkit-flex;
-		display: flex;
-		flex: 1;
+		// display: -webkit-flex;
+		// display: flex;
+		// flex: 1;
 		margin: 0rpx;
 		font-weight: 400;
 		font-size: 20rpx;
@@ -736,7 +764,8 @@
 		-webkit-line-clamp: 3;
 		text-overflow: ellipsis;
 	}
-	.category{
+
+	.category {
 		font-weight: 400;
 		font-size: 20rpx;
 		position: absolute;
@@ -749,15 +778,36 @@
 		border-radius: 4rpx;
 		color: #a8a8a8;
 	}
-	.goodworks{
+
+	.goodworks {
 		width: 100%;
 		white-space: nowrap;
 		// height: 160rpx;
 	}
-	.goodname{
+
+	.goodname {
 		display: block;
 	}
-	.newbook{
+
+	.newbook {
 		margin-top: 20rpx;
+	}
+	.ranking{
+		width: 30rpx;
+		height: 50rpx;
+		background: linear-gradient(to bottom right, #ff5500, #ff6e70);
+		color: #ffffff;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		font-size: 25rpx;
+		text-align: center;
+		line-height: 50rpx;
+	}
+	.rankinglast{
+		background: linear-gradient(to bottom right, #b4b2b3, #eae4e8);
+	}
+	.rankingmiddle{
+		background: linear-gradient(to bottom right, #ff7802, #ffae4a);
 	}
 </style>
