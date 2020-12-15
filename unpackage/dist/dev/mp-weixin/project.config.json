@@ -57,6 +57,11 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/tobiao/tobiao",
+          "pathName": "pages/tobiao/tobiao",
+          "scene": null
+        },
+        {
           "name": "pages/bookdetail/bookdetail",
           "pathName": "pages/bookdetail/bookdetail",
           "scene": null

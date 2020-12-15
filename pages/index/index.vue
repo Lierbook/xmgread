@@ -8,9 +8,9 @@
 			</view>
 			<view slot="content1" class="xxx">B</view>
 			<view slot="content2" class="xxx">
-				<!-- <view class="book-Name" v-for="carousel in carouselList">
+				<!-- <view class="book-Name" v-for="detail in detailList">
 				<view class="bookName">
-					{{carousel.author}}
+					{{detail.author}}
 				</view>
 			</view> -->
 				<view class="book_detail">
@@ -81,7 +81,7 @@
 					title: '出版'
 				}],
 
-				detaillList: [],
+				detailList: [],
 
 			}
 		},
@@ -100,8 +100,8 @@
 				success: (res) => {
 					console.log(res);
 
-					var detaillList = res.data.body.data[1].books[0];
-					me.detaillList = detaillList;
+					var detailList = res.data.body.data[1].books[0];
+					me.detailList = detailList;
 
 				},
 

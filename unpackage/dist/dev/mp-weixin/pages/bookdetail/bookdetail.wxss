@@ -51,48 +51,125 @@
 }
 .book_detail .book_theme .book_name {
   color: #FAFAFA;
-  font-size: 34rpx;
+  font-size: 28rpx;
   margin-top: 50rpx;
   margin-left: 30rpx;
 }
-.book_detail .book_theme .book_name .title {
-  font-size: 38rpx;
-  font-weight: bold;
+.book_detail .book_theme .book_name .information1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 10rpx;
 }
-.book_detail .book_theme .pic {
-  width: 200rpx;
-  height: 230rpx;
-  background-color: #007AFF;
+.book_detail .book_theme .book_name .information1 .author {
+  padding-right: 15rpx;
+}
+.book_detail .book_theme .book_name .information1 .type {
+  padding-left: 15rpx;
+}
+.book_detail .book_theme .book_name .information2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 10rpx;
+}
+.book_detail .book_theme .book_name .information2 .words {
+  padding-right: 15rpx;
+}
+.book_detail .book_theme .book_name .information2 .popularity {
+  padding-left: 15rpx;
+}
+.book_detail .book_theme .book_name .score {
+  width: 80rpx;
+  height: 36rpx;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+  line-height: 36rpx;
+  text-align: center;
+  border: 4rpx solid #FFFFFF;
+}
+.book_detail .book_theme .book_name .title {
+  font-size: 32rpx;
+  letter-spacing: 3rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+.book_detail .book_theme .pho {
   margin-left: 200rpx;
-  margin-top: 40rpx;
+  margin-top: 30rpx;
+  width: 200rpx;
+  height: 240rpx;
 }
 .book_detail .introduction {
   width: 100%;
-  height: 300rpx;
+  height: 256rpx;
   background-color: #F4F4F4;
 }
 .book_detail .introduction .description {
-  width: 100%;
-  height: 230rpx;
+  width: 90%;
+  height: 200rpx;
   color: #808080;
-  font-size: 38rpx;
+  margin-left: 40rpx;
+  font-size: 28rpx;
+  letter-spacing: 3rpx;
   border-bottom: 1rpx solid #C8C7CC;
 }
+.book_detail .introduction .description .Tag {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  width: 500rpx;
+  height: 46rpx;
+  margin-top: 20rpx;
+  margin-left: -20rpx;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .introduction .description .Tag .tag0,
+.book_detail .introduction .description .Tag .tag1,
+.book_detail .introduction .description .Tag .tag2,
+.book_detail .introduction .description .Tag .tag3 {
+  width: 80rpx;
+  height: 46rpx;
+  border: 1rpx solid #DEDEDE;
+  -webkit-border-radius: 20rpx;
+          border-radius: 20rpx;
+  background-color: #DEDEDE;
+  color: #808080;
+  font-size: 24rpx;
+  line-height: 46rpx;
+  text-align: center;
+}
 .book_detail .introduction .catalogue {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
   width: 100%;
-  height: 70rpx;
+  height: 56rpx;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
 }
 .book_detail .introduction .catalogue .list {
   color: #000;
-  line-height: 70rpx;
+  line-height: 56rpx;
   text-align: center;
   font-size: 40rpx;
   font-weight: bold;
+  padding-right: 100rpx;
 }
 .book_detail .introduction .catalogue .situation {
-  margin-top: -55rpx;
+  line-height: 56rpx;
+  text-align: center;
+  padding-left: 200rpx;
   font-size: 32rpx;
-  margin-left: 520rpx;
 }
 .book_detail .introduction .catalogue .situation .state2 {
   color: #FF0000;
@@ -101,25 +178,108 @@
   padding-left: 20rpx;
   color: #0D0D0D;
 }
-.book_detail .comment {
+.book_detail .Comment {
   width: 100%;
-  height: 900rpx;
+  height: 700rpx;
   background-color: #F4F4F4;
   margin-top: 10rpx;
   border-bottom: 1rpx solid #C8C7CC;
 }
-.book_detail .comment .hotCom {
+.book_detail .Comment .hotCom {
   color: #000;
   font-size: 40rpx;
   font-weight: bold;
+  margin-left: 40rpx;
 }
-.book_detail .comment .comPer {
+.book_detail .Comment .comment {
+  width: 300rpx;
+  height: 60rpx;
+  margin-top: 30rpx;
+  margin-left: 35rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .Comment .comment .person {
+  width: 50rpx;
+  height: 50rpx;
+  border: 1rpx solid #FFFFFF;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  padding-left: 0rpx;
+}
+.book_detail .Comment .comment .comPer {
   width: 200rpx;
   height: 50rpx;
+  color: #808080;
+  font-size: 30rpx;
 }
-.book_detail .comment .comCon {
+.book_detail .Comment .comCon {
+  width: 90%;
+  height: 110rpx;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  margin-left: 40rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.book_detail .others {
+  width: 100%;
+  height: 420rpx;
+  background-color: #F4F4F4;
+}
+.book_detail .others .recommendation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 70rpx;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .others .recommendation .title {
+  color: #000;
+  font-size: 40rpx;
+  font-weight: bold;
+  padding-right: 220rpx;
+}
+.book_detail .others .recommendation .Change {
+  padding-left: 120rpx;
+}
+.book_detail .others .recommendation .Change .change {
+  color: #808080;
+  font-size: 24rpx;
+}
+.book_detail .others .otherBook {
+  margin-top: 15rpx;
   width: 100%;
   height: 250rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .others .otherBook .pho1 {
+  width: 200rpx;
+  height: 240rpx;
 }
 .book_detail .read {
   display: -webkit-box;
