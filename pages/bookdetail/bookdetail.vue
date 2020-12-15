@@ -2,7 +2,7 @@
 	<!--小说描述-->
 	<div class="books-desc-div">
 		<header class="flex header">
-			<image class='bg' :src="picUrl" mode=""></image>
+			<image class='bg' :src="picUrl"></image>
 			<div class="img-div">
 				<image :src="picUrl" mode=""></image>
 			</div>
@@ -40,8 +40,6 @@
 </template>
 
 <script>
-	// import {get,showToast} from '@/utils/index';
-	// import {getBookDescUrl} from '@/config';
 	export default {
 		data() {
 			return {
@@ -55,7 +53,7 @@
 				chapterCount: "",
 				completeState: "",
 				desc: "",
-				picUrl: "",
+				picUrl: '',
 				popularity: "",
 				wordCount: "",
 				tag:[],
@@ -118,6 +116,7 @@
 						//封面
 						const picUrl = res.data.body.bookInfo.picUrl;
 						console.log(picUrl);
+						console.log(typeof(picUrl));
 						//人气
 						const popularity = res.data.body.bookInfo.popularity[0]+res.data.body.bookInfo.popularity[1];
 						console.log(popularity);
