@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false
+    "urlCheck": true
   },
   "compileType": "miniprogram",
   "libVersion": "",
@@ -13,17 +13,23 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/classification/classification",
+          "pathName": "pages/classification/classification",
+          "scene": null
+        }
+      ]
     }
   }
 }
