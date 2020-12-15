@@ -28,19 +28,30 @@
 .carousel.data-v-042387b8 {
   width: 100%;
 }
-/* 书籍列表css */
-.super-hot.data-v-042387b8 {
-  margin-top: 12rpx;
-  padding: 20rpx;
-}
-.hot-title.data-v-042387b8 {
+.publish.data-v-042387b8 {
+  -webkit-box-flex: 3;
+  -webkit-flex: 3;
+          flex: 3;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-          flex-direction: row;
+  -webkit-flex-flow: column;
+          flex-flow: column;
+}
+.publish1.data-v-042387b8 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.q.data-v-042387b8 {
+  margin-top: 10px;
+}
+/* 书籍列表css */
+.hot-title.data-v-042387b8 {
+  font-size: 40rpx;
+  font-weight: bold;
 }
 .poster.data-v-042387b8 {
   width: 210rpx;
@@ -83,6 +94,7 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
+  margin-top: 10px;
   -webkit-justify-content: space-around;
           justify-content: space-around;
 }
@@ -96,26 +108,27 @@
           flex-direction: row;
 }
 .completeState.data-v-042387b8 {
-  padding-left: 10px;
   border: 1rpx solid green;
   color: green;
   font-size: 10px;
+  width: 40px;
+  height: 15px;
   text-align: center;
+  margin-left: 15px;
 }
 .author.data-v-042387b8 {
-  padding-top: 10px;
+  margin-top: 8px;
   font-size: 15px;
 }
-.desc.data-v-042387b8 {
-  padding-top: 10px;
-  font-size: 13px;
-}
 .category.data-v-042387b8 {
-  padding-top: 30px;
+  margin-top: 15px;
   font-size: 13px;
-}
-.w.data-v-042387b8 {
-  margin-top: 80px;
+  border: 1rpx solid green;
+  color: green;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  margin-left: 15px;
 }
 .desc.data-v-042387b8 {
   width: 470rpx;
@@ -123,5 +136,7 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  margin-top: 10px;
+  font-size: 13px;
 }
 

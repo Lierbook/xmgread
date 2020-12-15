@@ -238,12 +238,8 @@ __webpack_require__.r(__webpack_exports__);
 var _default =
 {
   components: {},
-
-
-
   data: function data() {
     return {
-
       //轮播图
       carouselList: [],
       guessUlikeList: [],
@@ -251,18 +247,13 @@ var _default =
       guessUlikeList1: [],
       booksUlikeList1: [] };
 
-
-
   },
   onReady: function onReady() {var _this = this;
-
-
     // 轮播图js代码
     uni.request({
       url: 'https://wechat.idejian.com/api/wechat/chuban',
       success: function success(res) {
         console.log(res);
-
         var carouselList = res.data.body.data[0].items;
         _this.carouselList = carouselList;
 
@@ -273,11 +264,7 @@ var _default =
         var booksUlikeList = res.data.body.data[2].books;
         // var guessUlikeList = res.data.body.data[2].books;
         _this.booksUlikeList = booksUlikeList;
-
-
         //列表2 
-
-
         var guessUlikeList1 = res.data.body.data[3].books;
         // var guessUlikeList = res.data.body.data[2].books;
         _this.guessUlikeList1 = guessUlikeList1;
@@ -285,20 +272,9 @@ var _default =
         var booksUlikeList1 = res.data.body.data[4].books;
         // var guessUlikeList = res.data.body.data[2].books;
         _this.booksUlikeList1 = booksUlikeList1;
-
       } });
 
-
-
-
-
-
   },
-
-
-
-
-
   methods: {
     onTabChange: function onTabChange(obj) {
       uni.showToast({
@@ -306,7 +282,6 @@ var _default =
         icon: 'none',
         duration: 500,
         mask: false });
-
 
     },
     handleSearch: function handleSearch() {var _this2 = this;
