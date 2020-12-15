@@ -1,49 +1,80 @@
 <template>
-	<!--小说描述-->
-	<div class="books-desc-div">
-		<header class="flex header">
-			<image class='bg' :src="picUrl"></image>
-			<div class="img-div">
-				<image :src="picUrl" mode=""></image>
-			</div>
-			<div class="right-div">
-				<p class="title">{{dataObj.title}}</p>
-				<p class="author-info">
-					<span class="author">{{dataObj.author}}</span>
-					<span class="type">{{dataObj.cat||dataObj.majorCate}}</span>
-				</p>
-				<p class="word">{{dataObj.wordCount}}字</p>
-				<p class="rate" v-if="dataObj.rating">评分：{{dataObj.rating.score}}</p>
-			</div>
-		</header>
-
-		<!--简介-->
-		<div class="borderBox longintro">
-			<p class="title">简介</p>
-			<div class="flex tags-div" v-if="dataObj.tags">
-				<li class="list" v-for="(item,i) in dataObj.tags" :key='i'>
-					{{item}}
-				</li>
-			</div>
-			<div class="content">{{dataObj.longIntro}}</div>
-		</div>
-
-		<div class="items-div">
-			<div class="borderBox flex item" @click.stop="jumpPage('/pages/functions/novel/chapters?id='+id)">
-				<span class="name">查看章节</span>
-				<i class="iconfont icon-xiangyou"></i>
-			</div>
-		</div>
-
-		<div class="btn add" @click.stop="addBook">加入书架</div>
-	</div>
+	<view>
+		<view class='bg'>
+			<image :src="picUrl" mode=""></image>
+			<view class="bg-left">
+				<p>{{bookname}}</p>
+				<text>{{author}}&nbsp|&nbsp{{category}}</text>
+				<text>{{wordCount}}&nbsp&nbsp{{popularity}}</text>
+				<text>{{bookRating}}分</text>
+			</view>
+		</view>
+		<view class="info">
+			<text :class="geshi">{{desc}}</text>
+			<view class="tags">
+				<text>{{tag[0]}}</text>
+				<text>{{tag[1]}}</text>
+				<text>{{tag[2]}}</text>
+				<text>{{tag[3]}}</text>
+				<view @click="more">详情</view>
+			</view>
+			<view class="state">
+				<text class="catalog">目录</text>
+				<a class="chapter">更新至第{{chapterCount}}章</a>
+				<text class="completeState">{{completeState}}</text>
+			</view>
+		</view>
+		<view class="comment">
+			<p>热评</p>
+			<view class="nocomment" v-show="commentList==''">
+				<!-- <image src="../../static/nocomment/nocomment.png"></image> -->
+				抱歉，本书暂无评论
+			</view>
+			<view class="commentlist">
+				<image :src="commentList[0].avatar"></image>
+				<p>{{commentList[0].nick}}</p>
+				<text>{{commentList[0].content}}</text>
+			</view>
+			<view class="commentlist">
+				<image :src="commentList[1].avatar"></image>
+				<p>{{commentList[1].nick}}</p>
+				<text>{{commentList[1].content}}</text>
+			</view>
+			<view class="commentlist">
+				<image :src="commentList[2].avatar"></image>
+				<p>{{commentList[2].nick}}</p>
+				<text>{{commentList[2].content}}</text>
+			</view>
+		</view>
+		<view class="bottom">
+			<p>书友还读过</p>
+			<!-- <view class="recommend" v-for="item in newBooksRecommen">
+				<image :src="item.picUrl"></image>
+				<text>{{item.bookName}}</text>
+			</view> -->
+			<view class="recommenList">
+				<view class="recommend">
+					<image :src="newBooksRecommend[0].picUrl"></image>
+					<text>{{newBooksRecommend[0].bookName}}</text>
+				</view>
+				<view class="recommend">
+					<image :src="newBooksRecommend[1].picUrl"></image>
+					<text>{{newBooksRecommend[1].bookName}}</text>
+				</view>
+				<view class="recommend">
+					<image :src="newBooksRecommend[2].picUrl"></image>
+					<text>{{newBooksRecommend[2].bookName}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				id: '11489144', //小说id
+				id: '12324051', //小说id
 				dataObj: {},
 				bookInfos: {},
 				bookname: "",
@@ -56,9 +87,10 @@
 				picUrl: '',
 				popularity: "",
 				wordCount: "",
-				tag:[],
-				commentList:[],
-				newBooksRecommend:[],
+				tag: [],
+				commentList: [],
+				newBooksRecommend: [],
+				geshi: "desc",
 			}
 		},
 		created() {
@@ -66,81 +98,77 @@
 			this.getData();
 		},
 		methods: {
-			//设置该小说
-			jumpPage(url) {
-				if (url && typeof(url) == 'string') {
-					uni.navigateTo({
-						url: url,
-						animationType: 'zoom-out'
-					});
-				}
-			},
 			async getData() {
-				// if(!this.id){
-				// 	return;
-				// };
-				// let url = 'https://wechat.idejian.com/api/wechat/book/'+this.id;
-				// 11625227
-				// get(url, {})
-				// .then((res)=>{
-				// 	res.cover = decodeURIComponent(res.cover).replace('/agent/', '');
-				// 	this.dataObj = res;
-				// });
-				
 				await uni.request({
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.id,
 					success: (res) => {
 						const bookInfos = res.data.body;
-						console.log(bookInfos,"xxxxxxxxxx");
+						console.log(bookInfos, "xxxxxxxxxx");
 						//书名
 						const bookname = res.data.body.bookInfo.bookName;
+						this.bookname = bookname;
 						console.log(bookname);
 						//作者
 						const author = res.data.body.bookInfo.author;
+						this.author = author;
 						console.log(author);
 						//评分
 						const bookRating = res.data.body.bookInfo.bookRating;
+						this.bookRating = bookRating;
 						console.log(bookRating);
 						//分类
 						const category = res.data.body.bookInfo.category;
+						this.category = category;
 						console.log(category);
 						//章数
 						const chapterCount = res.data.body.bookInfo.chapterCount;
+						this.chapterCount = chapterCount;
 						console.log(chapterCount);
 						//状态
 						const completeState = res.data.body.bookInfo.completeState;
+						this.completeState = completeState;
 						console.log(completeState);
 						//简介
 						const desc = res.data.body.bookInfo.desc;
+						this.desc = desc;
 						console.log(desc);
 						//封面
 						const picUrl = res.data.body.bookInfo.picUrl;
-						console.log(picUrl);
-						console.log(typeof(picUrl));
+						this.picUrl = picUrl;
 						//人气
-						const popularity = res.data.body.bookInfo.popularity[0]+res.data.body.bookInfo.popularity[1];
+						const popularity = res.data.body.bookInfo.popularity[0] + res.data.body.bookInfo.popularity[1];
+						this.popularity = popularity;
 						console.log(popularity);
 						//字数
-						const wordCount = res.data.body.bookInfo.wordCount[0]+res.data.body.bookInfo.wordCount[1];
+						const wordCount = res.data.body.bookInfo.wordCount[0] + res.data.body.bookInfo.wordCount[1];
+						this.wordCount = wordCount;
 						console.log(wordCount);
 						//标签
 						const tag = res.data.body.bookInfo.tag;
+						this.tag = tag;
 						console.log(tag);
 						//评论
 						const commentList = res.data.body.commentList;
-						console.log(commentList)
-						console.log(commentList[0].avatar);
-						console.log(commentList[0].nick);
-						console.log(commentList[0].content);
+						this.commentList = commentList;
+
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
-						console.log(newBooksRecommend[0].bookName);
+						this.newBooksRecommend = newBooksRecommend;
+						console.log(newBooksRecommend, "aaaaaaaaaaaaaaaa")
+						console.log(newBooksRecommend[0].bookName, "xxxxxxxxxxxxssssssssss");
 						console.log(newBooksRecommend[0].picUrl);
-						
+
 					}
 				})
 			},
 
+			more: function() {
+				if (this.geshi == "desc") {
+					this.geshi = ""
+				} else(
+					this.geshi = "desc"
+				)
+			},
 			//点击添加
 			addBook() {
 				let tmp = {
@@ -160,127 +188,167 @@
 </script>
 
 <style lang="scss" scoped>
-	.books-desc-div {
-		padding-bottom: 100upx;
-	}
+	.bg {
+		width: 100%;
+		height: 280rpx;
+		display: block;
+		z-index: -999;
+		color: #FFFFFF;
+		background-color: #cccccc;
+		padding-top: 50rpx;
 
-	header.header {
-		height: 312upx;
-		position: relative;
-
-		image.bg {
-			width: 100%;
-			height: 100%;
-			display: block;
-			position: absolute;
-			z-index: 0;
-			filter: blur(10px);
-			opacity: 0.3;
+		image {
+			width: 178rpx;
+			height: 238rpx;
+			float: right;
+			margin-right: 50rpx;
 		}
 
-		.img-div {
+		.bg-left {
+			padding-left: 50rpx;
+
+			p {
+				font-weight: 1000;
+				font-size: 40rpx;
+			}
+
+			text {
+				display: block;
+				margin-top: 10rpx;
+			}
+		}
+	}
+
+	.info {
+		color: #C0C0C0;
+		line-height: 50rpx;
+		padding: 20rpx;
+
+		.desc {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+		}
+
+		.tags {
+			border-bottom: solid rgba(220, 220, 220, 0.3) 2rpx;
+			padding-bottom: 30rpx;
+
+			text {
+				display: inline-block;
+				height: 40rpx;
+				width: 100rpx;
+				background-color: #F8F8F8;
+				line-height: 40rpx;
+				text-align: center;
+				border-radius: 20rpx;
+				margin-right: 20rpx;
+			}
+
+			view {
+				display: inline-block;
+				float: right;
+				margin-right: 20rpx;
+			}
+		}
+
+		.state {
+			margin-top: 20rpx;
+
+			.catalog {
+				color: #000000;
+				font-size: 40rpx;
+			}
+
+			.completeState {
+				color: red;
+				float: right;
+				margin-right: 25rpx;
+			}
+
+			.chapter {
+				float: right;
+			}
+		}
+	}
+
+	.comment {
+		border-top: solid rgba(220, 220, 220, 0.3) 20rpx;
+		padding: 20rpx;
+
+		p {
+			font-size: 40rpx;
+		}
+
+		.nocomment {
+			color: #C0C0C0;
+			text-align: center;
+		}
+
+		.commentlist {
+			margin-top: 30rpx;
+
 			image {
-				width: 178upx;
-				height: 238upx;
-				margin: 0 50upx;
+				width: 60rpx;
+				height: 60rpx;
+				border-radius: 50%;
+				display: inline-block;
+				// vertical-align: bottom;
+			}
+
+			p {
+				vertical-align: bottom;
+				display: inline-block;
+				font-size: 30rpx;
+				color: #C0C0C0;
+				height: 60rpx;
+				margin-left: 20rpx;
+			}
+
+			text {
+				display: block;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				line-height: 45rpx;
 			}
 		}
 
-		.right-div {
-			height: 238upx;
+	}
 
-			.author-info {
-				margin-top: 16upx;
-				font-size: 26upx;
+	.bottom {
+		border-top: solid rgba(220, 220, 220, 0.3) 20rpx;
+		padding: 20rpx;
 
-				span.author {
-					color: #e24e4d;
+		p {
+			font-size: 40rpx;
+		}
+		
+		.recommenList {
+			display: flex;
+			margin-top: 30rpx;
+
+			.recommend {
+				
+				flex: 1;
+
+				image {
+					width: 178rpx;
+					height: 238rpx;
+					display: block;
+					margin: 0 auto;
 				}
 
-				span.type {
-					color: #8e8d8d;
-					margin-left: 30upx;
+				text {
+					display: block;
+					width: 178rpx;
+					margin: 0 30rpx;
 				}
 			}
-
-			p.word {
-				font-size: 24upx;
-				margin-top: 16upx;
-				color: #8e8d8d;
-			}
-
-			p.rate {
-				font-size: 26upx;
-				margin-top: 16upx;
-				color: #8e8d8d;
-			}
 		}
-	}
-
-	.longintro {
-		padding: 30upx;
-		margin-top: 30upx;
-		background: #fff;
-
-		p.title {
-			line-height: 70upx;
-		}
-
-		.tags-div {
-			flex-wrap: wrap;
-			padding: 20upx 0;
-
-			li.list {
-				line-height: 40upx;
-				font-size: 24upx;
-				background: #f0eff4;
-				color: #bebdc5;
-				padding: 0 16upx;
-				border-radius: 20upx;
-				margin: 8upx;
-			}
-		}
-
-		div.content {
-			font-size: 28upx;
-			text-indent: 56upx;
-		}
-	}
-
-	.items-div {
-		margin-top: 30upx;
-		background: #fff;
-
-		.item {
-			min-height: 70upx;
-			justify-content: space-between;
-			padding: 0 30upx;
-		}
-
-		.item+.item {
-			border-top: 1px solid #eee;
-		}
-	}
-
-	.add {
-		width: 80%;
-		line-height: 80upx;
-		position: fixed;
-		left: 10%;
-		bottom: 10upx;
-		background: #38adfd;
-		border-radius: 40upx;
-		text-align: center;
-		color: #fff;
-	}
-
-	.mainBtn {
-		background: #38adfd;
-		color: #fff;
-		font-size: 30upx;
-		padding: 14upx 30upx;
-		border-radius: 12upx;
-		display: inline-block;
-		text-align: center;
 	}
 </style>

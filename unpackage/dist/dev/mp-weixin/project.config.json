@@ -10,6 +10,8 @@
   "libVersion": "",
   "appid": "touristappid",
   "projectname": "小说阅读器项目",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []
