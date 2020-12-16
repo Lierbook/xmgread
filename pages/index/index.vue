@@ -7,43 +7,8 @@
 				</lv-select>
 			</view>
 			<view slot="content1" class="xxx">B</view>
-			<view slot="content2" class="xxx">
-				<!-- <view class="book-Name" v-for="detail in detailList">
-				<view class="bookName">
-					{{detail.author}}
-				</view>
-			</view> -->
-				<view class="book_detail">
-					<view class="book_theme">
-						<view class="book_name">
-							<view><text class="title">灶下婢</text></view>
-							<!-- 	<text class="author">{{author}} | {{category}}</text> -->
-							<text class="author">作者 | </text>
-							<text class="type"> 文学艺术</text>
-							<view><text class="words">72万字</text></view>
-							<text class="state">连载</text>
-						</view>
-						<view class="pic">
-							<image :src="picUrl"></image>
-						</view>
-					</view>
-				</view>
-				<view class="introduction">
-					<text class="description">{{desc}}</text>
-					<view class="catalogue"></view>
-				</view>
-				<view class="comment">
-					热评
-				</view>
-				<view class="read">
-					<image src="../../static/tabbar/l-tabbar-1.png"></image>
-					<text class="share">分享给好友</text>
-					<image src="../../static/tabbar/书架.png"></image>
-					<text class="add">加入书架</text>
-					<view class="readNow">立即阅读</view>
-				</view>
-			</view>
-	
+			<view slot="content2" class="xxx">C</view>
+				
 	</aloys-tab>
 	</view>
 </template>
@@ -86,39 +51,7 @@
 			}
 		},
 		onLoad() {
-			//获取小说详情数据
-			// async getBookDetails() {
-			// 	const res = await this.$myRequest({
-			// 		url: 'https://wechat.idejian.com/api/wechat/chuban',
-			// 	})
-			// 	this.bookdetail = res.data.body.data[1].books[0];
-			// }
-			var me = this;
-
-			uni.request({
-				url: 'https://wechat.idejian.com/api/wechat/chuban',
-				success: (res) => {
-					console.log(res);
-
-					var detailList = res.data.body.data[1].books[0];
-					me.detailList = detailList;
-
-				},
-
-			});
-
-
-
-
-
-
-
-
 		},
-
-
-
-
 
 		methods: {
 			onTabChange(obj) {
@@ -151,29 +84,6 @@
 			font-weight: bold;
 			padding: 10rpx 0;
 			text-align: center;
-		}
-	}
-
-
-
-	/* 小说详情的样式 */
-	.book_detail {
-		display: flex;
-
-		.book_theme {
-			flex: 1;
-			background-color: #8B8B83;
-			width: 100%;
-			height: 300rpx;
-
-			.book_name {
-				width: 50%;
-				height: 50%;
-				color: #FAFAFA;
-				font-size: 38rpx;
-				margin-top: 30rpx;
-			}
-
 		}
 	}
 </style>

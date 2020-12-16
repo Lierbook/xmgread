@@ -33,7 +33,7 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
           flex-direction: column;
-  height: 300%;
+  height: 400%;
   width: 100%;
   background-color: #EDEDED;
 }
@@ -114,6 +114,13 @@
   letter-spacing: 3rpx;
   border-bottom: 1rpx solid #C8C7CC;
 }
+.book_detail .introduction .description .desc {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
 .book_detail .introduction .description .Tag {
   display: -webkit-box;
   display: -webkit-flex;
@@ -122,18 +129,13 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
-  width: 500rpx;
+  width: 100%;
   height: 46rpx;
   margin-top: 20rpx;
   margin-left: -20rpx;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
 }
-.book_detail .introduction .description .Tag .tag0,
-.book_detail .introduction .description .Tag .tag1,
-.book_detail .introduction .description .Tag .tag2,
-.book_detail .introduction .description .Tag .tag3 {
-  width: 80rpx;
+.book_detail .introduction .description .Tag .tag {
+  width: 120rpx;
   height: 46rpx;
   border: 1rpx solid #DEDEDE;
   -webkit-border-radius: 20rpx;
@@ -143,6 +145,7 @@
   font-size: 24rpx;
   line-height: 46rpx;
   text-align: center;
+  margin-left: 20rpx;
 }
 .book_detail .introduction .catalogue {
   display: -webkit-box;
@@ -234,7 +237,7 @@
 }
 .book_detail .others {
   width: 100%;
-  height: 420rpx;
+  height: 550rpx;
   background-color: #F4F4F4;
 }
 .book_detail .others .recommendation {
@@ -249,6 +252,7 @@
   height: 70rpx;
   -webkit-justify-content: space-around;
           justify-content: space-around;
+  margin-top: 10rpx;
 }
 .book_detail .others .recommendation .title {
   color: #000;
@@ -264,9 +268,8 @@
   font-size: 24rpx;
 }
 .book_detail .others .otherBook {
-  margin-top: 15rpx;
   width: 100%;
-  height: 250rpx;
+  height: 350rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -277,9 +280,33 @@
   -webkit-justify-content: space-around;
           justify-content: space-around;
 }
-.book_detail .others .otherBook .pho1 {
+.book_detail .others .otherBook .bookbox {
+  width: 200rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .others .otherBook .bookbox .pho1 {
   width: 200rpx;
   height: 240rpx;
+}
+.book_detail .others .otherBook .bookbox .tit {
+  width: 190rpx;
+  height: 70rpx;
+  font-size: 28rpx;
+  letter-spacing: 3rpx;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .book_detail .read {
   display: -webkit-box;
@@ -289,20 +316,68 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
           flex-direction: row;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
   width: 100%;
   height: 100rpx;
   background-color: #F4F4F4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  bottom: 0px;
 }
-.book_detail .read .share,
-.book_detail .read .add {
-  width: 25%;
+.book_detail .read .left {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .read .left .Share {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .read .left .Share .weChat {
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 40rpx;
+}
+.book_detail .read .left .bookrack {
+  width: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.book_detail .read .left .bookrack .bookshelf {
+  width: 65rpx;
+  height: 65rpx;
+  margin-left: 50rpx;
+}
+.book_detail .read .left .share,
+.book_detail .read .left .add {
+  width: 100%;
+  margin-left: 40rpx;
   color: #000;
   font-size: 24rpx;
-  margin-top: 60rpx;
-  padding-left: 20rpx;
-}
-.book_detail .read .add {
-  padding-left: 80rpx;
 }
 .book_detail .read .readNow {
   width: 50%;

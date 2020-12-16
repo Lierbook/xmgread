@@ -130,7 +130,24 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 63));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -228,7 +245,7 @@ var _default =
 {
   data: function data() {
     return {
-      id: '11489144', //小说id
+      bookId: '', //小说试验id
       dataObj: {},
       bookInfos: {},
       bookname: "",
@@ -240,16 +257,28 @@ var _default =
       desc: "",
       picUrl: '',
       popularity: "",
-      tag: "",
+      bookstag: "",
       wordCount: "",
+      avatar: "",
+      nick: "",
+      content: "",
       detailList: [],
-      commentList: [] };
+      commentList: [],
+      newBooksRecommend: [] };
 
   },
-  created: function created() {
-    // this.id = this.$mp.query.id;
-    this.getData();
+  onLoad: function onLoad(options) {
+    console.log(options.bookId);
+    this.bookId = options.bookId;
+    // this.detail(options.bookId)
+
+
   },
+
+  // created() {
+  // 	// this.id = this.$mp.query.id;
+  // 	this.getData();
+  // },
   onReady: function onReady() {
     // console.log(options);
 
@@ -273,77 +302,81 @@ var _default =
     }); */
   },
   methods: {
-    getData: function getData() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (
-                  uni.request({
-                    url: 'https://wechat.idejian.com/api/wechat/book/' + _this.id,
-                    success: function success(res) {
-                      var bookInfos = res.data.body;
-                      console.log(bookInfos, "xxxxxxxxxx");
-                      //书名
-                      var bookname = res.data.body.bookInfo.bookName;
-                      _this.bookname = bookname;
-                      console.log(bookname);
-                      //作者
-                      var author = res.data.body.bookInfo.author;
-                      _this.author = author;
-                      console.log(author);
-                      //评分
-                      var bookRating = res.data.body.bookInfo.bookRating;
-                      _this.bookRating = bookRating;
-                      console.log(bookRating);
-                      //分类
-                      var category = res.data.body.bookInfo.category;
-                      _this.category = category;
-                      console.log(category);
-                      //章数
-                      var chapterCount = res.data.body.bookInfo.chapterCount;
-                      _this.chapterCount = chapterCount;
-                      console.log(chapterCount);
-                      //状态
-                      var completeState = res.data.body.bookInfo.completeState;
-                      _this.completeState = completeState;
-                      console.log(completeState);
-                      //简介
-                      var desc = res.data.body.bookInfo.desc;
-                      _this.desc = desc;
-                      console.log(desc);
-                      //封面
-                      var picUrl = res.data.body.bookInfo.picUrl;
-                      _this.picUrl = picUrl;
-                      //人气
-                      var popularity = res.data.body.bookInfo.popularity[0] + res.data.body.bookInfo.popularity[1];
-                      _this.popularity = popularity;
-                      console.log(popularity);
-                      //字数
-                      var wordCount = res.data.body.bookInfo.wordCount[0] + res.data.body.bookInfo.wordCount[1];
-                      _this.wordCount = wordCount;
-                      console.log(wordCount);
-                      //标签
-                      var tag = res.data.body.bookInfo.tag;
-                      _this.tag = tag;
-                      console.log(tag);
-                      console.log(tag[0]);
-                      //评论
-                      var commentList = res.data.body.commentList;
-                      _this.commentList = commentList;
-                      console.log(commentList);
-                      console.log(commentList[0].avatar);
-                      console.log(commentList[0].nick);
-                      console.log(commentList[0].content);
-                      //书友还读过
-                      var newBooksRecommend = res.data.body.newBooksRecommend;
-                      _this.newBooksRecommend = newBooksRecommend;
-                      console.log(newBooksRecommend[0].bookName);
-                      console.log(newBooksRecommend[0].picUrl);
+    onReady: function onReady() {var _this = this;
+      uni.request({
+        url: 'https://wechat.idejian.com/api/wechat/book/' + this.bookId,
+        success: function success(res) {
+          var bookInfos = res.data.body;
+          console.log(bookInfos, "xxxxxxxxxx");
+          //书名
+          var bookname = res.data.body.bookInfo.bookName;
+          _this.bookname = bookname;
+          console.log(bookname);
+          //作者
+          var author = res.data.body.bookInfo.author;
+          _this.author = author;
+          console.log(author);
+          //评分
+          var bookRating = res.data.body.bookInfo.bookRating;
+          _this.bookRating = bookRating;
+          console.log(bookRating);
+          //分类
+          var category = res.data.body.bookInfo.category;
+          _this.category = category;
+          console.log(category);
+          //章数
+          var chapterCount = res.data.body.bookInfo.chapterCount;
+          _this.chapterCount = chapterCount;
+          console.log(chapterCount);
+          //状态
+          var completeState = res.data.body.bookInfo.completeState;
+          _this.completeState = completeState;
+          console.log(completeState);
+          //简介
+          var desc = res.data.body.bookInfo.desc;
+          _this.desc = desc;
+          console.log(desc);
+          //封面
+          var picUrl = res.data.body.bookInfo.picUrl;
+          _this.picUrl = picUrl;
+          //人气
+          var popularity = res.data.body.bookInfo.popularity[0] + res.data.body.bookInfo.popularity[1];
+          _this.popularity = popularity;
+          console.log(popularity);
+          //字数
+          var wordCount = res.data.body.bookInfo.wordCount[0] + res.data.body.bookInfo.wordCount[1];
+          _this.wordCount = wordCount;
+          console.log(wordCount);
+          //标签
+          var bookstag = res.data.body.bookInfo.tag;
+          _this.bookstag = bookstag;
+          // console.log(tag);
+          // console.log(tag[0]);
+          /* var newTag =tag.filter((index)=>{
+          	return index <3
+          })
+          console.log(newTag); */
+          //评论
+          var commentList = res.data.body.commentList;
+          _this.commentList = commentList;
+          console.log(commentList);
+          console.log(commentList[0].avatar);
+          console.log(commentList[0].nick);
+          console.log(commentList[0].content);
+          //书友还读过
+          var newBooksRecommend = res.data.body.newBooksRecommend;
+          _this.newBooksRecommend = newBooksRecommend;
+          console.log(newBooksRecommend[0].bookName);
+          console.log(newBooksRecommend[0].picUrl);
 
-                    } }));case 2:case "end":return _context.stop();}}}, _callee);}))();
+        } });
 
     },
 
     //点击添加
     addBook: function addBook() {
       var tmp = {
-        id: this.id,
+        bookId: this.bookId,
         cover: this.cover,
         title: this.dataObj.title };
 

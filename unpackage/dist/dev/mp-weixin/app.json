@@ -7,7 +7,8 @@
     "pages/tobiao/tobiao",
     "pages/classification/classification",
     "components/booklist/booklist",
-    "pages/bookdetail/bookdetail"
+    "pages/bookdetail/bookdetail",
+    "pages/weChatLogin/weChatLogin"
   ],
   "subPackages": [],
   "window": {
@@ -54,6 +55,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap95.json"
+  "usingComponents": {}
 }

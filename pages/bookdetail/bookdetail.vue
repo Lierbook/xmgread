@@ -24,12 +24,11 @@
 		</view>
 		<view class="introduction">
 			<view class="description">
-				<text>{{desc}}</text>
+				<view class="desc"><text>{{desc}}</text></view>
 				<view class="Tag">
-					<view class="tag0">{{tag[0]}}</view>
-					<view class="tag1">{{tag[1]}}</view>
-					<view class="tag2">{{tag[2]}}</view>
-					<view class="tag3">{{tag[3]}}</view>
+					<view class="tag" v-for="tag in bookstag">{{tag}}</view>
+					
+					
 				</view>
 			</view>
 
@@ -78,16 +77,34 @@
 
 
 			<view class="otherBook">
-				<image :src="picUrl" mode="" class="pho1"></image>
-				<image :src="picUrl" mode="" class="pho1"></image>
-				<image :src="picUrl" mode="" class="pho1"></image>
+				<view class="bookbox">
+					<image :src="newBooksRecommend[0].picUrl" mode="" class="pho1"></image>
+					<view class="tit"><text>{{newBooksRecommend[0].bookName}}</text></view>
+				</view>
+				<view class="bookbox">
+					<image :src="newBooksRecommend[1].picUrl" mode="" class="pho1"></image>
+					<view class="tit"><text>{{newBooksRecommend[1].bookName}}</text></view>
+				</view>
+				<view class="bookbox">
+					<image :src="newBooksRecommend[2].picUrl" mode="" class="pho1"></image>
+					<view class="tit"><text>{{newBooksRecommend[2].bookName}}</text></view>
+				</view>
 			</view>
 		</view>
 		<view class="read">
-			<text class="share">分享给好友</text>
-			<text class="add">加入书架</text>
-			<view class="readNow">立即阅读</view>
-		</view>
+					<view class="left">
+						<view class="Share">
+							<image src="../../static/tabbar/微信图片_20201216183815.png" class="weChat"></image>
+							<text class="share">分享给好友</text>
+						</view>
+						<view class="bookrack">
+							<image src="../../static/tabbar/书架图片_20201216183829.png" class="bookshelf"></image>
+							<text class="add">加入书架</text>
+						</view>
+					</view>
+					<view class="readNow">立即阅读</view>
+				</view>
+
 	</view>
 
 </template>
@@ -96,7 +113,7 @@
 	export default {
 		data() {
 			return {
-				id: '11489144', //小说id
+				bookId: '', //小说试验id
 				dataObj: {},
 				bookInfos: {},
 				bookname: "",
@@ -108,16 +125,28 @@
 				desc: "",
 				picUrl: '',
 				popularity: "",
-				tag: "",
+				bookstag: "",
 				wordCount: "",
+				avatar: "",
+				nick: "",
+				content: "",
 				detailList: [],
 				commentList: [],
+				newBooksRecommend: [],
 			}
 		},
-		created() {
-			// this.id = this.$mp.query.id;
-			this.getData();
-		},
+		onLoad(options) {
+					console.log(options.bookId);
+					this.bookId=options.bookId
+					// this.detail(options.bookId)
+					
+					
+				},
+				
+		// created() {
+		// 	// this.id = this.$mp.query.id;
+		// 	this.getData();
+		// },
 		onReady: function() {
 			// console.log(options);
 
@@ -141,9 +170,9 @@
 			}); */
 		},
 		methods: {
-			async getData() {
-				await uni.request({
-					url: 'https://wechat.idejian.com/api/wechat/book/' + this.id,
+			onReady: function(){
+				uni.request({
+					url: 'https://wechat.idejian.com/api/wechat/book/' + this.bookId,
 					success: (res) => {
 						const bookInfos = res.data.body;
 						console.log(bookInfos, "xxxxxxxxxx");
@@ -187,10 +216,14 @@
 						this.wordCount = wordCount;
 						console.log(wordCount);
 						//标签
-						const tag = res.data.body.bookInfo.tag;
-						this.tag = tag;
-						console.log(tag);
-						console.log(tag[0]);
+						const bookstag = res.data.body.bookInfo.tag;
+						this.bookstag = bookstag;
+						// console.log(tag);
+						// console.log(tag[0]);
+						/* var newTag =tag.filter((index)=>{
+							return index <3
+						})
+						console.log(newTag); */
 						//评论
 						const commentList = res.data.body.commentList;
 						this.commentList = commentList;
@@ -211,7 +244,7 @@
 			//点击添加
 			addBook() {
 				let tmp = {
-					id: this.id,
+					bookId: this.bookId,
 					cover: this.cover,
 					title: this.dataObj.title
 				};
@@ -231,7 +264,7 @@
 	.book_detail {
 		display: flex;
 		flex-direction: column;
-		height: 300%;
+		height: 400%;
 		width: 100%;
 		background-color: #EDEDED;
 
@@ -314,21 +347,32 @@
 				letter-spacing: 3rpx;
 				border-bottom: 1rpx solid #C8C7CC;
 
+				.desc {
+					// 溢出用省略号显示
+					text-overflow: ellipsis;
+					// 超出的文本隐藏
+					overflow: hidden;
+					// 将对象作为弹性伸缩盒子模型显示。
+					display: -webkit-box;
+					// 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）
+					-webkit-box-orient: vertical;
+					//指定显示多少行
+					-webkit-line-clamp: 3;
+				}
+
 				.Tag {
 					display: flex;
 					flex-direction: row;
-					width: 500rpx;
+					width: 100%;
 					height: 46rpx;
 					margin-top: 20rpx;
 					margin-left: -20rpx;
 					// background-color: #007AFF;
-					justify-content: space-around;
+					
 
-					.tag0,
-					.tag1,
-					.tag2,
-					.tag3 {
-						width: 80rpx;
+					
+					.tag {
+						width: 120rpx;
 						height: 46rpx;
 						border: 1rpx solid #DEDEDE;
 						border-radius: 20rpx;
@@ -337,6 +381,8 @@
 						font-size: 24rpx;
 						line-height: 46rpx;
 						text-align: center;
+						margin-left: 20rpx;
+						
 					}
 				}
 			}
@@ -347,6 +393,7 @@
 				width: 100%;
 				height: 56rpx;
 				justify-content: space-around;
+
 				// flex-wrap: wrap;
 				.list {
 					color: #000;
@@ -427,18 +474,18 @@
 				text-overflow: ellipsis;
 				// 超出的文本隐藏
 				overflow: hidden;
-				 // 将对象作为弹性伸缩盒子模型显示。
+				// 将对象作为弹性伸缩盒子模型显示。
 				display: -webkit-box;
-				 // 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）
+				// 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）
 				-webkit-box-orient: vertical;
 				//指定显示多少行
-				-webkit-line-clamp: 3; 
+				-webkit-line-clamp: 3;
 			}
 		}
 
 		.others {
 			width: 100%;
-			height: 420rpx;
+			height: 550rpx;
 			background-color: #F4F4F4;
 
 			.recommendation {
@@ -447,6 +494,7 @@
 				width: 100%;
 				height: 70rpx;
 				justify-content: space-around;
+				margin-top: 10rpx;
 
 				.title {
 					color: #000;
@@ -471,49 +519,124 @@
 			}
 
 			.otherBook {
-				margin-top: 15rpx;
+				// margin-top: 15rpx;
 				width: 100%;
-				height: 250rpx;
+				height: 350rpx;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
+				// background-color: #007AFF;
 
-				.pho1 {
+				.bookbox {
 					width: 200rpx;
-					height: 240rpx;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+
+					.pho1 {
+						width: 200rpx;
+						height: 240rpx;
+						// background-color: #007AFF;
+					}
+
+					.tit {
+						width: 190rpx;
+						height: 70rpx;
+						font-size: 28rpx;
+						letter-spacing: 3rpx;
+						font-weight: bold;
+						// 溢出用省略号显示
+						text-overflow: ellipsis;
+						// 超出的文本隐藏
+						overflow: hidden;
+						// 将对象作为弹性伸缩盒子模型显示。
+						display: -webkit-box;
+						// 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）
+						-webkit-box-orient: vertical;
+						//指定显示多少行
+						-webkit-line-clamp: 2;
+						// margin-top: 10rpx;
+						// background-color: #4CD964; 
+					}
 				}
+
 			}
 		}
 
+		
+		
 		.read {
-			display: flex;
-			flex-direction: row;
-			width: 100%;
-			height: 100rpx;
-			background-color: #F4F4F4;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-around;
+					width: 100%;
+					height: 100rpx;
+					background-color: #F4F4F4;
+					//将底部固定且不影响滚动
+					position: fixed;
+					bottom: 0;
+					left: 0;
+					bottom: var(--window-bottom, 0);
+		
+					.left {
+						width: 50%;
+						display: flex;
+						flex-direction: row;
+						justify-content: space-around;
+		
+						.Share {
+							width: 50%;
+							display: flex;
+							flex-direction: column;
+							justify-content: space-around;
+							
+		
+							.weChat {
+								width: 100rpx;
+								height: 100rpx;
+								margin-left: 40rpx;
+							}
+						}
+		
+						.bookrack {
+							width: 50%;
+							display: flex;
+							flex-direction: column;
+							justify-content: space-around;
+							
+		
+							.bookshelf {
+								width: 65rpx;
+								height: 65rpx;
+								margin-left: 50rpx;
+							}
+						}
+		
+						.share,
+						.add {
+							width: 100%;
+							margin-left: 40rpx;
+							color: #000;
+							font-size: 24rpx;
+							// margin-top: 60rpx;
+							// padding-left: 20rpx;
+						}
+		
+						
+		
+					}
+		
+					.readNow {
+						width: 50%;
+						color: #FAFAFA;
+						line-height: 100rpx;
+						font-size: 38rpx;
+						background-color: #EE0000;
+						text-align: center;
+					}
+				}
+		
 
-			.share,
-			.add {
-				width: 25%;
-				color: #000;
-				font-size: 24rpx;
-				margin-top: 60rpx;
-				padding-left: 20rpx;
-			}
-
-			.add {
-				padding-left: 80rpx;
-			}
-
-			.readNow {
-				width: 50%;
-				color: #FAFAFA;
-				line-height: 100rpx;
-				font-size: 38rpx;
-				background-color: #EE0000;
-				text-align: center;
-			}
-		}
 
 
 	}

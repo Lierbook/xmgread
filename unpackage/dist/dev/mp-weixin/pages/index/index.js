@@ -161,41 +161,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {
   components: {
     aloysTab: aloysTab,
@@ -230,39 +195,7 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   onLoad: function onLoad() {
-    //获取小说详情数据
-    // async getBookDetails() {
-    // 	const res = await this.$myRequest({
-    // 		url: 'https://wechat.idejian.com/api/wechat/chuban',
-    // 	})
-    // 	this.bookdetail = res.data.body.data[1].books[0];
-    // }
-    var me = this;
-
-    uni.request({
-      url: 'https://wechat.idejian.com/api/wechat/chuban',
-      success: function success(res) {
-        console.log(res);
-
-        var detailList = res.data.body.data[1].books[0];
-        me.detailList = detailList;
-
-      } });
-
-
-
-
-
-
-
-
-
-
   },
-
-
-
-
 
   methods: {
     onTabChange: function onTabChange(obj) {
