@@ -15,9 +15,9 @@
 				<view class="right-navs">
 					<text>{{item.name}}</text>
 					<view class="img">
-						<image :src="item.pics[0]">
-							<!-- <image :src="item.pics[1]"> -->
-						</image>
+						<image class="img1" :src="item.pics[0]">
+							<image class="img2" :src="item.pics[1]">
+							</image>
 					</view>
 				</view>
 			</view>
@@ -99,6 +99,7 @@
 			text-align: center;
 			background-color: #f5f5f5;
 			padding-top: 20px;
+
 			// 右侧每个盒子样式
 			.right-nav {
 				width: 180rpx;
@@ -107,14 +108,14 @@
 				padding-left: 8px;
 				padding-bottom: 30px;
 				// 右侧文本图片盒子样式
-				
+
 				.right-navs {
-				
+
 					width: 180rpx;
 					height: 180rpx;
 					background-color: white;
 					border-radius: 8px;
-					
+
 				}
 
 				// 右侧图片盒子样式
@@ -122,16 +123,30 @@
 					text-align: center;
 					width: 180rpx;
 					height: 150rpx;
-					 margin-top: 10rpx;
+					margin-top: 10rpx;
 					padding-top: 20rpx;
 					background-color: #eee;
 					border-bottom-left-radius: 8px;
 					border-bottom-right-radius: 8px;
+					position: relative;
+
 					image {
-						
 						width: 100rpx;
 						height: 130rpx;
-						
+					}
+
+					.img1 {
+						position: absolute;
+						left: 20rpx;
+						z-index: 100;
+					}
+
+					.img2 {
+						width: 80rpx;
+						height: 120rpx;
+						position: absolute;
+						top: 30rpx;
+						right: 20rpx;
 					}
 				}
 			}
