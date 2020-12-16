@@ -101,13 +101,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   aloysTab: function() {
-    return __webpack_require__.e(/*! import() | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then(__webpack_require__.bind(null, /*! @/components/aloys-tab/aloys-tab.vue */ 57))
+    return __webpack_require__.e(/*! import() | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then(__webpack_require__.bind(null, /*! @/components/aloys-tab/aloys-tab.vue */ 65))
   },
   lvSelect: function() {
-    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 66))
+    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 74))
   },
   publish: function() {
-    return __webpack_require__.e(/*! import() | components/publish/publish */ "components/publish/publish").then(__webpack_require__.bind(null, /*! @/components/publish/publish.vue */ 73))
+    return __webpack_require__.e(/*! import() | components/publish/publish */ "components/publish/publish").then(__webpack_require__.bind(null, /*! @/components/publish/publish.vue */ 81))
   }
 }
 var render = function() {
@@ -145,7 +145,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 57));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 66));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var publish = function publish() {__webpack_require__.e(/*! require.ensure | components/publish/publish */ "components/publish/publish").then((function () {return resolve(__webpack_require__(/*! ../../components/publish/publish.vue */ 73));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 65));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 74));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var publish = function publish() {__webpack_require__.e(/*! require.ensure | components/publish/publish */ "components/publish/publish").then((function () {return resolve(__webpack_require__(/*! ../../components/publish/publish.vue */ 81));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -221,6 +221,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
     },
+
     handleSearch: function handleSearch() {var _this = this;
       this.loading = true;
       setTimeout(function () {

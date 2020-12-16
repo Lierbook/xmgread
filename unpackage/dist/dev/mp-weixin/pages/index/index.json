@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "书城",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
   "usingComponents": {
     "aloys-tab": "/components/aloys-tab/aloys-tab",
     "lv-select": "/components/lv-select/lv-select",

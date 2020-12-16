@@ -74,6 +74,7 @@
 
 				})
 			},
+		
 			handleSearch() {
 				this.loading = true
 				setTimeout(() => {

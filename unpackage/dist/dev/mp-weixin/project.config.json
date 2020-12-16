@@ -13,27 +13,22 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "plugin": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "name": "pages/index/index",
-          "pathName": "pages/components/publish/publish",
+          "name": "",
+          "path": "",
           "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/components/publish/publish",
-          "pathName": "components/publish/publish",
-          "scene": null
+          "id": 0
         }
       ]
     }
