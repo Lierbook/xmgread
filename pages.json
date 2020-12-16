@@ -55,7 +55,7 @@
 		{
 		    "path" : "pages/details/details",
 		    "style" :  {
-                "navigationBarTitleText": "都市",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
 		}
@@ -70,7 +70,7 @@
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "书籍详情",
 		"navigationBarBackgroundColor": "#ffffff",
 		"backgroundColor": "#d0fffe"
 	},

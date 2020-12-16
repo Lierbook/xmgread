@@ -10,6 +10,8 @@
   "libVersion": "2.9.2",
   "appid": "touristappid",
   "projectname": "小说阅读器项目",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []
@@ -25,7 +27,6 @@
         {
           "name": "pages/classification/classification",
           "pathName": "pages/classification/classification",
-          "query": "",
           "scene": null
         }
       ]

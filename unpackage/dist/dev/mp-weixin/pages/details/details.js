@@ -148,48 +148,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
     return {
       id: "",
       name: "",
-      books: [] };
+      books: [],
+      items: [],
+      options: [] };
+
+
+
 
 
   },
   onLoad: function onLoad(opcition) {
     this.id = opcition.id;
   },
+
   onReady: function onReady() {var _this = this;
     uni.request({
       url: "https://wechat.idejian.com/api/wechat/subcategory?categoryId=".concat(this.id, "&resourcesId=28&order=1&filterInfo=&page=1"),
       success: function success(res) {
         var re = res.data.body;
-
         _this.name = re.category.name;
-        console.log(_this.name);
+        // console.log(this.name,44444444444444444)
         _this.books = re.books;
-        console.log(_this.books);
-        // setNavigationBarTitle({
-        // 	title: this.name
-        // })
+        // console.log(this.books)
+        _this.items = re.category.sort.items;
+        _this.options = re.category.filter[0].options;
+
+        //在页面渲染生命函数中设置导航栏信息
+        uni.setNavigationBarTitle({
+          title: _this.name });
+
       } });
 
 
-    // 	uni.setNavigationBarTitle(()=>{
-
-    // 		title: this.name
-
-    // 	})
-    // console.log(this.name, "xxxxxxxxxxxxxx")
 
   },
 
 
-  //在页面渲染生命函数中设置导航栏信息
+  methods: {
+    goBookDetail: function goBookDetail(item) {
+      uni.navigateTo({
+        url: "../bookdetail/bookdetail" });
 
-  methods: {} };exports.default = _default;
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

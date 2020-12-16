@@ -1,10 +1,16 @@
 <template>
 	<view class="box">
 		<view class="top">
-			<!-- <button v-for="name in name" :key="name.id">{{name.name}}</button> -->
+			<view class="top-but">
+				<button class="active" hover-class='button-hover'>全部</button>
+				<button class="active" v-for="option in options" :key="option.id">{{option.name}}</button>
+			</view>
+			<view class="top-but">
+				<button class="active" v-for="(item,index) in items" :key="item.id" >{{item.name}}</button>
+			</view>
 		</view>
-		<view class="below"@>
-			<view class="below-box" v-for="item in books" :key="item.bookId">
+		<view class="below">
+			<view class="below-box" v-for="item in books" :key="item.bookId" @click="goBookDetail(item)">
 				<view class="below-left">
 					<image :src="item.picUrl" style="width: 180rpx;height: 250rpx;"></image>
 				</view>
@@ -16,11 +22,6 @@
 				</view>
 			</view>
 		</view>
-		<navigator ></navigator>
-
-
-
-		
 	</view>
 </template>
 
@@ -30,43 +31,48 @@
 			return {
 				id: "",
 				name: "",
-				books: []
+				books: [],
+				items: [],
+				options: [],
+				
+				
+
 
 			}
 		},
 		onLoad(opcition) {
 			this.id = opcition.id
 		},
+		
 		onReady: function() {
 			uni.request({
 				url: `https://wechat.idejian.com/api/wechat/subcategory?categoryId=${this.id}&resourcesId=28&order=1&filterInfo=&page=1`,
 				success: (res) => {
 					let re = res.data.body;
-
 					this.name = re.category.name;
-					console.log(this.name)
+					// console.log(this.name,44444444444444444)
 					this.books = re.books;
-					console.log(this.books)
-					// setNavigationBarTitle({
-					// 	title: this.name
-					// })
+					// console.log(this.books)
+					this.items = re.category.sort.items;
+					this.options = re.category.filter[0].options;
+					
+					//在页面渲染生命函数中设置导航栏信息
+					uni.setNavigationBarTitle({
+					    title: this.name
+					});
 				}
 			})
 
-			// 	uni.setNavigationBarTitle(()=>{
-
-			// 		title: this.name
-
-			// 	})
-			// console.log(this.name, "xxxxxxxxxxxxxx")
 
 		},
-
-
-		//在页面渲染生命函数中设置导航栏信息
+		
 
 		methods: {
-
+			goBookDetail(item){
+				uni.navigateTo({
+					url:"../bookdetail/bookdetail"
+				})
+			}
 		}
 	}
 </script>
@@ -75,22 +81,43 @@
 	.box {
 		.top {
 			width: 100%;
-			height: 300rpx;
-			border: #007AFF 1rpx solid;
+			height: 150rpx;
+			padding: 20rpx;
+			margin-bottom: 30rpx;
+
+			.top-but {
+				width: 100%;
+
+				button {
+					display: inline;
+					width: 120rpx;
+					height: 50rpx;
+					// font: 28rpx;
+					color: #777777;
+					margin: 0 3rpx;
+				}
+				.active:hover{
+					color: red;
+					background: pink;
+				}
+			}
+
 		}
 
 		.below {
 			background: #f5f5f5;
-			
+
 			.below-box {
 				height: 300rpx;
 				padding: 20rpx;
 				box-sizing: border-box;
+
 				.below-left {
-					
 					width: 30%;
 					height: 300rpx;
 					float: left;
+
+					.active {}
 				}
 
 				.below-right {
@@ -100,10 +127,12 @@
 					color: #777777;
 					box-sizing: border-box;
 					padding: 5rpx;
-					text{
+
+					text {
 						font-size: 38rpx;
 					}
-					.text{
+
+					.text {
 						margin: 20rpx 0rpx;
 						display: block;
 						height: 72rpx;
@@ -114,11 +143,13 @@
 						-webkit-line-clamp: 2;
 						overflow: hidden;
 					}
-					.text-l{
+
+					.text-l {
 						font-size: 26rpx;
 						color: #C8C7CC;
 					}
-					.text-r{
+
+					.text-r {
 						padding: 3rpx 20rpx;
 						font-size: 26rpx;
 						border: 1rpx solid #C8C7CC;

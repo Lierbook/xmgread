@@ -12,7 +12,7 @@
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "书籍详情",
     "navigationBarBackgroundColor": "#ffffff",
     "backgroundColor": "#d0fffe"
   },
