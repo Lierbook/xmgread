@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="zi">书架</view>
-		<view class="zt"><text class="z1">共<text class="jiu">9</text>本书</text></view>
+		<view class="zt"><text class="z1">共<text class="jiu">{{books.length}}</text>本书</text></view>
 		<view class="delete" @click="detele">
 			<text>删除</text>
 		</view>

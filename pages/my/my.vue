@@ -7,7 +7,7 @@
 				<view class="zx"></view>
 			</view>
 			<view class="name">{{yonghuwx.nickName}} </view>
-			<view class="name-qm">ID:88888888</view>
+			<view class="name-qm">ID:1234567</view>
 		</view>
 		<view class="">
 			<uni-list>
@@ -90,6 +90,19 @@
 		font-size: 16px;
 		font-weight: 800;
 		margin-bottom: 10px;
+	}
+	.uni-list--border-top {
+		display: none;
+	}
+	.uni-list-item__container{
+		margin-top: 20px;
+		
+	}
+	
+	.uni-list-item {
+		width: 100%;
+		height: 70px;
+		
 	}
 	
 </style>
