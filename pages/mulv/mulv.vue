@@ -1,9 +1,11 @@
 <template>
-	<view v-for="item in list " :key="item.id">
-		{{item.name}}
-		
+	<view>
+		<view class=""v-for="item in list" :key="item.id">
+			{{item.name}}
+		</view>
 	</view>
 </template>
+
 
 <script>
 	import myRequestGet from "../../utils/getbooks.js"
@@ -12,7 +14,7 @@
 		data() {
 			return {
 				id: "",
-				list: []
+				list: [],
 			}
 		},
 		onLoad(options) {

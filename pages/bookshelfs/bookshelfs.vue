@@ -1,7 +1,6 @@
 <template>
 	<view class="content">
-
-		<view class="">
+		<view class="wz">
 			<rich-text :nodes="bookss.content"></rich-text>
 		</view>
 
@@ -91,5 +90,9 @@
 			padding: 3px;
 			
 		}
+	}
+	.wz{
+	  font-size: 14px;
+	   
 	}
 </style>
