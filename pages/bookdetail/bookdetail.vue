@@ -20,14 +20,13 @@
 			</view>
 			<view class="state">
 				<text class="catalog">目录</text>
-				<a class="chapter">更新至第{{chapterCount}}章</a>
+				<a class="chapter" href="#" >更新至第{{chapterCount}}章</a>
 				<text class="completeState">{{completeState}}</text>
 			</view>
 		</view>
 		<view class="comment">
 			<p>热评</p>
 			<view class="nocomment" v-show="commentList==''">
-				<!-- <image src="../../static/nocomment/nocomment.png"></image> -->
 				抱歉，本书暂无评论
 			</view>
 			<view class="commentlist">
@@ -103,61 +102,45 @@
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.id,
 					success: (res) => {
 						const bookInfos = res.data.body;
-						console.log(bookInfos, "xxxxxxxxxx");
 						//书名
 						const bookname = res.data.body.bookInfo.bookName;
 						this.bookname = bookname;
-						console.log(bookname);
 						//作者
 						const author = res.data.body.bookInfo.author;
 						this.author = author;
-						console.log(author);
 						//评分
 						const bookRating = res.data.body.bookInfo.bookRating;
 						this.bookRating = bookRating;
-						console.log(bookRating);
 						//分类
 						const category = res.data.body.bookInfo.category;
 						this.category = category;
-						console.log(category);
 						//章数
 						const chapterCount = res.data.body.bookInfo.chapterCount;
 						this.chapterCount = chapterCount;
-						console.log(chapterCount);
 						//状态
 						const completeState = res.data.body.bookInfo.completeState;
 						this.completeState = completeState;
-						console.log(completeState);
 						//简介
 						const desc = res.data.body.bookInfo.desc;
 						this.desc = desc;
-						console.log(desc);
 						//封面
 						const picUrl = res.data.body.bookInfo.picUrl;
 						this.picUrl = picUrl;
 						//人气
 						const popularity = res.data.body.bookInfo.popularity[0] + res.data.body.bookInfo.popularity[1];
 						this.popularity = popularity;
-						console.log(popularity);
 						//字数
 						const wordCount = res.data.body.bookInfo.wordCount[0] + res.data.body.bookInfo.wordCount[1];
 						this.wordCount = wordCount;
-						console.log(wordCount);
 						//标签
 						const tag = res.data.body.bookInfo.tag;
 						this.tag = tag;
-						console.log(tag);
 						//评论
 						const commentList = res.data.body.commentList;
-						this.commentList = commentList;
-
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
-						console.log(newBooksRecommend, "aaaaaaaaaaaaaaaa")
-						console.log(newBooksRecommend[0].bookName, "xxxxxxxxxxxxssssssssss");
-						console.log(newBooksRecommend[0].picUrl);
-
+						console.log(newBooksRecommend,"11111111111111")
 					}
 				})
 			},
@@ -183,6 +166,7 @@
 			uni.stopPullDownRefresh();
 			uni.hideNavigationBarLoading();
 			this.getData();
+			
 		}
 	}
 </script>

@@ -130,8 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 57));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
-//
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 98));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
 //
 //
 //
@@ -235,61 +234,45 @@ var _default =
                     url: 'https://wechat.idejian.com/api/wechat/book/' + _this.id,
                     success: function success(res) {
                       var bookInfos = res.data.body;
-                      console.log(bookInfos, "xxxxxxxxxx");
                       //书名
                       var bookname = res.data.body.bookInfo.bookName;
                       _this.bookname = bookname;
-                      console.log(bookname);
                       //作者
                       var author = res.data.body.bookInfo.author;
                       _this.author = author;
-                      console.log(author);
                       //评分
                       var bookRating = res.data.body.bookInfo.bookRating;
                       _this.bookRating = bookRating;
-                      console.log(bookRating);
                       //分类
                       var category = res.data.body.bookInfo.category;
                       _this.category = category;
-                      console.log(category);
                       //章数
                       var chapterCount = res.data.body.bookInfo.chapterCount;
                       _this.chapterCount = chapterCount;
-                      console.log(chapterCount);
                       //状态
                       var completeState = res.data.body.bookInfo.completeState;
                       _this.completeState = completeState;
-                      console.log(completeState);
                       //简介
                       var desc = res.data.body.bookInfo.desc;
                       _this.desc = desc;
-                      console.log(desc);
                       //封面
                       var picUrl = res.data.body.bookInfo.picUrl;
                       _this.picUrl = picUrl;
                       //人气
                       var popularity = res.data.body.bookInfo.popularity[0] + res.data.body.bookInfo.popularity[1];
                       _this.popularity = popularity;
-                      console.log(popularity);
                       //字数
                       var wordCount = res.data.body.bookInfo.wordCount[0] + res.data.body.bookInfo.wordCount[1];
                       _this.wordCount = wordCount;
-                      console.log(wordCount);
                       //标签
                       var tag = res.data.body.bookInfo.tag;
                       _this.tag = tag;
-                      console.log(tag);
                       //评论
                       var commentList = res.data.body.commentList;
-                      _this.commentList = commentList;
-
                       //书友还读过
                       var newBooksRecommend = res.data.body.newBooksRecommend;
                       _this.newBooksRecommend = newBooksRecommend;
-                      console.log(newBooksRecommend, "aaaaaaaaaaaaaaaa");
-                      console.log(newBooksRecommend[0].bookName, "xxxxxxxxxxxxssssssssss");
-                      console.log(newBooksRecommend[0].picUrl);
-
+                      console.log(newBooksRecommend, "11111111111111");
                     } }));case 2:case "end":return _context.stop();}}}, _callee);}))();
 
     },
@@ -315,6 +298,7 @@ var _default =
     uni.stopPullDownRefresh();
     uni.hideNavigationBarLoading();
     this.getData();
+
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
