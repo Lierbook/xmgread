@@ -7,8 +7,8 @@
 			<text>删除</text>
 		</view>
 		<uni-list>
-			<uni-list-item v-for="item in books" :key="item.lastChapterId" link to="/pages/vue/index/index" :thumb="item.picUrl">
-				<view slot="body" class="item slot-box slot-text">
+			<uni-list-item v-for="item in books" :key="item.lastChapterId" link to=""  :thumb="item.picUrl" thumbSize="lg">
+				<view slot="body" class="item slot-box slot-text" @click="goBooks(item)">
 					<view class="tit">{{item.bookName}}</view>
 					<view class="swyd">
 						<text class="zz">尚未阅读</text>
@@ -19,8 +19,6 @@
 					</view>
 
 				</view>
-
-
 			</uni-list-item>
 		</uni-list>
 	</view>
@@ -45,16 +43,20 @@
 				let result = await myRequestGet("/api/wechat/bookshelf/builtin?sex=-1&categories=1&p2=129003")
 				this.books = result.bookInfo;
 			},
+			goBooks(item){
+				uni.navigateTo({
+					url:`/pages/bookshelfs/bookshelfs?id=${item.bookId}`
+					
+				})
+			}
 			
-
-
+			
 		},
-		components: {
+		components: { 
 			uniList,
 			uniListItem
 
 		},
-
 
 	}
 </script>
@@ -104,9 +106,21 @@
 		margin-left: 12rpx;
 		white-space: nowrap;
 		text-overflow: ellipsis;
-
+	}
+    uni-image{
+		width: 65px!important;
+		height: 85px!important;
 
 	}
+	.uni-list-item__icon{
+		width: 65px!important;
+		height: 85px!important;
+	}
+     .uni-list--base{
+		 display: inline-block;
+		 width: 65px!important;
+		 height: 85px!important;
+	 }
 
 	.shop-price-text {
 		color: #777777;

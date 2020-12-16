@@ -62,6 +62,17 @@
             }
             
         }
+        ,{
+            "path" : "pages/bookshelfs/bookshelfs",
+            "style" : {
+				  "navigationBarTitleText": "",
+				    "enablePullDownRefresh": false
+			}
+        }
+        ,{
+            "path" : "pages/mulv/mulv",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -6,7 +6,9 @@
     "pages/Ranking/Ranking",
     "pages/tobiao/tobiao",
     "pages/classification/classification",
-    "components/booklist/booklist"
+    "components/booklist/booklist",
+    "pages/bookshelfs/bookshelfs",
+    "pages/mulv/mulv"
   ],
   "subPackages": [],
   "window": {
@@ -53,5 +55,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap67.json"
 }
