@@ -1,5 +1,5 @@
 {
   "defaultTitle": "分类",
-  "pullRefresh": false,
+  "pullRefresh": true,
   "usingComponents": {}
 }

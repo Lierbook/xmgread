@@ -1,10 +1,7 @@
 {
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
+  "component": true,
   "usingComponents": {
     "dn-icon": "/components/dn-icon/dn-icon",
-    "icon": "/components/dn-icon/dn-icon",
-    "uni-load-more": "/components/uni-load-more/uni-load-more"
-  },
-  "component": true
+    "icon": "/components/dn-icon/dn-icon"
+  }
 }

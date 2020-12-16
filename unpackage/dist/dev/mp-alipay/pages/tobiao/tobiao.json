@@ -1,6 +1,6 @@
 {
   "defaultTitle": "",
-  "pullRefresh": false,
+  "pullRefresh": true,
   "usingComponents": {
     "dn-icon": "/components/dn-icon/dn-icon"
   }

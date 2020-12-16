@@ -1,5 +1,5 @@
 {
   "defaultTitle": "排行",
-  "pullRefresh": false,
+  "pullRefresh": true,
   "usingComponents": {}
 }

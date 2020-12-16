@@ -13,7 +13,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "我的",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
             
         }
@@ -22,7 +22,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "书架",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
             
         }
@@ -31,7 +31,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "排行",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
             
         }
@@ -40,7 +40,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
             
         }
@@ -49,11 +49,21 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "分类",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
             
         }
-      
+      ,{
+          "path" : "pages/bookdetail/bookdetail",
+          "style" :                                                                                    
+          {
+              "navigationBarTitleText": "书籍详情",
+              "enablePullDownRefresh": true,
+			  "navigationBarBackgroundColor":"#b0b0b0"
+			  
+          }
+          
+      }
     
     
       
@@ -65,15 +75,9 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#ffffff",
-		"backgroundColor": "#d0fffe",
+		"backgroundColor": "#f1f1f1",
 		"enablePullDownRefresh":true,
-		"backgroundTextStyle":"dark",
-		"disableScroll": true,
-						"h5": {
-							"pullToRefresh": {
-								"color": "#007AFF"
-							}
-						}
+		"backgroundTextStyle":"dark"
 		
 	},
 	"tabBar":{

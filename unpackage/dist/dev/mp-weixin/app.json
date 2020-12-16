@@ -5,17 +5,17 @@
     "pages/bookshelf/bookshelf",
     "pages/Ranking/Ranking",
     "pages/tobiao/tobiao",
-    "pages/classification/classification"
+    "pages/classification/classification",
+    "pages/bookdetail/bookdetail"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#ffffff",
-    "backgroundColor": "#d0fffe",
+    "backgroundColor": "#f1f1f1",
     "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark",
-    "disableScroll": true
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "color": "#ffffff",

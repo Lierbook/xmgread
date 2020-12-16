@@ -5,14 +5,15 @@
     "pages/bookshelf/bookshelf",
     "pages/Ranking/Ranking",
     "pages/tobiao/tobiao",
-    "pages/classification/classification"
+    "pages/classification/classification",
+    "pages/bookdetail/bookdetail"
   ],
   "subPackages": [],
   "window": {
     "defaultTitle": "uni-app",
     "pullRefresh": true,
     "titleBarColor": "#ffffff",
-    "backgroundColor": "#d0fffe"
+    "backgroundColor": "#f1f1f1"
   },
   "tabBar": {
     "textColor": "#ffffff",

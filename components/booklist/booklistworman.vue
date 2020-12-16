@@ -4,12 +4,12 @@
 
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item>
-				<view class="swiper-item">
+				<view class="swiper-item" @click="swiperClick1({items})">
 					<image v-bind:src="items[0].picUrl" mode="widthFix"></image>
 				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item">
+				<view class="swiper-item" @click="swiperClick2({items})">
 					<image v-bind:src="items[1].picUrl" mode="widthFix"></image>
 				</view>
 			</swiper-item>
@@ -34,8 +34,8 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox" >
-					<image v-bind:src="recommend[0].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick1({recommend})">
+					<image v-bind:src="recommend[0].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking">1</view>
 					</image>
 					<view class="righttext">
@@ -43,8 +43,8 @@
 						<view class="bottom">力荐值:<text>{{recommend[0].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[1].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick2({recommend})">
+					<image v-bind:src="recommend[1].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking">2</view>
 					</image>
 					<view class="righttext">
@@ -57,8 +57,8 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[2].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick3({recommend})">
+					<image v-bind:src="recommend[2].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking">3</view>
 					</image>
 					<view class="righttext">
@@ -67,7 +67,7 @@
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[3].picUrl" mode="widthFix" class="img001">
+					<image v-bind:src="recommend[3].picUrl" mode="widthFix" class="img001" @click="recommendClick4({recommend})">
 						<view class="ranking rankingmiddle">4</view>
 					</image>
 					<view class="righttext">
@@ -80,8 +80,8 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[4].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick5({recommend})">
+					<image v-bind:src="recommend[4].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking rankingmiddle">5</view>
 					</image>
 					<view class="righttext">
@@ -89,8 +89,8 @@
 						<view class="bottom">力荐值:<text>{{recommend[4].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[5].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick6({recommend})">
+					<image v-bind:src="recommend[5].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking rankingmiddle">6</view>
 					</image>
 					<view class="righttext">
@@ -103,8 +103,8 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[6].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick7({recommend})">
+					<image v-bind:src="recommend[6].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking rankinglast">7</view>
 					</image>
 					<view class="righttext">
@@ -112,8 +112,8 @@
 						<view class="bottom">力荐值:<text>{{recommend[6].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[7].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick8({recommend})">
+					<image v-bind:src="recommend[7].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking rankinglast">8</view>
 					</image>
 					<view class="righttext">
@@ -126,8 +126,8 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[8].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick9({recommend})">
+					<image v-bind:src="recommend[8].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking rankinglast">9</view>
 					</image>
 					<view class="righttext">
@@ -135,8 +135,8 @@
 						<view class="bottom">力荐值:<text>{{recommend[8].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[9].picUrl" mode="widthFix" class="img001">
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick10({recommend})">
+					<image v-bind:src="recommend[9].picUrl" mode="widthFix" class="img001" >
 						<view class="ranking rankinglast">10</view>
 					</image>
 					<view class="righttext">
@@ -157,10 +157,10 @@
 			</view>
 		</view>
 
-		<view class="hotbooks" :wx:for="hotbooks" wx:for-item="hotbooks">
+		<view class="hotbooks" v-for="(item, index) in hotbooks" :key="index" @click="itemClick({item})">
 			<view class="hotbooks1">
-				<image :src="hotbooks.picUrl" mode="widthFix"></image>
-				<text>{{hotbooks.bookName}}</text>
+				<image :src="item.picUrl" mode="widthFix"></image>
+				<text>{{item.bookName}}</text>
 			</view>
 
 		</view>
@@ -178,7 +178,7 @@
 
 				</view>
 				<view class="Fantasybody">
-					<view class="recommendbox1" :wx:for="Fantasybooks" wx:for-item="Fantasybooks" style="margin-top: 30rpx;font-size: 20rpx;">
+					<view class="recommendbox1" v-for="(Fantasybooks, index) in hotbooks" :key="index" @click="FantasybooksClick({Fantasybooks})" style="margin-top: 30rpx;font-size: 20rpx;">
 						<image v-bind:src="Fantasybooks.picUrl" mode="widthFix" class="img001"></image>
 						<view class="righttext">
 							<text class="top Citytop">{{Fantasybooks.bookName}}</text>
@@ -201,7 +201,7 @@
 				</view>
 
 				<view class="Fantasybody" style="font-size: 20rpx;">
-					<view class="recommendbox1" :wx:for="Citybooks" wx:for-item="Citybooks" style="margin-top: 30rpx;font-size: 20rpx;">
+					<view class="recommendbox1"  v-for="(Citybooks, index) in Citybooks" :key="index" @click="CitybooksClick({Citybooks})" style="margin-top: 30rpx;font-size: 20rpx;">
 						<image v-bind:src="Citybooks.picUrl" mode="widthFix" class="img001"></image>
 						<view class="righttext">
 							<text class="top Citytop">{{Citybooks.bookName}}</text>
@@ -218,7 +218,7 @@
 				</view>
 			</view>
 
-			<view class="HotBoutiquebox" :wx:for="HotBoutique" wx:for-item="HotBoutique" vx:key="index">
+			<view class="HotBoutiquebox" v-for="(HotBoutique, index) in hotbooks" :key="index" @click="HotBoutiqueClick({HotBoutique})">
 				<view class="HotBoutiquebooks">
 					<image :src="HotBoutique.picUrl" mode="widthFix"></image>
 					<view class="HotBoutiquebooksname">
@@ -244,15 +244,11 @@
 
 		<scroll-view scroll-x="true" class="goodworks">
 
-
-
-
-			<view class="hotbooks" :wx:for="goodworks" wx:for-item="goodworks">
+			<view class="hotbooks" v-for="(goodworks, index) in goodworks" :key="index" @click="goodworksClick({goodworks})">
 				<view class="hotbooks1">
 					<image :src="goodworks.picUrl" mode="widthFix"></image>
 					<text class="goodname">{{goodworks.bookName}}</text>
 				</view>
-
 			</view>
 
 		</scroll-view>
@@ -268,7 +264,7 @@
 					</view>
 				</view>
 
-				<view class="HotBoutiquebox" :wx:for="newbook" wx:for-item="newbook" wx:key="index">
+				<view class="HotBoutiquebox" v-for="(newbook, index) in newbook" :key="index" @click="newbookClick({newbook})">
 					<view class="HotBoutiquebooks">
 						<image :src="newbook.picUrl" mode="widthFix"></image>
 						<view class="HotBoutiquebooksname">
@@ -292,12 +288,10 @@
 </template>
 
 <script>
-	import uniLoadMore from "@/components/uni-load-more/uni-load-more.vue"
 	import icon from "../dn-icon/dn-icon.vue"
 	export default {
 		components: {
-			icon,
-			uniLoadMore
+			icon
 		},
 		data() {
 			return {
@@ -319,6 +313,8 @@
 				newbook: [],
 				newbookname: "",
 				newbookcolor: [],
+				hotitem:{},
+				bookId:"",
 			}
 		},
 		onReady: function() {
@@ -343,6 +339,7 @@
 					// console.log(hot)
 					const hotbooks = res.data.body.data[2].books
 					this.hotbooks = hotbooks
+					console.log(hotbooks[0].bookId9)
 					// 玄幻人气榜
 					const headtitle = res.data.body.data[3].sectionCategory[0]
 					this.headtitle = headtitle
@@ -411,10 +408,138 @@
 		},
 
 		methods: {
-
+			// 轮播图
+			swiperClick1(items) {
+				console.log(items.items[0].url,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id='+items.items[0].url,
+					
+			    })
+			},
+			swiperClick2(items) {
+				console.log(items.items[1].id,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id='+items.items[1].url,
+					
+			    })
+			},
+			// 力荐榜
+			// 1
+			recommendClick1(recommend) {
+				// console.log(recommend.recommend[0],"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[0].bookId,
+					
+			    })
+			},
+			// 2
+			recommendClick2(recommend) {
+				
+				console.log(recommend.recommend[1].bookId,"qqqqqqq" )
+			    uni.navigateTo({
+					
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[1].bookId,
+			    })
+			},
+			// 3
+			recommendClick3(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[2].bookId,
+			    })
+			},
+			// 4
+			recommendClick4(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[3].bookId,
+			    })
+			},
+			// 5
+			recommendClick5(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[4].bookId,
+			    })
+			},
+			// 6
+			recommendClick6(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[5].bookId,
+			    })
+			},
+			// 7
+			recommendClick7(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[6].bookId,
+			    })
+			},
+			// 8
+			recommendClick8(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[7].bookId,
+			    })
+			},
+			// 9
+			recommendClick9(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[8].bookId,
+			    })
+			},
+			// 10
+			recommendClick10(recommend) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[9].bookId,
+			    })
+			},
+			
+			// 热读
+			itemClick(hotitem) {
+				// console.log(hotitem.item.bookI d,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + hotitem.item.bookId,
+					
+			    })
+			},
+			// 玄幻
+			FantasybooksClick(Fantasybooks) {
+				// console.log(Fantasybooks.Fantasybooks.bookId,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + Fantasybooks.Fantasybooks.bookId,
+					
+			    })
+			},
+			// 都市
+			CitybooksClick(Citybooks) {
+				console.log(Citybooks.Citybooks.bookId,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + Citybooks.Citybooks.bookId,
+					
+			    })
+			},
+			// 火爆精品
+			HotBoutiqueClick(HotBoutique) {
+				// console.log(HotBoutique,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + HotBoutique.HotBoutique.bookId,
+					
+			    })
+			},
+			// 口碑佳作
+			goodworksClick(goodworks) {
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + goodworks.goodworks.bookId,
+					
+			    })
+			},
+			// 新书优选
+			newbookClick(newbook) {
+				console.log(newbook,"1222222222121212")
+			    uni.navigateTo({
+			        url: '/pages/bookdetail/bookdetail?id=' + newbook.newbook.bookId,
+					
+			    })
+			},
 		}
 	}
-</script>
+</script >
 <style lang="scss" style="scoped">
 	// body{
 	// 	background-color: #0055ff;
