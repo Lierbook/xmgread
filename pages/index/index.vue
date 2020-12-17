@@ -2,7 +2,7 @@
 	<view class="content">
 		<aloys-tab :tabs="tabs" @change="onTabChange">
 			<view slot="content0" class="xxx">
-			  <lv-select
+			 <!-- <lv-select
 			        @handleSearch = "handleSearch"
 			        @change = "change"
 			        placeholder = "请输入信息"
@@ -12,11 +12,11 @@
 			        :loading = "loading"
 			        type = "success "
 			        :uniShadow = "true"
-			        ></lv-select>
+			        ></lv-select> -->
 			<booklist></booklist>
 			</view>
 			<view slot="content1" class="xxx">
-				<lv-select
+				<!-- <lv-select
 				        @handleSearch = "handleSearch"
 				        @change = "change"
 				        placeholder = "请输入信息"
@@ -26,7 +26,7 @@
 				        :loading = "loading"
 				        type = "success "
 				        :uniShadow = "true"
-				        ></lv-select>
+				        ></lv-select> -->
 				<booklistworman></booklistworman>
 			</view>
 			<view slot="content2" class="xxx">C</view>
@@ -53,6 +53,7 @@
 		},
 		data() {
 			return {
+				picUrl:"",
 				 loading: false,
                 showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
                 searchValue: '',

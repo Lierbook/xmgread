@@ -52,15 +52,15 @@
 				<text>{{item.bookName}}</text>
 			</view> -->
 			<view class="recommenList">
-				<view class="recommend">
+				<view class="recommend" @click=bookClick1({newBooksRecommend})>
 					<image :src="newBooksRecommend[0].picUrl"></image>
 					<text>{{newBooksRecommend[0].bookName}}</text>
 				</view>
-				<view class="recommend">
+				<view class="recommend" @click=bookClick2({newBooksRecommend})>
 					<image :src="newBooksRecommend[1].picUrl"></image>
 					<text>{{newBooksRecommend[1].bookName}}</text>
 				</view>
-				<view class="recommend">
+				<view class="recommend" @click=bookClick3({newBooksRecommend})>
 					<image :src="newBooksRecommend[2].picUrl"></image>
 					<text>{{newBooksRecommend[2].bookName}}</text>
 				</view>
@@ -71,7 +71,7 @@
 </template>
 
 <script>
-	import uniGoodsNav from '@/components/uni-goods-nav/uni-goods-nav.vue'
+	import uniGoodsNav from '@/components/uni-ui/uni-goods-nav/uni-goods-nav.vue'
 	export default {
 		components: {
 			uniGoodsNav
@@ -122,7 +122,9 @@
 			console.log(options.id, "xxxxxxxxx")
 			this.getData();
 		},
+		
 		methods: {
+
 			async getData() {
 				await uni.request({
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.id,
@@ -164,6 +166,7 @@
 						this.tag = tag;
 						//评论
 						const commentList = res.data.body.commentList;
+						this.commentList=commentList
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
@@ -180,22 +183,28 @@
 				)
 			},
 			//点击添加
-			addBook() {
-				let tmp = {
-					id: this.id,
-					cover: this.cover,
-					title: this.dataObj.title
-				};
-				this.$store.commit('novel/ADD_BOOK', tmp);
+			bookClick1(newBooksRecommend) {
+			  this.id=newBooksRecommend.newBooksRecommend[0].bookId; 
+			  this.getData();
 			},
+			bookClick2(newBooksRecommend) {
+				this.id=newBooksRecommend.newBooksRecommend[1].bookId;
+				this.getData();
 			
+			},
+			bookClick3(newBooksRecommend) {
+				this.id=newBooksRecommend.newBooksRecommend[2].bookId;
+				this.getData();
+			
+			},
 			
 		},
 		onPullDownRefresh() {
 			uni.stopPullDownRefresh();
 			uni.hideNavigationBarLoading();
 			this.getData();
-		}
+		},
+		
 	}
 </script>
 

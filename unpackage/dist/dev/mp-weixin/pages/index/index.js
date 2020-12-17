@@ -103,11 +103,8 @@ var components = {
   aloysTab: function() {
     return __webpack_require__.e(/*! import() | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then(__webpack_require__.bind(null, /*! @/components/aloys-tab/aloys-tab.vue */ 62))
   },
-  lvSelect: function() {
-    return __webpack_require__.e(/*! import() | components/lv-select/lv-select */ "components/lv-select/lv-select").then(__webpack_require__.bind(null, /*! @/components/lv-select/lv-select.vue */ 71))
-  },
   booklist: function() {
-    return __webpack_require__.e(/*! import() | components/booklist/booklist */ "components/booklist/booklist").then(__webpack_require__.bind(null, /*! @/components/booklist/booklist.vue */ 78))
+    return __webpack_require__.e(/*! import() | components/booklist/booklist */ "components/booklist/booklist").then(__webpack_require__.bind(null, /*! @/components/booklist/booklist.vue */ 71))
   }
 }
 var render = function() {
@@ -145,7 +142,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var booklist = function booklist() {__webpack_require__.e(/*! require.ensure | components/booklist/booklist */ "components/booklist/booklist").then((function () {return resolve(__webpack_require__(/*! ../../components/booklist/booklist.vue */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var icon = function icon() {__webpack_require__.e(/*! require.ensure | components/dn-icon/dn-icon */ "components/dn-icon/dn-icon").then((function () {return resolve(__webpack_require__(/*! ../../components/dn-icon/dn-icon.vue */ 85));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var booklistworman = function booklistworman() {__webpack_require__.e(/*! require.ensure | components/booklist/booklistworman */ "components/booklist/booklistworman").then((function () {return resolve(__webpack_require__(/*! ../../components/booklist/booklistworman.vue */ 92));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var aloysTab = function aloysTab() {__webpack_require__.e(/*! require.ensure | components/aloys-tab/aloys-tab */ "components/aloys-tab/aloys-tab").then((function () {return resolve(__webpack_require__(/*! @/components/aloys-tab/aloys-tab.vue */ 62));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var lvSelect = function lvSelect() {__webpack_require__.e(/*! require.ensure | components/lv-select/lv-select */ "components/lv-select/lv-select").then((function () {return resolve(__webpack_require__(/*! ../../components/lv-select/lv-select */ 78));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var booklist = function booklist() {__webpack_require__.e(/*! require.ensure | components/booklist/booklist */ "components/booklist/booklist").then((function () {return resolve(__webpack_require__(/*! ../../components/booklist/booklist.vue */ 71));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var icon = function icon() {__webpack_require__.e(/*! require.ensure | components/dn-icon/dn-icon */ "components/dn-icon/dn-icon").then((function () {return resolve(__webpack_require__(/*! ../../components/dn-icon/dn-icon.vue */ 85));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var booklistworman = function booklistworman() {__webpack_require__.e(/*! require.ensure | components/booklist/booklistworman */ "components/booklist/booklistworman").then((function () {return resolve(__webpack_require__(/*! ../../components/booklist/booklistworman.vue */ 92));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -200,6 +197,7 @@ __webpack_require__.r(__webpack_exports__);
 
   data: function data() {
     return {
+      picUrl: "",
       loading: false,
       showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
       searchValue: '',

@@ -295,6 +295,7 @@
 		},
 		data() {
 			return {
+				picUrl:"",
 				items: [],
 				title: "",
 				recommend: [],

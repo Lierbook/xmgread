@@ -72,7 +72,11 @@
     "mp-toutiao" : {
         "usingComponents" : true
     },
-    "uniStatistics": {  
-        "enable": false
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "h5" : {
+        "title" : "小说阅读器项目",
+        "domain" : "xiaomage.ltd"
     }
 }

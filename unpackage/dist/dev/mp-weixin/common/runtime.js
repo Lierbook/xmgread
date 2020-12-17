@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/aloys-tab/aloys-tab":1,"components/booklist/booklist":1,"components/booklist/booklistworman":1,"components/dn-icon/dn-icon":1,"components/lv-select/lv-select":1,"components/uni-goods-nav/uni-goods-nav":1,"components/uni-icons/uni-icons":1};
+/******/ 		var cssChunks = {"components/aloys-tab/aloys-tab":1,"components/booklist/booklist":1,"components/booklist/booklistworman":1,"components/dn-icon/dn-icon":1,"components/lv-select/lv-select":1,"components/uni-ui/uni-goods-nav/uni-goods-nav":1,"components/uni-ui/uni-icons/uni-icons":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/aloys-tab/aloys-tab":"components/aloys-tab/aloys-tab","components/booklist/booklist":"components/booklist/booklist","components/booklist/booklistworman":"components/booklist/booklistworman","components/dn-icon/dn-icon":"components/dn-icon/dn-icon","components/lv-select/lv-select":"components/lv-select/lv-select","components/uni-goods-nav/uni-goods-nav":"components/uni-goods-nav/uni-goods-nav","components/uni-icons/uni-icons":"components/uni-icons/uni-icons"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/aloys-tab/aloys-tab":"components/aloys-tab/aloys-tab","components/booklist/booklist":"components/booklist/booklist","components/booklist/booklistworman":"components/booklist/booklistworman","components/dn-icon/dn-icon":"components/dn-icon/dn-icon","components/lv-select/lv-select":"components/lv-select/lv-select","components/uni-ui/uni-goods-nav/uni-goods-nav":"components/uni-ui/uni-goods-nav/uni-goods-nav","components/uni-ui/uni-icons/uni-icons":"components/uni-ui/uni-icons/uni-icons"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {
