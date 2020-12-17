@@ -25,8 +25,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/classification/classification",
-          "pathName": "pages/classification/classification",
+          "name": "pages/details/details",
+          "pathName": "pages/details/details",
           "scene": null
         }
       ]

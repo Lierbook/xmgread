@@ -6,6 +6,7 @@
     "pages/Ranking/Ranking",
     "pages/tobiao/tobiao",
     "pages/classification/classification",
+    "pages/details/details",
     "components/booklist/booklist"
   ],
   "subPackages": [],
@@ -20,6 +21,7 @@
     "selectedColor": "#aaaa00",
     "borderStyle": "white",
     "backgroundColor": "#CCCCCC",
+    "fontSize": "60px",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -54,5 +56,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap35.json"
+  "sitemapLocation": "sitemap76.json"
 }

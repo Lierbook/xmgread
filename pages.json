@@ -51,7 +51,16 @@
                 "enablePullDownRefresh": false
             }
             
-        }
+        },
+		{
+		    "path" : "pages/details/details",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "都市",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		}
         ,{
             "path" : "components/booklist/booklist",
             "style" :                                                                                    
@@ -61,6 +70,7 @@
             }
             
         }
+			
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -73,6 +83,7 @@
 		    "selectedColor": "#aaaa00",
 		    "borderStyle": "white",
 		    "backgroundColor": "#CCCCCC",
+			"fontSize":"60px",
 		    "list": [
 		      {
 		        "pagePath": "pages/index/index",
