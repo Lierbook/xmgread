@@ -68,7 +68,7 @@
 .pics .right .right-box .right-boxs {
         border-radius: 10rpx;
         position: relative;
-        background: #F8F8FF;
+        box-shadow: 2px 2px 5px #C8C7CC;
 }
 .pics .right .right-box .right-boxs text {
           border-radius: 10rpx 10rpx 0rpx 0rpx;
@@ -86,10 +86,20 @@
           box-sizing: border-box;
           width: 90%;
           height: 70%;
-          margin: auto;
 }
 .pics .right .right-box .right-boxs .img image {
-            width: 50%;
-            height: 70%;
+            z-index: 1;
+            top: 0rpx;
+            left: 10rpx;
+}
+.pics .right .right-box .right-boxs .img .a {
+            width: 100rpx;
+            height: 90rpx;
+}
+.pics .right .right-box .right-boxs .img .img-b {
+            position: absolute;
+            right: 20rpx;
+            width: 70rpx;
+            height: 100rpx;
 }
 

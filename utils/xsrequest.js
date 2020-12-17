@@ -3,6 +3,7 @@ const baseUrl="http://42.193.168.201:8082"
 export function myRequestGet(url,data){
 	return new Promise((resolve,reject)=>{
 		uni.request({
+			
 			url:baseUrl+url,
 			method:"GET",
 			data:data,

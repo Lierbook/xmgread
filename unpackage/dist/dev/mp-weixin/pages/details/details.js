@@ -149,6 +149,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
@@ -164,8 +166,8 @@ var _default =
 
 
   },
-  onLoad: function onLoad(opcition) {
-    this.id = opcition.id;
+  onLoad: function onLoad(options) {
+    this.id = options.id;
   },
 
   onReady: function onReady() {var _this = this;
@@ -193,8 +195,9 @@ var _default =
 
   methods: {
     goBookDetail: function goBookDetail(item) {
+      // console.log(item.bookId,"dddddddddddddd")
       uni.navigateTo({
-        url: "../bookdetail/bookdetail" });
+        url: "../bookdetail/bookdetail?id=" + item.bookId });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

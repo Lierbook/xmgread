@@ -67,6 +67,10 @@
                 "enablePullDownRefresh": false
             }   
         }
+        ,{
+            "path" : "pages/bookdetail/bookdetail",
+            "style" : {}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

@@ -4,19 +4,22 @@
 			<view @click="leftClickNav(index,item)" v-for="(item,index) in name" :key="item.name" :class="{'active':active==index}">{{item.name}}</view>
 		</scroll-view>
 		<scroll-view class="right" scroll-y>
+
 			<block v-for="item in items" :key="item.categoryId">
 				<!-- 跳转详情页面 -->
+
 				<view class="right-box" @click="details(item)">
 					<view class="right-boxs" style="width: 100%; height: 100%;">
-						<text space="nbsp">{{   item.name}}</text>
+						<text space="nbsp">{{ item.name}}</text>
 						<view class="img">
-							<!-- <image @click="previewImg(item.img_url)" :src="item.pics[1]"> -->
-								<image :src="item.pics[0]">
-							</image>
+							<image :src="item.pics[0]" class="img-b"></image>
+							<image :src="item.pics[1]" class="a"></image>
+
 						</view>
 					</view>
 				</view>
-			</block> 
+			</block>
+
 		</scroll-view>
 	</view>
 </template>
@@ -33,17 +36,19 @@
 		},
 		onReady: function() {
 			uni.request({
+
 				url: 'https://wechat.idejian.com/api/wechat/category',
 				success: (res) => {
 					let name = res.data.body.data;
 					// console.log(name,"fffffffffffffffffffffffffffffffffffffff")
 					this.name = name;
 					this.items = this.name[0].items;
+
 				}
+
 			})
 		},
 		methods: {
-
 			leftClickNav(index, item) {
 				this.active = index;
 				// 右边栏
@@ -53,9 +58,11 @@
 				// console.log(this.name[index], "sdfdfdfjhjjj ")
 			},
 			//跳转详情页面
-			details(item){
+			details(item) {
+				
 				uni.navigateTo({
-					url:"../details/details?id="+item.categoryId
+					
+					url: "../details/details?id=" + item.categoryId
 				})
 			}
 		}
@@ -108,7 +115,8 @@
 					border-radius: 10rpx;
 					position: relative;
 					// border: 1px solid red;
-					background: #F8F8FF;
+					// background: #F8F8FF;
+					box-shadow: 2px 2px 5px #C8C7CC;
 
 					text {
 						border-radius: 10rpx 10rpx 0rpx 0rpx;
@@ -128,12 +136,31 @@
 						box-sizing: border-box;
 						width: 90%;
 						height: 70%;
-						margin: auto;
 
 						image {
-							width: 50%;
-							height: 70%;
+							// position: absolute;
+							z-index: 1;
+							top: 0rpx;
+							left: 10rpx;
+
 						}
+
+						.a {
+							width: 100rpx;
+							height: 90rpx;
+							// position: absolute;
+							// left: 10rpx;
+
+						}
+
+						.img-b {
+
+							position: absolute;
+							right: 20rpx;
+							width: 70rpx;
+							height: 100rpx;
+						}
+
 					}
 				}
 

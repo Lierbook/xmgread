@@ -2,13 +2,15 @@
 	<view class="box">
 		<view class="top">
 			<view class="top-but">
-				<button class="active" hover-class='button-hover'>全部</button>
+				<button class="active"  hover-class='button-hover'>全部</button>
 				<button class="active" v-for="option in options" :key="option.id">{{option.name}}</button>
 			</view>
 			<view class="top-but">
-				<button class="active" v-for="(item,index) in items" :key="item.id" >{{item.name}}</button>
+				<button class="active" v-for="item in items" :key="item.id">{{item.name}}</button>
 			</view>
 		</view>
+		<!-- #ifdef H5 -->
+		<!-- #endif -->
 		<view class="below">
 			<view class="below-box" v-for="item in books" :key="item.bookId" @click="goBookDetail(item)">
 				<view class="below-left">
@@ -34,16 +36,16 @@
 				books: [],
 				items: [],
 				options: [],
-				
-				
+
+
 
 
 			}
 		},
-		onLoad(opcition) {
-			this.id = opcition.id
+		onLoad(options) {
+			this.id = options.id
 		},
-		
+
 		onReady: function() {
 			uni.request({
 				url: `https://wechat.idejian.com/api/wechat/subcategory?categoryId=${this.id}&resourcesId=28&order=1&filterInfo=&page=1`,
@@ -55,22 +57,23 @@
 					// console.log(this.books)
 					this.items = re.category.sort.items;
 					this.options = re.category.filter[0].options;
-					
+
 					//在页面渲染生命函数中设置导航栏信息
 					uni.setNavigationBarTitle({
-					    title: this.name
+						title: this.name
 					});
 				}
 			})
 
 
 		},
-		
+
 
 		methods: {
-			goBookDetail(item){
+			goBookDetail(item) {
+				// console.log(item.bookId,"dddddddddddddd")
 				uni.navigateTo({
-					url:"../bookdetail/bookdetail"
+					url:"../bookdetail/bookdetail?id="+item.bookId
 				})
 			}
 		}
@@ -96,7 +99,8 @@
 					color: #777777;
 					margin: 0 3rpx;
 				}
-				.active:hover{
+
+				.active:hover {
 					color: red;
 					background: pink;
 				}
@@ -116,8 +120,6 @@
 					width: 30%;
 					height: 300rpx;
 					float: left;
-
-					.active {}
 				}
 
 				.below-right {

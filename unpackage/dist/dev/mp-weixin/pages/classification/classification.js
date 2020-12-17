@@ -145,6 +145,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 var _default =
 {
   data: function data() {
@@ -157,17 +160,19 @@ var _default =
   },
   onReady: function onReady() {var _this = this;
     uni.request({
+
       url: 'https://wechat.idejian.com/api/wechat/category',
       success: function success(res) {
         var name = res.data.body.data;
         // console.log(name,"fffffffffffffffffffffffffffffffffffffff")
         _this.name = name;
         _this.items = _this.name[0].items;
+
       } });
+
 
   },
   methods: {
-
     leftClickNav: function leftClickNav(index, item) {
       this.active = index;
       // 右边栏
@@ -178,7 +183,9 @@ var _default =
     },
     //跳转详情页面
     details: function details(item) {
+
       uni.navigateTo({
+
         url: "../details/details?id=" + item.categoryId });
 
     } } };exports.default = _default;
