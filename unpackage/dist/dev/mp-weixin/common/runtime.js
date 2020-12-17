@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/aloys-tab/aloys-tab":1,"components/lv-select/lv-select":1,"components/uni-ui/uni-list-item/uni-list-item":1,"components/uni-ui/uni-list/uni-list":1,"components/dn-icon/dn-icon":1,"components/uni-ui/uni-icons/uni-icons":1,"components/uni-ui/uni-badge/uni-badge":1};
+/******/ 		var cssChunks = {"components/aloys-tab/aloys-tab":1,"components/lv-select/lv-select":1,"components/uni-ui/uni-list-item/uni-list-item":1,"components/uni-ui/uni-list/uni-list":1,"components/dn-icon/dn-icon":1,"components/uni-ui/uni-pagination/uni-pagination":1,"components/uni-ui/uni-icons/uni-icons":1,"components/uni-ui/uni-badge/uni-badge":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/aloys-tab/aloys-tab":"components/aloys-tab/aloys-tab","components/lv-select/lv-select":"components/lv-select/lv-select","components/uni-ui/uni-list-item/uni-list-item":"components/uni-ui/uni-list-item/uni-list-item","components/uni-ui/uni-list/uni-list":"components/uni-ui/uni-list/uni-list","components/dn-icon/dn-icon":"components/dn-icon/dn-icon","components/uni-ui/uni-icons/uni-icons":"components/uni-ui/uni-icons/uni-icons","components/uni-ui/uni-badge/uni-badge":"components/uni-ui/uni-badge/uni-badge"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/aloys-tab/aloys-tab":"components/aloys-tab/aloys-tab","components/lv-select/lv-select":"components/lv-select/lv-select","components/uni-ui/uni-list-item/uni-list-item":"components/uni-ui/uni-list-item/uni-list-item","components/uni-ui/uni-list/uni-list":"components/uni-ui/uni-list/uni-list","components/dn-icon/dn-icon":"components/dn-icon/dn-icon","components/uni-ui/uni-pagination/uni-pagination":"components/uni-ui/uni-pagination/uni-pagination","components/uni-ui/uni-icons/uni-icons":"components/uni-ui/uni-icons/uni-icons","components/uni-ui/uni-badge/uni-badge":"components/uni-ui/uni-badge/uni-badge"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

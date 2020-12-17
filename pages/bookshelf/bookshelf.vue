@@ -2,8 +2,8 @@
 	<view class="content">
 		<view class="zi">书架</view>
 		<view class="zt"><text class="z1">共<text class="jiu">{{books.length}}</text>本书</text></view>
-		<view class="delete" @click="detele">
-			<text>删除</text>
+		<view class="delete" >
+			<text @click="detele()">{{msg}}</text>
 		</view>
 		<uni-list>
 			<uni-list-item v-for="item in books" :key="item.lastChapterId" link to=""  :thumb="item.picUrl" thumbSize="lg">
@@ -30,7 +30,9 @@
 	export default {
 		data() {
 			return {
-				books: []
+				books: [],
+				msg:"删除",
+				
 			}
 		},
 		onLoad() {
@@ -47,6 +49,10 @@
 					url:`/pages/bookshelfs/bookshelfs?id=${item.bookId}`
 					
 				})
+			},
+			detele(){
+				console.log(333)
+					this.msg = "完成"
 			}
 			
 			
@@ -165,5 +171,6 @@
 		margin-top: -70rpx;
 		margin-right: 20rpx;
 	}
+	
 	
 </style>

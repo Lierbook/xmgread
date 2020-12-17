@@ -25,20 +25,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/my/my",
-          "pathName": "pages/my/my",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/bookshelf/bookshelf",
           "pathName": "pages/bookshelf/bookshelf",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/my/my",
-          "pathName": "pages/my/my",
           "scene": null
         }
       ]

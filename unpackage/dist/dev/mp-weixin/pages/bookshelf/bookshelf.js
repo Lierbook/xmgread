@@ -150,11 +150,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _zgrequest = _interopRequireDefault(__webpack_require__(/*! ../../utils/zgrequest.js */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniList = function uniList() {return __webpack_require__.e(/*! import() | components/uni-ui/uni-list/uni-list */ "components/uni-ui/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/components/uni-ui/uni-list/uni-list.vue */ 96));};var uniListItem = function uniListItem() {return __webpack_require__.e(/*! import() | components/uni-ui/uni-list-item/uni-list-item */ "components/uni-ui/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/components/uni-ui/uni-list-item/uni-list-item.vue */ 103));};var _default =
+var _zgrequest = _interopRequireDefault(__webpack_require__(/*! ../../utils/zgrequest.js */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniList = function uniList() {return __webpack_require__.e(/*! import() | components/uni-ui/uni-list/uni-list */ "components/uni-ui/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/components/uni-ui/uni-list/uni-list.vue */ 98));};var uniListItem = function uniListItem() {return __webpack_require__.e(/*! import() | components/uni-ui/uni-list-item/uni-list-item */ "components/uni-ui/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/components/uni-ui/uni-list-item/uni-list-item.vue */ 105));};var _default =
 {
   data: function data() {
     return {
-      books: [] };
+      books: [],
+      msg: "删除" };
+
 
   },
   onLoad: function onLoad() {
@@ -171,6 +173,10 @@ var _zgrequest = _interopRequireDefault(__webpack_require__(/*! ../../utils/zgre
         url: "/pages/bookshelfs/bookshelfs?id=".concat(item.bookId) });
 
 
+    },
+    detele: function detele() {
+      console.log(333);
+      this.msg = "完成";
     } },
 
 
