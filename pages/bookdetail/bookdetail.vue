@@ -26,7 +26,7 @@
 		</view>
 		<view class="comment">
 			<p>热评</p>
-			<view class="nocomment" v-show="commentList==''">
+			<view class="nocomment" v-show="commentList[0]==null">
 				抱歉，本书暂无评论
 			</view>
 			<view class="commentlist">
@@ -73,7 +73,7 @@
 	export default {
 		data() {
 			return {
-				id: '12324051', //小说id
+				id: '11625227', //小说id
 				dataObj: {},
 				bookInfos: {},
 				bookname: "",
@@ -137,6 +137,7 @@
 						this.tag = tag;
 						//评论
 						const commentList = res.data.body.commentList;
+						this.commentList=commentList;
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
