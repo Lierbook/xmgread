@@ -8,7 +8,6 @@
 					<view>|</view>
 					<view class="type">{{category}}</view>
 				</view>
-
 				<view class="information2">
 					<view class="words">{{wordCount}}</view>
 					<view class="popularity">{{popularity}}</view>
@@ -16,23 +15,16 @@
 				<view class="score">
 					<text>{{bookRating}}分</text>
 				</view>
-
 			</view>
-
 			<image :src="picUrl" mode="" class="pho"></image>
-
 		</view>
 		<view class="introduction">
 			<view class="description">
 				<view class="desc"><text>{{desc}}</text></view>
 				<view class="Tag">
 					<view class="tag" v-for="tag in bookstag">{{tag}}</view>
-					
-					
 				</view>
 			</view>
-
-
 			<view class="catalogue">
 				<text class="list">目录</text>
 				<view class="situation">
@@ -43,28 +35,13 @@
 		</view>
 		<view class="Comment">
 			<text class="hotCom">热评</text>
-			<view class="comBox1">
+			<view class="comBox1" v-for="comment in commentList">
 				<view class="comment">
-					<image :src="commentList[0].avatar" class="person"></image>
-					<view class="comPer">{{commentList[0].nick}}</view>
+					<image :src="comment.avatar" class="person"></image>
+					<view class="comPer">{{comment.nick}}</view>
 				</view>
-				<view class="comCon">{{commentList[0].content}}</view>
+				<view class="comCon">{{comment.content}}</view>
 			</view>
-			<view class="comBox2">
-				<view class="comment">
-					<image :src="commentList[1].avatar" class="person"></image>
-					<view class="comPer">{{commentList[1].nick}}</view>
-				</view>
-				<view class="comCon">{{commentList[1].content}}</view>
-			</view>
-			<view class="comBox3">
-				<view class="comment">
-					<image :src="commentList[2].avatar" class="person"></image>
-					<view class="comPer">{{commentList[2].nick}}</view>
-				</view>
-				<view class="comCon">{{commentList[2].content}}</view>
-			</view>
-
 		</view>
 		<view class="others">
 			<view class="recommendation">
@@ -74,41 +51,32 @@
 					<text class="change">换一换</text>
 				</view>
 			</view>
-
-
 			<view class="otherBook">
-				<view class="bookbox">
-					<image :src="newBooksRecommend[0].picUrl" mode="" class="pho1"></image>
-					<view class="tit"><text>{{newBooksRecommend[0].bookName}}</text></view>
-				</view>
-				<view class="bookbox">
-					<image :src="newBooksRecommend[1].picUrl" mode="" class="pho1"></image>
-					<view class="tit"><text>{{newBooksRecommend[1].bookName}}</text></view>
-				</view>
-				<view class="bookbox">
-					<image :src="newBooksRecommend[2].picUrl" mode="" class="pho1"></image>
-					<view class="tit"><text>{{newBooksRecommend[2].bookName}}</text></view>
+				<view class="bookbox" v-for="newBooks in newBooksRecommend" @click="goAbout(newBooks.bookId)">
+					<image :src="newBooks.picUrl" mode="" class="pho1"></image>
+					<view class="tit"><text>{{newBooks.bookName}}</text></view>
 				</view>
 			</view>
 		</view>
 		<view class="read">
-					<view class="left">
-						<view class="Share">
-							<image src="../../static/tabbar/微信图片_20201216183815.png" class="weChat"></image>
-							<text class="share">分享给好友</text>
-						</view>
-						<view class="bookrack">
-							<image src="../../static/tabbar/书架图片_20201216183829.png" class="bookshelf"></image>
-							<text class="add">加入书架</text>
-						</view>
-					</view>
-					<view class="readNow">立即阅读</view>
+			<view class="left">
+				<view class="Share">
+					<!-- 通过 navigator 声明式导航跳转页面 -->
+					<navigator url="../weChatLogin/weChatLogin" hover-class="none">
+						<image src="../../static/tabbar/微信.png" class="weChat"></image>
+						<text class="share">分享给好友</text>
+					</navigator>
 				</view>
-
+				<!-- 通过编程式导航跳转页面 -->
+				<view class="bookrack" @click="goWeChatLogin">
+					<image src="../../static/tabbar/加入书架.png" class="bookshelf"></image>
+					<text class="add">加入书架</text>
+				</view>
+			</view>
+			<view class="readNow" @click="goWeChatLogin">立即阅读</view>
+		</view>
 	</view>
-
 </template>
-
 <script>
 	export default {
 		data() {
@@ -136,13 +104,11 @@
 			}
 		},
 		onLoad(options) {
-					console.log(options.bookId);
-					this.bookId=options.bookId
-					// this.detail(options.bookId)
-					
-					
-				},
-				
+			console.log(options.bookId);
+			this.bookId = options.bookId
+			// this.detail(options.bookId)
+		},
+
 		// created() {
 		// 	// this.id = this.$mp.query.id;
 		// 	this.getData();
@@ -170,10 +136,18 @@
 			}); */
 		},
 		methods: {
-			onReady: function(){
+			goAbout(bookId) {
+				uni.navigateTo({
+					url: '/pages/detail/detail?bookId=' + bookId,
+				})
+			},
+
+
+			onReady: function() {
 				uni.request({
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.bookId,
 					success: (res) => {
+						console.log(res);
 						const bookInfos = res.data.body;
 						console.log(bookInfos, "xxxxxxxxxx");
 						//书名
@@ -225,19 +199,21 @@
 						})
 						console.log(newTag); */
 						//评论
-						const commentList = res.data.body.commentList;
+						const commentList = res.data.body.commentList.slice(0, 3);
 						this.commentList = commentList;
-						console.log(commentList)
-						console.log(commentList[0].avatar);
-						console.log(commentList[0].nick);
-						console.log(commentList[0].content);
+						// console.log(res.data.body.commentList[1]);
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
-						console.log(newBooksRecommend[0].bookName);
-						console.log(newBooksRecommend[0].picUrl);
 
 					}
+				})
+			},
+			//点击跳转页面
+			goWeChatLogin() {
+				uni.navigateTo({
+					//跳转至微信一键登录页面
+					url: "../weChatLogin/weChatLogin",
 				})
 			},
 
@@ -276,6 +252,7 @@
 			height: 300rpx;
 
 			.book_name {
+				width: 380rpx;
 				color: #FAFAFA;
 				font-size: 28rpx;
 				margin-top: 50rpx;
@@ -326,7 +303,7 @@
 			}
 
 			.pho {
-				margin-left: 200rpx;
+				margin-left: 100rpx;
 				margin-top: 30rpx;
 				width: 200rpx;
 				height: 240rpx;
@@ -368,9 +345,7 @@
 					margin-top: 20rpx;
 					margin-left: -20rpx;
 					// background-color: #007AFF;
-					
 
-					
 					.tag {
 						width: 120rpx;
 						height: 46rpx;
@@ -382,7 +357,7 @@
 						line-height: 46rpx;
 						text-align: center;
 						margin-left: 20rpx;
-						
+
 					}
 				}
 			}
@@ -401,7 +376,7 @@
 					text-align: center;
 					font-size: 40rpx;
 					font-weight: bold;
-					padding-right: 100rpx;
+					padding-right: 150rpx;
 				}
 
 				.situation {
@@ -424,7 +399,7 @@
 
 		.Comment {
 			width: 100%;
-			height: 700rpx;
+			height: 750rpx;
 			background-color: #F4F4F4;
 			margin-top: 10rpx;
 			border-bottom: 1rpx solid #C8C7CC;
@@ -433,38 +408,38 @@
 				color: #000;
 				font-size: 40rpx;
 				font-weight: bold;
-				margin-left: 40rpx;
+				margin-left: 35rpx;
 			}
 
 			.comment {
-				width: 300rpx;
+				width: 630rpx;
 				height: 60rpx;
 				margin-top: 30rpx;
 				margin-left: 35rpx;
-				// background-color: #000;
 				display: flex;
 				flex-direction: row;
-				justify-content: space-around;
+				// justify-content: space-around;
 
 				.person {
 					width: 50rpx;
 					height: 50rpx;
 					border: 1rpx solid #FFFFFF;
 					border-radius: 50%;
-					padding-left: 0rpx;
 				}
 
 				.comPer {
-					width: 200rpx;
+					width: 430rpx;
 					height: 50rpx;
 					color: #808080;
 					font-size: 30rpx;
+					margin-left: 10rpx;
+					margin-top: 5rpx;
 				}
 			}
 
 			.comCon {
 				width: 90%;
-				height: 110rpx;
+				height: 120rpx;
 				font-size: 28rpx;
 				letter-spacing: 2rpx;
 				margin-left: 40rpx;
@@ -485,7 +460,7 @@
 
 		.others {
 			width: 100%;
-			height: 550rpx;
+			height: 570rpx;
 			background-color: #F4F4F4;
 
 			.recommendation {
@@ -521,7 +496,7 @@
 			.otherBook {
 				// margin-top: 15rpx;
 				width: 100%;
-				height: 350rpx;
+				height: 370rpx;
 				display: flex;
 				flex-direction: row;
 				justify-content: space-around;
@@ -541,7 +516,7 @@
 
 					.tit {
 						width: 190rpx;
-						height: 70rpx;
+						height: 75rpx;
 						font-size: 28rpx;
 						letter-spacing: 3rpx;
 						font-weight: bold;
@@ -563,81 +538,79 @@
 			}
 		}
 
-		
-		
 		.read {
-					display: flex;
-					flex-direction: row;
-					justify-content: space-around;
-					width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			width: 100%;
+			height: 120rpx;
+			background-color: #F4F4F4;
+			//将底部固定且不影响滚动
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			bottom: var(--window-bottom, 0);
+
+			.left {
+				width: 50%;
+				height: 115rpx;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+
+				.Share {
+					width: 50%;
 					height: 100rpx;
-					background-color: #F4F4F4;
-					//将底部固定且不影响滚动
-					position: fixed;
-					bottom: 0;
-					left: 0;
-					bottom: var(--window-bottom, 0);
-		
-					.left {
-						width: 50%;
-						display: flex;
-						flex-direction: row;
-						justify-content: space-around;
-		
-						.Share {
-							width: 50%;
-							display: flex;
-							flex-direction: column;
-							justify-content: space-around;
-							
-		
-							.weChat {
-								width: 100rpx;
-								height: 100rpx;
-								margin-left: 40rpx;
-							}
-						}
-		
-						.bookrack {
-							width: 50%;
-							display: flex;
-							flex-direction: column;
-							justify-content: space-around;
-							
-		
-							.bookshelf {
-								width: 65rpx;
-								height: 65rpx;
-								margin-left: 50rpx;
-							}
-						}
-		
-						.share,
-						.add {
-							width: 100%;
-							margin-left: 40rpx;
-							color: #000;
-							font-size: 24rpx;
-							// margin-top: 60rpx;
-							// padding-left: 20rpx;
-						}
-		
-						
-		
-					}
-		
-					.readNow {
-						width: 50%;
-						color: #FAFAFA;
-						line-height: 100rpx;
-						font-size: 38rpx;
-						background-color: #EE0000;
-						text-align: center;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+
+					.weChat {
+						width: 75rpx;
+						height: 75rpx;
+						margin-top: 10rpx;
+						margin-left: 50rpx;
+						// background-color: #4CD964;
 					}
 				}
-		
 
+				.bookrack {
+					width: 50%;
+					height: 115rpx;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-around;
+					// background-color: #F0AD4E;
 
+					.bookshelf {
+						width: 70rpx;
+						height: 70rpx;
+						margin-left: 50rpx;
+						// background-color: #4CD964;
+					}
+				}
 
+				.share,
+				.add {
+					width: 100%;
+					height: 25rpx;
+					margin-left: 40rpx;
+					color: #000;
+					font-size: 24rpx;
+					// background-color: #007AFF;
+					// margin-top: 60rpx;
+					// padding-left: 20rpx;
+				}
+			}
+
+			.readNow {
+				width: 50%;
+				color: #FAFAFA;
+				line-height: 115rpx;
+				font-size: 38rpx;
+				background-color: #EE0000;
+				text-align: center;
+			}
+		}
 	}
 </style>

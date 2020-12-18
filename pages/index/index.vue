@@ -3,24 +3,31 @@
 		<aloys-tab :tabs="tabs" @change="onTabChange">
 			<view slot="content0" class="xxx">
 				<lv-select @handleSearch="handleSearch" @change="change" placeholder="请输入信息" :infoList="infoList" :showValue="showValue"
-				 v-model="searchValue" :loading="loading" type="success " :uniShadow="true">
-				</lv-select>
+				 v-model="searchValue" :loading="loading" type="success " :uniShadow="true"></lv-select>
 			</view>
-			<view slot="content1" class="xxx">B</view>
-			<view slot="content2" class="xxx">C</view>
-				
-	</aloys-tab>
+			<view slot="content1" class="xxx">
+			</view>
+			<view slot="content2" class="xxx">
+				<!-- 出版页面 -->
+				<publish></publish>
+
+			</view>
+
+
+		</aloys-tab>
 	</view>
 </template>
 
 <script>
 	import aloysTab from "@/components/aloys-tab/aloys-tab.vue"
 	import lvSelect from '../../components/lv-select/lv-select'
+	import publish from '../../components/publish/publish.vue'
 
 	export default {
 		components: {
 			aloysTab,
-			lvSelect
+			lvSelect,
+			publish
 
 		},
 		data() {
@@ -44,14 +51,18 @@
 					title: '女生'
 				}, {
 					title: '出版'
-				}],
-
-				detailList: [],
-
+				}]
 			}
 		},
 		onLoad() {
+
+
+
 		},
+
+
+
+
 
 		methods: {
 			onTabChange(obj) {
@@ -63,6 +74,7 @@
 
 				})
 			},
+		
 			handleSearch() {
 				this.loading = true
 				setTimeout(() => {
@@ -74,16 +86,17 @@
 	}
 </script>
 
-<style lang="scss">
+<style>
 	.content {
 		position: absolute;
 		height: 100%;
+	}
 
-		.xxx {
-			font-size: 42rpx;
-			font-weight: bold;
-			padding: 10rpx 0;
-			text-align: center;
-		}
+	.xxx {
+		width: 100%;
+
+
+		padding: 10rpx 0;
+
 	}
 </style>

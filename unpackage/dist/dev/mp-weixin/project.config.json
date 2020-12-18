@@ -40,8 +40,10 @@
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "touristappid",
+  "appid": "wx518a07d842a6337f",
   "projectname": "小说阅读器项目",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []
@@ -54,12 +56,6 @@
     },
     "miniprogram": {
       "list": [
-        {
-          "name": "pages/bookdetail/bookdetail",
-          "pathName": "pages/bookdetail/bookdetail",
-          "query": "",
-          "scene": null
-        },
         {
           "name": "pages/weChatLogin/weChatLogin",
           "pathName": "pages/weChatLogin/weChatLogin",

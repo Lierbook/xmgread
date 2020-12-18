@@ -12,9 +12,19 @@
 				<text class="words">登录后即可同步个人书架</text>
 				<text class="line">——</text>
 			</view>
-			<view class="btn">
-				<text class="word">微信一键登录</text>
+			<!-- <view class="face">
+				<button class="sys_ _btn" open-type=" getUserInfo" lang="zh_ CN" @getuserinfo=" appLoginWx">
+			
+				</button>
+			</view> -->
+			<view class="Btn">
+				<button class="btn" open-type=" getUserInfo" lang="zh_ CN" @click=" appLoginWx">
+					微信一键登录
+				</button>
 			</view>
+			<!-- <view class="btn" @click="show">
+				<text class="word">微信一键登录</text>
+			</view> -->
 		</view>
 	</view>
 </template>
@@ -27,6 +37,54 @@
 			}
 		},
 		methods: {
+			appLoginWx() {
+				// #ifdef MP-WEIXIN
+				uni.getProvider({
+					service: 'oauth',
+					success: function(res) {
+						// console.log(res)
+						if (~res.provider.indexOf('weixin')) {
+							uni.login({
+								provider: 'weixin',
+								success: (res2) => {
+									console.log(res2);
+									uni.getUserInfo({
+										provider: 'weixin',
+										success: (info) => { //这里请求接口
+
+											console.log(info, "999999999999");
+											console.log(info.userInfo)
+											uni.navigateTo({
+												url: '/pages/allow/allow'
+											})
+										},
+										fail: () => {
+											uni.showToast({
+												title: "微信登录授权失败",
+												icon: "none"
+											});
+										}
+									})
+
+								},
+								fail: () => {
+									uni.showToast({
+										title: "微信登录授权失败",
+										icon: "none"
+									});
+								}
+							})
+
+						} else {
+							uni.showToast({
+								title: '请先安装微信或升级版本',
+								icon: "none"
+							});
+						}
+					}
+				});
+				//#endif
+			}
 
 		}
 	}
@@ -73,7 +131,8 @@
 				height: 50rpx;
 				color: #808080;
 				font-size: 28rpx;
-				margin: 20rpx auto;
+				// margin: 20rpx auto;
+				margin-left: 135rpx;
 
 				.words {
 					padding-left: 20rpx;
@@ -81,13 +140,15 @@
 					letter-spacing: 3rpx;
 				}
 			}
-			.btn{
-				width: 80%;
-				height: 80rpx;
-				margin: 10rpx auto;
-				border-radius: 15rpx;
-				background-color: #008B00;
-				.word{
+
+			.Btn {
+				// width: 80%;
+				// height: 80rpx;
+				// margin: 10rpx auto;
+				// border-radius: 15rpx;
+				// background-color: #008B00;
+
+				.btn {
 					width: 300rpx;
 					height: 80rpx;
 					color: #FFFFFF;
@@ -95,7 +156,8 @@
 					line-height: 80rpx;
 					letter-spacing: 3rpx;
 					font-weight: bold;
-					margin: 20rpx 190rpx 20rpx;
+					margin: 20rpx auto;
+					background-color: #008B00;
 				}
 			}
 		}

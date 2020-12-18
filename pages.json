@@ -3,61 +3,86 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "书城"
-
+				"navigationBarTitleText": "书城",
+				"enablePullDownRefresh":true,
+				"backgroundTextStyle":"dark"
+				
 			}
-		}, {
-			"path": "pages/my/my",
-			"style": {
-				"navigationBarTitleText": "我的",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
-			"path": "pages/bookshelf/bookshelf",
-			"style": {
-				"navigationBarTitleText": "书架",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
-			"path": "pages/Ranking/Ranking",
-			"style": {
-				"navigationBarTitleText": "排行",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
-			"path": "pages/tobiao/tobiao",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
-			"path": "pages/classification/classification",
-			"style": {
-				"navigationBarTitleText": "分类",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
-			"path": "components/booklist/booklist",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},{
-			"path": "pages/bookdetail/bookdetail",
-			"style": {
-				"navigationBarTitleText": "书籍详情",
-				"enablePullDownRefresh": false
-			}
-
 		}
 	    ,{
-            "path" : "pages/weChatLogin/weChatLogin",
+            "path" : "pages/my/my",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/bookshelf/bookshelf",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "书架",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/Ranking/Ranking",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "排行",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/tobiao/tobiao",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/classification/classification",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "分类",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "components/booklist/booklist",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        
+        ,{
+			
+            "path" : "pages/detail/detail",
+            "style" : {
+				 "navigationBarTitleText": "书籍详情",
+				 "navigationBarBackgroundColor":"#8B8970"
+				
+			}
+        },
+		{
+			"path": "pages/weChatLogin/weChatLogin",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		}
+        ,{
+            "path" : "pages/allow/allow",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
@@ -72,42 +97,53 @@
 		"navigationBarBackgroundColor": "#ffffff",
 		"backgroundColor": "#d0fffe"
 	},
-	"tabBar": {
-		"color": "#ffffff",
-		"selectedColor": "#aaaa00",
-		"borderStyle": "white",
-		"backgroundColor": "#CCCCCC",
-		"list": [{
-				"pagePath": "pages/index/index",
-				"iconPath": "static/tabbar/书城.png",
-				"selectedIconPath": "static/logo.png",
-				"text": "书城"
-			},
+	"tabBar":{
+		 "color": "#ffffff",
+		    "selectedColor": "#aaaa00",
+		    "borderStyle": "white",
+		    "backgroundColor": "#CCCCCC",
+		    "list": [
+		      {
+		        "pagePath": "pages/index/index",
+		        "iconPath": "static/tabbar/书城.png",
+		        "selectedIconPath": "static/logo.png",
+		        "text": "书城"
+		      },
+		      {
+		        "pagePath": "pages/bookshelf/bookshelf",
+		        "iconPath": "static/tabbar/书架.png",
+		        "selectedIconPath": "static/logo.png",
+		        "text": "书架"
+		      },
+		      {
+		        "pagePath": "pages/Ranking/Ranking",
+		        "iconPath": "static/tabbar/排行.png",
+		        "selectedIconPath": "static/logo.png",
+		        "text": "排行"
+		      },
+			    {
+			    "pagePath": "pages/classification/classification",
+			    "iconPath": "static/tabbar/分类.png",
+			    "selectedIconPath": "static/logo.png",
+			    "text": "分类"
+			  },
+		      {
+		        "pagePath": "pages/my/my",
+		        "iconPath": "static/tabbar/我的.png",
+		        "selectedIconPath": "static/logo.png",
+		        "text": "我的"
+		      }
+			
+		    ]
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
 			{
-				"pagePath": "pages/bookshelf/bookshelf",
-				"iconPath": "static/tabbar/书架.png",
-				"selectedIconPath": "static/logo.png",
-				"text": "书架"
-			},
-			{
-				"pagePath": "pages/Ranking/Ranking",
-				"iconPath": "static/tabbar/排行.png",
-				"selectedIconPath": "static/logo.png",
-				"text": "排行"
-			},
-			{
-				"pagePath": "pages/classification/classification",
-				"iconPath": "static/tabbar/分类.png",
-				"selectedIconPath": "static/logo.png",
-				"text": "分类"
-			},
-			{
-				"pagePath": "pages/my/my",
-				"iconPath": "static/tabbar/我的.png",
-				"selectedIconPath": "static/logo.png",
-				"text": "我的"
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
 			}
-
 		]
 	}
 }
