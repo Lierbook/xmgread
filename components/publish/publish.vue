@@ -1,6 +1,6 @@
 <template>
 	<view class="publish">
-		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" class="carousel">
+		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true" class="carousel">
 			<swiper-item v-for="carousel in carouselList">
 				<image :src="carousel.picUrl" mode="widthFix" class="carousel"></image>
 			</swiper-item>
@@ -13,8 +13,8 @@
 
 			<view class="q">
 				<view class="super-hot">
-					<view class="hot-title">
-						出版小说
+					<view class="hot-title" >
+						{{hottitle[1].name}}
 					</view>
 				</view>
 				<view class="booker">
@@ -33,7 +33,7 @@
 			<view class="w">
 				<view class="super-hot">
 					<view class="hot-title">
-						经财管理
+						{{hottitle[2].name}}
 					</view>
 				</view>
 				<view class="booker2">
@@ -73,7 +73,7 @@
 			<view class="q">
 				<view class="super-hot">
 					<view class="hot-title">
-						科学技术
+						{{hottitle[3].name}}
 					</view>
 				</view>
 				<view class="booker">
@@ -90,7 +90,7 @@
 			<view class="w">
 				<view class="super-hot">
 					<view class="hot-title">
-						健康休闲
+						{{hottitle[4].name}}
 					</view>
 				</view>
 				<view class="booker2">
@@ -130,7 +130,7 @@
 			<view class="q">
 				<view class="super-hot">
 					<view class="hot-title">
-						出版小说
+						{{hottitle[5].name}}
 					</view>
 				</view>
 				<view class="booker">
@@ -147,7 +147,7 @@
 			<view class="w">
 				<view class="super-hot">
 					<view class="hot-title">
-						经财管理
+						{{hottitle[6].name}}
 					</view>
 				</view>
 				<view class="booker2">
@@ -186,7 +186,7 @@
 			<view class="q">
 				<view class="super-hot">
 					<view class="hot-title">
-						出版小说
+						{{hottitle[7].name}}
 					</view>
 				</view>
 				<view class="booker">
@@ -203,7 +203,7 @@
 			<view class="w">
 				<view class="super-hot">
 					<view class="hot-title">
-						经财管理
+						{{hottitle[8].name}}
 					</view>
 				</view>
 				<view class="booker2">
@@ -255,6 +255,7 @@
 				booksUlikeList2: [],
 				guessUlikeList3: [],
 				booksUlikeList3: [],
+				hottitle: []
 			
 			}
 		},
@@ -266,6 +267,12 @@
 					console.log(res);
 					var carouselList = res.data.body.data[0].items;
 					this.carouselList = carouselList;
+					
+					var hottitle = res.data.body.data;
+					this.hottitle = hottitle;
+					console.log(res.data.body.data);
+					
+					
 
 					var guessUlikeList = res.data.body.data[1].books;
 					// var guessUlikeList = res.data.body.data[2].books;
@@ -298,6 +305,7 @@
 					var booksUlikeList3 = res.data.body.data[8].books;
 					// var guessUlikeList = res.data.body.data[2].books;
 					this.booksUlikeList3 = booksUlikeList3;
+					// publishList:[]
 					
 					
 				},

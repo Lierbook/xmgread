@@ -370,7 +370,8 @@ var _default =
       guessUlikeList2: [],
       booksUlikeList2: [],
       guessUlikeList3: [],
-      booksUlikeList3: [] };
+      booksUlikeList3: [],
+      hottitle: [] };
 
 
   },
@@ -382,6 +383,12 @@ var _default =
         console.log(res);
         var carouselList = res.data.body.data[0].items;
         _this.carouselList = carouselList;
+
+        var hottitle = res.data.body.data;
+        _this.hottitle = hottitle;
+        console.log(res.data.body.data);
+
+
 
         var guessUlikeList = res.data.body.data[1].books;
         // var guessUlikeList = res.data.body.data[2].books;
@@ -414,6 +421,7 @@ var _default =
         var booksUlikeList3 = res.data.body.data[8].books;
         // var guessUlikeList = res.data.body.data[2].books;
         _this.booksUlikeList3 = booksUlikeList3;
+        // publishList:[]
 
 
       } });

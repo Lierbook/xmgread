@@ -69,7 +69,7 @@
             "path" : "pages/detail/detail",
             "style" : {
 				 "navigationBarTitleText": "书籍详情",
-				 "navigationBarBackgroundColor":"#FE5786"
+				 "navigationBarBackgroundColor":"#8B8970"
 				
 			}
         }

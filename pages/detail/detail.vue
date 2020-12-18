@@ -43,26 +43,12 @@
 		</view>
 		<view class="Comment">
 			<text class="hotCom">热评</text>
-			<view class="comBox1">
+			<view class="comBox1" v-for="comment in commentList">
 				<view class="comment">
-					<image :src="commentList[0].avatar" class="person"></image>
-					<view class="comPer">{{commentList[0].nick}}</view>
+					<image :src="comment.avatar" class="person"></image>
+					<view class="comPer">{{comment.nick}}</view>
 				</view>
-				<view class="comCon">{{commentList[0].content}}</view>
-			</view>
-			<view class="comBox2">
-				<view class="comment">
-					<image :src="commentList[1].avatar" class="person"></image>
-					<view class="comPer">{{commentList[1].nick}}</view>
-				</view>
-				<view class="comCon">{{commentList[1].content}}</view>
-			</view>
-			<view class="comBox3">
-				<view class="comment">
-					<image :src="commentList[2].avatar" class="person"></image>
-					<view class="comPer">{{commentList[2].nick}}</view>
-				</view>
-				<view class="comCon">{{commentList[2].content}}</view>
+				<view class="comCon">{{comment.content}}</view>
 			</view>
 
 		</view>
@@ -77,17 +63,9 @@
 
 
 			<view class="otherBook">
-				<view class="bookbox">
-					<image :src="newBooksRecommend[0].picUrl" mode="" class="pho1"></image>
-					<view class="tit"><text>{{newBooksRecommend[0].bookName}}</text></view>
-				</view>
-				<view class="bookbox">
-					<image :src="newBooksRecommend[1].picUrl" mode="" class="pho1"></image>
-					<view class="tit"><text>{{newBooksRecommend[1].bookName}}</text></view>
-				</view>
-				<view class="bookbox">
-					<image :src="newBooksRecommend[2].picUrl" mode="" class="pho1"></image>
-					<view class="tit"><text>{{newBooksRecommend[2].bookName}}</text></view>
+				<view class="bookbox" v-for="newBooks in newBooksRecommend" @click="goAbout(newBooks.bookId)">
+					<image :src="newBooks.picUrl" mode="" class="pho1"></image>
+					<view class="tit"><text>{{newBooks.bookName}}</text></view>
 				</view>
 			</view>
 		</view>
@@ -170,6 +148,13 @@
 			}); */
 		},
 		methods: {
+			goAbout(bookId) {
+				uni.navigateTo({
+					url: '/pages/detail/detail?bookId=' + bookId,
+				})
+			},
+			
+			
 			onReady: function(){
 				uni.request({
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.bookId,
@@ -225,18 +210,14 @@
 						})
 						console.log(newTag); */
 						//评论
-						const commentList = res.data.body.commentList;
+						const commentList = res.data.body.commentList.slice(0,3);
 						this.commentList = commentList;
-						console.log(commentList)
-						console.log(commentList[0].avatar);
-						console.log(commentList[0].nick);
-						console.log(commentList[0].content);
+						// console.log(res.data.body.commentList[1]);
+						
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
-						console.log(newBooksRecommend[0].bookName);
-						console.log(newBooksRecommend[0].picUrl);
-
+						
 					}
 				})
 			},
@@ -326,7 +307,7 @@
 			}
 
 			.pho {
-				margin-left: 200rpx;
+				margin-left: 150rpx;
 				margin-top: 30rpx;
 				width: 200rpx;
 				height: 240rpx;

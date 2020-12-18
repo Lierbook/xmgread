@@ -195,7 +195,8 @@ __webpack_require__.r(__webpack_exports__);
       tabs: [{
         title: '男生' },
       {
-        title: '女生' },
+        title: '女生',
+        isActive: "true" },
       {
         title: '出版' }] };
 
