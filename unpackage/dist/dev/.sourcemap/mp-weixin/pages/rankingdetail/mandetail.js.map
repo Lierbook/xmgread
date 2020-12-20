@@ -1,0 +1,1 @@
+{"version":3,"sources":["uni-app:///main.js"],"names":["createPage","Page"],"mappings":";;;;;;;;;;kDAAA;AACA;AACA,4N;AACAA,UAAU,CAACC,kBAAD,CAAV,C","file":"pages/rankingdetail/mandetail.js","sourcesContent":["import 'uni-pages';\nimport Vue from 'vue'\nimport Page from './pages/rankingdetail/mandetail.vue'\ncreatePage(Page)"],"sourceRoot":""}

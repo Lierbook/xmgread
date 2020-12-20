@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "uni-goods-nav": "/components/uni-ui/uni-goods-nav/uni-goods-nav"
+  }
+}

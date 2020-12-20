@@ -4,9 +4,12 @@
     "pages/my/my",
     "pages/bookshelf/bookshelf",
     "pages/Ranking/Ranking",
+    "pages/bookdetail/bookdetail",
     "pages/tobiao/tobiao",
     "pages/classification/classification",
-    "components/booklist/booklist"
+    "components/booklist/booklist",
+    "components/rankinglist/man-ranking",
+    "components/rankinglist/woman-ranking"
   ],
   "subPackages": [],
   "window": {

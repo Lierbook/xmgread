@@ -1,17 +1,13 @@
 <template>
-	<view>
-		<uni-list>
-			<uni-list-item v-for="item in RankingList" :key="item.bookId" :thumb="item.picUrl" thumb-size="lg">
-				<view slot="body" class="item slot-box slot-text" @click="goDetail(item)">
-					<view class="tit">{{item.bookName}}</view>
-					<view class="info">
-						<view class="desc">{{item.desc}}</view>
-						<text class="author">{{item.author}}</text>
-						<text class="category">{{item.category}}</text>
-					</view>
-				</view>
-			</uni-list-item>
-		</uni-list>
+	<view class="content">
+		<aloys-tab :tabs="tabs" @change="onTabChange">
+			<view slot="content0" class="xxx">
+				<manRanking></manRanking>
+			</view>
+			<view slot="content1" class="xxx">
+				<womanRanking></womanRanking>
+			</view>
+		</aloys-tab>
 	</view>
 </template>
 
@@ -19,54 +15,61 @@
 	import {
 		myRequestGet
 	} from '@/utils/zgrequest.js'
-	import uniList from "@/components/uni-ui/uni-list/uni-list.vue";
-	import uniListItem from "@/components/uni-ui/uni-list-item/uni-list-item.vue"
+
+	import aloysTab from "@/components/aloys-tab/aloys-tab.vue"
+
+	import manRanking from '../../components/rankinglist/man-ranking.vue' //man-ranking -> manRanking
+	import womanRanking from "@/components/rankinglist/woman-ranking.vue" //woman-ranking -> womanRanking
 
 	export default {
+		components: {
+			aloysTab,
+			manRanking,
+			womanRanking
+		},
 		data() {
 			return {
-				RankingList: []
+				tabs: [{
+					title: '男生'
+				}, {
+					title: '女生'
+				}]
 			}
 		},
 		onLoad() {
-			this.getRankingList();
+
 		},
 		methods: {
-			async getRankingList() {
-				const res = await myRequestGet('/api/wechat/subrank?sectionId=37988&page=1')
-				this.RankingList = res.body.books
-				console.log(this.RankingList)
+			onTabChange(index) {
+				uni.showToast({
+					title: '切换至tab：' + index
+				})
 			}
-		},
-		components: {
-			uniList,
-			uniListItem
 		}
 	}
 </script>
 
-<style>
-	.desc {
-		font-size: 32rpx;
-		color: #777777;
-		/* 超出部分隐藏 */
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		overflow: hidden;
+<!-- scoped(实现组件的私有化，不对全局造成样式污染，表示当前style属性只属于当前模块) -->
+<style scoped>
+	page {
+		height: auto;
 	}
 
-	.author {
-		color: #777777;
-		font-size: 30rpx;
+	.content {
+		height: 1600rpx;
 	}
 
-	.category {
-		border: 1px solid gray;
-		float: right;
-		margin-right: 50rpx;
-		color: gray;
-		font-size: 25rpx;
-		padding: 2rpx 15rpx;
+	.xxx {
+		font-size: 42rpx;
+		font-weight: bold;
+		padding: 100rpx 0;
+		text-align: center;
+		width: 100%;
+		height: 1000rpx;
+	}
+
+	man-ranking {
+		width: 500rpx;
+		height: 1000rpx;
 	}
 </style>

@@ -24,40 +24,50 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.uni-list {
+.books.data-v-beea44c6 {
+  width: 100%;
+  height: 240rpx;
+}
+.img.data-v-beea44c6 {
+  float: left;
+}
+.content.data-v-beea44c6 {
+  width: 550rpx;
+  float: left;
+  margin-left: 22rpx;
+  margin-top: 5rpx;
+}
+.tit.data-v-beea44c6 {
+  display: inline-block;
+}
+.num.data-v-beea44c6 {
+  float: right;
+  color: red;
+}
+.info.data-v-beea44c6 {
+  margin-top: 10rpx;
+}
+.desc.data-v-beea44c6 {
+  font-size: 26rpx;
+  color: #777777;
+  /* 超出部分隐藏 */
   display: -webkit-box;
-  display: -webkit-flex;
-  display: flex;
-  background-color: #ffffff;
-  position: relative;
   -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-          flex-direction: column;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }
-.uni-list--border {
-  position: relative;
-  z-index: -1;
+.author.data-v-beea44c6 {
+  color: #777777;
+  font-size: 30rpx;
+  margin-top: 55rpx;
+  display: inline-block;
 }
-.uni-list--border-top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 1px;
-  -webkit-transform: scaleY(0.5);
-  transform: scaleY(0.5);
-  background-color: #c8c7cc;
-  z-index: 1;
-}
-.uni-list--border-bottom {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: 1px;
-  -webkit-transform: scaleY(0.5);
-  transform: scaleY(0.5);
-  background-color: #c8c7cc;
+.category.data-v-beea44c6 {
+  border: 1px solid gray;
+  float: right;
+  color: gray;
+  font-size: 25rpx;
+  padding: 2rpx 15rpx;
+  margin-top: 55rpx;
 }
 
