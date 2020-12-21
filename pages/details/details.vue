@@ -2,7 +2,7 @@
 	<view class="box">
 		<view class="top">
 			<view class="top-but">
-				<button class="active"  hover-class='button-hover'>全部</button>
+				<button class="active" hover-class='button-hover'>全部</button>
 				<button class="active" v-for="option in options" :key="option.id">{{option.name}}</button>
 			</view>
 			<view class="top-but">
@@ -28,6 +28,9 @@
 </template>
 
 <script>
+	import {
+		myRequestGet
+	} from "@/utils/xsrequest.js"
 	export default {
 		data() {
 			return {
@@ -42,10 +45,7 @@
 
 			}
 		},
-		onLoad(options) {
-			this.id = options.id
-		},
-
+		//#ifdef MP-ALIPAY
 		onReady: function() {
 			uni.request({
 				url: `https://wechat.idejian.com/api/wechat/subcategory?categoryId=${this.id}&resourcesId=28&order=1&filterInfo=&page=1`,
@@ -57,23 +57,57 @@
 					// console.log(this.books)
 					this.items = re.category.sort.items;
 					this.options = re.category.filter[0].options;
-
 					//在页面渲染生命函数中设置导航栏信息
 					uni.setNavigationBarTitle({
 						title: this.name
 					});
 				}
 			})
-
+		},
+		//#endif
+		
+		
+		onLoad(options) {
+			
+			this.id = options.id
+			this.getBookDetail()
+		},
+		
+		onShow: function() {
+			console.log(this.name, "121212")
 
 		},
 
 
 		methods: {
+			//#ifdef MP-WEIXIN||H5
+			async getBookDetail() {
+				let res = await myRequestGet("/api/wechat/subcategory", {
+					"categoryId": this.id,
+					"resourcesId": "28",
+					"order": "1",
+					"filterInfo": "",
+					"page": "1"
+				})
+				// console.log(res, "11111111111")
+				let re = res.body;
+				this.name = re.category.name
+				console.log(this.name, 44444444444444444)
+				this.books = re.books;
+				// console.log(this.books)
+				this.items = re.category.sort.items;
+				this.options = re.category.filter[0].options;
+				uni.setNavigationBarTitle({
+					title: this.name
+				});
+
+
+			},
+			//#endif
 			goBookDetail(item) {
 				// console.log(item.bookId,"dddddddddddddd")
 				uni.navigateTo({
-					url:"../bookdetail/bookdetail?id="+item.bookId
+					url: "../bookdetail/bookdetail?id=" + item.bookId
 				})
 			}
 		}

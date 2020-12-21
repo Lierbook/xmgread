@@ -1,14 +1,21 @@
-const baseUrl="http://42.193.168.201:8082"
+const baseUrl="https://wechat.idejian.com"
 
 export function myRequestGet(url,data){
 	return new Promise((resolve,reject)=>{
+		var requesturl = ""
+		//#ifdef MP-WEIXIN
+		requesturl = baseUrl + url;
+		
+		//#endif
+		//#ifdef H5
+		requesturl = url;
+		//#endif
 		uni.request({
-			
-			url:baseUrl+url,
+			url:requesturl,
 			method:"GET",
 			data:data,
 			success:function(res){
-				// console.log("收到get请求的数据",res);
+				console.log("收到get请求的数据",res);
 				resolve(res.data)
 			},
 			fail:function(err){

@@ -25,6 +25,9 @@
 </template>
 
 <script>
+	import {
+		myRequestGet
+	} from "@/utils/xsrequest.js"
 	export default {
 		data() {
 			return {
@@ -34,21 +37,35 @@
 				name: "",
 			};
 		},
+		//#ifdef MP-ALIPAY
 		onReady: function() {
 			uni.request({
-
 				url: 'https://wechat.idejian.com/api/wechat/category',
 				success: (res) => {
 					let name = res.data.body.data;
 					// console.log(name,"fffffffffffffffffffffffffffffffffffffff")
 					this.name = name;
 					this.items = this.name[0].items;
-
 				}
-
+		
 			})
 		},
+
+		//#endif
+		//#ifdef MP-WEIXIN||H5
+		onLoad() {
+			this.getBook()
+		},
+		//#endif
 		methods: {
+			//#ifdef MP-WEIXIN||H5
+			async getBook() {
+				let res = await myRequestGet("/api/wechat/category")
+				console.log(res)
+				this.name = res.body.data;
+				this.items = this.name[0].items;
+			},
+			//#endif
 			leftClickNav(index, item) {
 				this.active = index;
 				// 右边栏
@@ -59,13 +76,14 @@
 			},
 			//跳转详情页面
 			details(item) {
-				
+
 				uni.navigateTo({
-					
+
 					url: "../details/details?id=" + item.categoryId
 				})
 			}
-		}
+		},
+		
 
 	}
 </script>

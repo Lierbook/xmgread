@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<view class='bg'>
-			<image :src="picUrl" mode=""></image>
+			<image :src="picUrl" mode="scaleToFill"></image>
 			<view class="bg-left">
 				<p>{{bookname}}</p>
 				<text>{{author}}&nbsp|&nbsp{{category}}</text>
@@ -26,6 +26,7 @@
 		</view>
 		<view class="comment">
 			<p>热评</p>
+		 
 			<view class="nocomment" v-show="commentList[0]==null">
 				抱歉，本书暂无评
 			</view>
@@ -72,7 +73,9 @@
 
 <script>
 	import uniGoodsNav from '@/components/uni-ui/components/uni-goods-nav/uni-goods-nav.vue'
-
+	import {
+		myRequestGet
+	} from "@/utils/xsrequest.js"
 	export default {
 		components: {
 			uniGoodsNav
@@ -120,17 +123,69 @@
 			this.id = options.id
 			// console.log(this.id, "xxxxxxxxx")
 			this.getData();
+
+
 		},
 		methods: {
+
+
 			async getData() {
-				// console.log(this.id)
+				//#ifdef MP-WEIXIN||H5 
+				let res = await myRequestGet("/api/wechat/book/" + this.id)
+				console.log(res, "5555555555555555")
+				const bookInfos = res.body;
+				//书名
+
+				const bookname = res.body.bookInfo.bookName;
+				this.bookname = bookname;
+				//作者
+				const author = res.body.bookInfo.author;
+				this.author = author;
+				//评分
+				const bookRating = res.body.bookInfo.bookRating;
+				this.bookRating = bookRating;
+				//分类
+				const category = res.body.bookInfo.category;
+				this.category = category;
+				//章数
+				const chapterCount = res.body.bookInfo.chapterCount;
+				this.chapterCount = chapterCount;
+				//状态
+				const completeState = res.body.bookInfo.completeState;
+				this.completeState = completeState;
+				//简介
+				const desc = res.body.bookInfo.desc;
+				this.desc = desc;
+				//封面
+				const picUrl = res.body.bookInfo.picUrl;
+				this.picUrl = picUrl;
+				//人气
+				const popularity = res.body.bookInfo.popularity[0] + res.body.bookInfo.popularity[1];
+				this.popularity = popularity;
+				//字数
+				const wordCount = res.body.bookInfo.wordCount[0] + res.body.bookInfo.wordCount[1];
+				this.wordCount = wordCount;
+				//标签
+				const tag = res.body.bookInfo.tag;
+				this.tag = tag;
+				//评论
+				const commentList = res.body.commentList;
+				this.commentList = commentList;
+				console.log(commentList, 'fffffffffffffffff', typeof(commentList))
+				//书友还读过
+				const newBooksRecommend = res.body.newBooksRecommend;
+				this.newBooksRecommend = newBooksRecommend;
+				//#endif
+
+				//#ifdef MP-ALIPAY
+
 				await uni.request({
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.id,
 
 					success: (res) => {
 						const bookInfos = res.data.body;
 						//书名
-						
+
 						const bookname = res.data.body.bookInfo.bookName;
 						this.bookname = bookname;
 						//作者
@@ -166,14 +221,17 @@
 						//评论
 						const commentList = res.data.body.commentList;
 						this.commentList = commentList;
-						console.log(commentList,  'fffffffffffffffff',typeof(commentList))
+						console.log(commentList, 'fffffffffffffffff', typeof(commentList))
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
 					}
 				})
+				//#endif
+
 
 			},
+
 
 			more: function() {
 				if (this.geshi == "desc") {
