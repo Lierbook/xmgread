@@ -1,1 +1,1 @@
-<view><text>我的</text></view>
+<view class="Login"><view class="icon"><image class="Horse" src="../../static/tabbar/ma.png"></image><view class="appName"><text>垃圾小说</text></view></view><view class="login"><view class="after"><text class="line">——</text><text class="words">登录后即可同步个人书架</text><text class="line">——</text></view><view class="Btn"><button class="btn" open-type="getUserInfo" lang="zh_ CN" data-event-opts="{{[['tap',[['appLoginWx',['$event']]]]]}}" bindtap="__e">微信一键登录</button></view></view></view>

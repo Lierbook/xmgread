@@ -1935,6 +1935,126 @@ function normalizeComponent (
 
 /***/ }),
 
+/***/ 102:
+/*!*********************************************************!*\
+  !*** C:/Users/lenovo/Desktop/小说阅读器项目/utils/getbooks.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = myRequestGet;exports.myRequestPost = myRequestPost;var baseUrl = "https://wechat.idejian.com/";
+
+function myRequestGet(url, data) {
+
+  var requesturl = "";
+  requesturl = baseUrl + url;
+
+
+
+  console.log(baseUrl + url);
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: requesturl,
+      method: "GET",
+      data: data,
+      success: function success(res) {
+        console.log("res", res);
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        console.log("err", err);
+        reject(err);
+      } });
+
+  });
+
+
+
+}
+
+function myRequestPost(url, data) {
+  return new Promise(function (resolv, reject) {
+    uni.request({
+      url: baseUrl + url,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded' },
+
+      method: "POST",
+      data: data,
+      success: function success(res) {
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+
+
+
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 184:
+/*!***********************************************************!*\
+  !*** C:/Users/lenovo/Desktop/小说阅读器项目/utils/zzgrequest.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.myRequestGet = myRequestGet;exports.myRequestPost = myRequestPost;var baseUrl = "https://wechat.idejian.com";
+
+
+// /api/getlunbo  --->  此时 proxy生效了,也就是说在h5中请求路径不需要加baseUrl
+// baseUrl + url  --->  http://192.168.24.52:8080//api/getlunbo  此时配置的代理没有生效
+
+function myRequestGet(url, data) {
+  var requesturl = baseUrl + url;
+
+
+
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: requesturl,
+      method: "GET",
+      data: data,
+      success: function success(res) {
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+}
+
+
+function myRequestPost(url, data) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: baseUrl + url,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded' },
+
+      method: "POST",
+      data: data,
+      success: function success(res) {
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
 /***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
@@ -7982,6 +8102,148 @@ internalMixin(Vue);
 
 /***/ }),
 
+/***/ 213:
+/*!****************************************************************************!*\
+  !*** C:/Users/lenovo/Desktop/小说阅读器项目/components/uni-ui/uni-icons/icons.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  "pulldown": "\uE588",
+  "refreshempty": "\uE461",
+  "back": "\uE471",
+  "forward": "\uE470",
+  "more": "\uE507",
+  "more-filled": "\uE537",
+  "scan": "\uE612",
+  "qq": "\uE264",
+  "weibo": "\uE260",
+  "weixin": "\uE261",
+  "pengyouquan": "\uE262",
+  "loop": "\uE565",
+  "refresh": "\uE407",
+  "refresh-filled": "\uE437",
+  "arrowthindown": "\uE585",
+  "arrowthinleft": "\uE586",
+  "arrowthinright": "\uE587",
+  "arrowthinup": "\uE584",
+  "undo-filled": "\uE7D6",
+  "undo": "\uE406",
+  "redo": "\uE405",
+  "redo-filled": "\uE7D9",
+  "bars": "\uE563",
+  "chatboxes": "\uE203",
+  "camera": "\uE301",
+  "chatboxes-filled": "\uE233",
+  "camera-filled": "\uE7EF",
+  "cart-filled": "\uE7F4",
+  "cart": "\uE7F5",
+  "checkbox-filled": "\uE442",
+  "checkbox": "\uE7FA",
+  "arrowleft": "\uE582",
+  "arrowdown": "\uE581",
+  "arrowright": "\uE583",
+  "smallcircle-filled": "\uE801",
+  "arrowup": "\uE580",
+  "circle": "\uE411",
+  "eye-filled": "\uE568",
+  "eye-slash-filled": "\uE822",
+  "eye-slash": "\uE823",
+  "eye": "\uE824",
+  "flag-filled": "\uE825",
+  "flag": "\uE508",
+  "gear-filled": "\uE532",
+  "reload": "\uE462",
+  "gear": "\uE502",
+  "hand-thumbsdown-filled": "\uE83B",
+  "hand-thumbsdown": "\uE83C",
+  "hand-thumbsup-filled": "\uE83D",
+  "heart-filled": "\uE83E",
+  "hand-thumbsup": "\uE83F",
+  "heart": "\uE840",
+  "home": "\uE500",
+  "info": "\uE504",
+  "home-filled": "\uE530",
+  "info-filled": "\uE534",
+  "circle-filled": "\uE441",
+  "chat-filled": "\uE847",
+  "chat": "\uE263",
+  "mail-open-filled": "\uE84D",
+  "email-filled": "\uE231",
+  "mail-open": "\uE84E",
+  "email": "\uE201",
+  "checkmarkempty": "\uE472",
+  "list": "\uE562",
+  "locked-filled": "\uE856",
+  "locked": "\uE506",
+  "map-filled": "\uE85C",
+  "map-pin": "\uE85E",
+  "map-pin-ellipse": "\uE864",
+  "map": "\uE364",
+  "minus-filled": "\uE440",
+  "mic-filled": "\uE332",
+  "minus": "\uE410",
+  "micoff": "\uE360",
+  "mic": "\uE302",
+  "clear": "\uE434",
+  "smallcircle": "\uE868",
+  "close": "\uE404",
+  "closeempty": "\uE460",
+  "paperclip": "\uE567",
+  "paperplane": "\uE503",
+  "paperplane-filled": "\uE86E",
+  "person-filled": "\uE131",
+  "contact-filled": "\uE130",
+  "person": "\uE101",
+  "contact": "\uE100",
+  "images-filled": "\uE87A",
+  "phone": "\uE200",
+  "images": "\uE87B",
+  "image": "\uE363",
+  "image-filled": "\uE877",
+  "location-filled": "\uE333",
+  "location": "\uE303",
+  "plus-filled": "\uE439",
+  "plus": "\uE409",
+  "plusempty": "\uE468",
+  "help-filled": "\uE535",
+  "help": "\uE505",
+  "navigate-filled": "\uE884",
+  "navigate": "\uE501",
+  "mic-slash-filled": "\uE892",
+  "search": "\uE466",
+  "settings": "\uE560",
+  "sound": "\uE590",
+  "sound-filled": "\uE8A1",
+  "spinner-cycle": "\uE465",
+  "download-filled": "\uE8A4",
+  "personadd-filled": "\uE132",
+  "videocam-filled": "\uE8AF",
+  "personadd": "\uE102",
+  "upload": "\uE402",
+  "upload-filled": "\uE8B1",
+  "starhalf": "\uE463",
+  "star-filled": "\uE438",
+  "star": "\uE408",
+  "trash": "\uE401",
+  "phone-filled": "\uE230",
+  "compose": "\uE400",
+  "videocam": "\uE300",
+  "trash-filled": "\uE8DC",
+  "download": "\uE403",
+  "chatbubble-filled": "\uE232",
+  "chatbubble": "\uE202",
+  "cloud-download": "\uE8E4",
+  "cloud-upload-filled": "\uE8E5",
+  "cloud-upload": "\uE8E6",
+  "cloud-download-filled": "\uE8E9",
+  "headphones": "\uE8BF",
+  "shop": "\uE609" };exports.default = _default;
+
+/***/ }),
+
 /***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
@@ -8014,9 +8276,9 @@ module.exports = g;
 /***/ }),
 
 /***/ 4:
-/*!*******************************************************!*\
-  !*** C:/Users/lenovo/Desktop/work/xmgread/pages.json ***!
-  \*******************************************************/
+/*!**************************************************!*\
+  !*** C:/Users/lenovo/Desktop/小说阅读器项目/pages.json ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -8024,18 +8286,18 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 57:
+/***/ 41:
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 58);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 42);
 
 /***/ }),
 
-/***/ 58:
+/***/ 42:
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -8066,7 +8328,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 59);
+module.exports = __webpack_require__(/*! ./runtime */ 43);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -8083,7 +8345,7 @@ if (hadRuntime) {
 
 /***/ }),
 
-/***/ 59:
+/***/ 43:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -8812,6 +9074,124 @@ if (hadRuntime) {
   })() || Function("return this")()
 );
 
+
+/***/ }),
+
+/***/ 44:
+/*!**********************************************************!*\
+  !*** C:/Users/lenovo/Desktop/小说阅读器项目/utils/zgrequest.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = myRequestGet;exports.myRequestPost = myRequestPost;var baseUrl = "https://wechat.idejian.com/";
+
+function myRequestGet(url, data) {
+  var requesturl = "";
+  requesturl = baseUrl + url;
+
+
+
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: requesturl,
+      method: "GET",
+      data: data,
+      success: function success(res) {
+        console.log("res", res);
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        console.log("err", err);
+        reject(err);
+      } });
+
+  });
+
+
+
+}
+
+function myRequestPost(url, data) {
+  return new Promise(function (resolv, reject) {
+    uni.request({
+      url: baseUrl + url,
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded' },
+
+      method: "POST",
+      data: data,
+      success: function success(res) {
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+
+
+
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 69:
+/*!**********************************************************!*\
+  !*** C:/Users/lenovo/Desktop/小说阅读器项目/utils/xsrequest.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.myRequestGet = myRequestGet;exports.myRequestPost = myRequestPost;var baseUrl = "https://wechat.idejian.com";
+
+function myRequestGet(url, data) {
+  return new Promise(function (resolve, reject) {
+    var requesturl = "";
+
+    requesturl = baseUrl + url;
+
+
+
+
+
+    uni.request({
+      url: requesturl,
+      method: "GET",
+      data: data,
+      success: function success(res) {
+        console.log("收到get请求的数据", res);
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+}
+function myRequestPost(url, data) {
+  return new Promise(function (resolve, reject) {
+    uni.request({
+      url: baseUrl + url,
+      header: {
+        'Content-Type': 'application/x-www-from-urlencodeed' },
+
+      method: "POST",
+      data: data,
+      success: function success(res) {
+        // console.log("收到get请求的数据",res);
+        resolve(res.data);
+      },
+      fail: function fail(err) {
+        reject(err);
+      } });
+
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

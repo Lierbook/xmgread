@@ -24,13 +24,21 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.page.data-v-990c41f4 {
+  height: 1000rpx;
+}
+uni-goods-nav.data-v-990c41f4 {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
 .bg.data-v-990c41f4 {
   width: 100%;
   height: 280rpx;
   display: block;
   z-index: -999;
   color: #FFFFFF;
-  background-color: #cccccc;
+  background-color: #b0b0b0;
   padding-top: 50rpx;
 }
 .bg image.data-v-990c41f4 {
@@ -51,7 +59,7 @@
   margin-top: 10rpx;
 }
 .info.data-v-990c41f4 {
-  color: #C0C0C0;
+  color: #8c8c8c;
   line-height: 50rpx;
   padding: 20rpx;
 }
@@ -143,6 +151,7 @@
   font-size: 40rpx;
 }
 .bottom .recommenList.data-v-990c41f4 {
+  height: 425rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;

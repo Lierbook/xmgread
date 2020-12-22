@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "书籍详情",
-  "navigationBarBackgroundColor": "#cccccc",
-  "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#b0b0b0",
+  "usingComponents": {
+    "uni-goods-nav": "/components/uni-ui/uni-goods-nav/uni-goods-nav"
+  }
 }

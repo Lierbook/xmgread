@@ -1,7 +1,7 @@
 <template>
-	<view>
+	<view class="page" v-if="isshow">
 		<view class='bg'>
-			<image :src="picUrl" mode=""></image>
+			<image :src="picUrl" mode="scaleToFill"></image>
 			<view class="bg-left">
 				<p>{{bookname}}</p>
 				<text>{{author}}&nbsp|&nbsp{{category}}</text>
@@ -20,7 +20,7 @@
 			</view>
 			<view class="state">
 				<text class="catalog">目录</text>
-				<a class="chapter" href="#" >更新至第{{chapterCount}}章</a>
+				<a class="chapter" href="#">更新至第{{chapterCount}}章</a>
 				<text class="completeState">{{completeState}}</text>
 			</view>
 		</view>
@@ -29,7 +29,7 @@
 			<view class="nocomment" v-show="commentList[0]==null">
 				抱歉，本书暂无评论
 			</view>
-			<view class="commentlist">
+			<view class="commentlist"  v-show="!commentList">
 				<image :src="commentList[0].avatar"></image>
 				<p>{{commentList[0].nick}}</p>
 				<text>{{commentList[0].content}}</text>
@@ -52,28 +52,37 @@
 				<text>{{item.bookName}}</text>
 			</view> -->
 			<view class="recommenList">
-				<view class="recommend">
+				<view class="recommend" @click=bookClick1({newBooksRecommend})>
 					<image :src="newBooksRecommend[0].picUrl"></image>
 					<text>{{newBooksRecommend[0].bookName}}</text>
 				</view>
-				<view class="recommend">
+				<view class="recommend" @click=bookClick2({newBooksRecommend})>
 					<image :src="newBooksRecommend[1].picUrl"></image>
 					<text>{{newBooksRecommend[1].bookName}}</text>
 				</view>
-				<view class="recommend">
+				<view class="recommend" @click=bookClick3({newBooksRecommend})>
 					<image :src="newBooksRecommend[2].picUrl"></image>
 					<text>{{newBooksRecommend[2].bookName}}</text>
 				</view>
 			</view>
 		</view>
+		<uni-goods-nav :fill="false" :options="options" :buttonGroup="buttonGroup" @click="onClick" @buttonClick="buttonClick" />
 	</view>
 </template>
 
 <script>
+	import {
+		myRequestGet
+	} from "@/utils/xsrequest.js"
+	import uniGoodsNav from '@/components/uni-ui/uni-goods-nav/uni-goods-nav.vue'
 	export default {
+		components: {
+			uniGoodsNav
+		},
 		data() {
 			return {
-				id: '11625227', //小说id
+				isshow:false,
+				id: '', //小说id
 				dataObj: {},
 				bookInfos: {},
 				bookname: "",
@@ -90,16 +99,41 @@
 				commentList: [],
 				newBooksRecommend: [],
 				geshi: "desc",
+				bookInfo: {},
+				options: [{
+					icon: 'undo',
+					text: '分享给好友'
+				}, 
+				{
+					icon: 'star',
+					text: '加入书架',
+					info: 2
+				}],
+				buttonGroup: [
+					{
+						text: '立即阅读',
+						backgroundColor: '#ffa200',
+						color: '#fff'
+					}
+				]
 			}
 		},
-		created() {
-			// this.id = this.$mp.query.id;
+		onLoad(options) {
+			this.id = options.id
+			console.log(options.id, "xxxxxxxxx")
 			this.getData();
 		},
+		created() {
+			
+		},
+		//#ifdef MP-ALIPAY
+		
+		
 		methods: {
 			async getData() {
 				await uni.request({
 					url: 'https://wechat.idejian.com/api/wechat/book/' + this.id,
+					
 					success: (res) => {
 						const bookInfos = res.data.body;
 						//书名
@@ -137,15 +171,14 @@
 						this.tag = tag;
 						//评论
 						const commentList = res.data.body.commentList;
-						this.commentList=commentList;
+						this.commentList=commentList
 						//书友还读过
 						const newBooksRecommend = res.data.body.newBooksRecommend;
 						this.newBooksRecommend = newBooksRecommend;
-						console.log(newBooksRecommend,"11111111111111")
+						this.isshow=true;
 					}
 				})
 			},
-
 			more: function() {
 				if (this.geshi == "desc") {
 					this.geshi = ""
@@ -154,61 +187,145 @@
 				)
 			},
 			//点击添加
-			addBook() {
-				let tmp = {
-					id: this.id,
-					cover: this.cover,
-					title: this.dataObj.title
-				};
-				this.$store.commit('novel/ADD_BOOK', tmp);
-			}
+			bookClick1(newBooksRecommend) {
+			  this.id=newBooksRecommend.newBooksRecommend[0].bookId; 
+			  this.getData();
+			},
+			bookClick2(newBooksRecommend) {
+				this.id=newBooksRecommend.newBooksRecommend[1].bookId;
+				this.getData();
+			
+			},
+			bookClick3(newBooksRecommend) {
+				this.id=newBooksRecommend.newBooksRecommend[2].bookId;
+				this.getData();
+			
+			},
+			
 		},
+		//#endif
+		//#ifdef H5||MP-WEIXIN
+		methods: {
+			async getData() {
+				let res = await myRequestGet("/api/wechat/book/"+ this.id);
+				
+				const bookInfos = res.body.bookInfo;
+				
+				//书名
+				const bookname = bookInfos.bookName;
+				this.bookname = bookname;
+				console.log(res,"xxxxxxcxccccccc")
+				//作者
+				const author = bookInfos.author;
+				this.author = author;
+				//评分
+				const bookRating = bookInfos.bookRating;
+				this.bookRating = bookRating;
+				//分类
+				const category = bookInfos.category;
+				this.category = category;
+				//章数
+				const chapterCount = bookInfos.chapterCount;
+				this.chapterCount = chapterCount;
+				//状态
+				const completeState = bookInfos.completeState;
+				this.completeState = completeState;
+				//简介
+				const desc = bookInfos.desc;
+				this.desc = desc;
+				//封面
+				const picUrl = bookInfos.picUrl;
+				this.picUrl = picUrl;
+				//人气
+				const popularity = res.body.bookInfo.popularity[0] + res.body.bookInfo.popularity[1];
+				this.popularity = popularity;
+				//字数
+				const wordCount = res.body.bookInfo.wordCount[0] + res.body.bookInfo.wordCount[1];
+				this.wordCount = wordCount;
+				//标签
+				const tag = bookInfos.tag;
+				this.tag = tag;
+				//评论
+				const commentList = res.body.commentList;
+				this.commentList=commentList
+				//书友还读过
+				const newBooksRecommend = res.body.newBooksRecommend;
+				this.newBooksRecommend = newBooksRecommend;
+				this.isshow=true;
+			},
+			more: function() {
+				if (this.geshi == "desc") {
+					this.geshi = ""
+				} else(
+					this.geshi = "desc"
+				)
+			},
+			//点击添加
+			bookClick1(newBooksRecommend) {
+			  this.id=newBooksRecommend.newBooksRecommend[0].bookId; 
+			  this.getData();
+			},
+			bookClick2(newBooksRecommend) {
+				this.id=newBooksRecommend.newBooksRecommend[1].bookId;
+				this.getData();
+			
+			},
+			bookClick3(newBooksRecommend) {
+				this.id=newBooksRecommend.newBooksRecommend[2].bookId;
+				this.getData();
+			
+			},
+			
+		},
+		//#endif
 		onPullDownRefresh() {
 			uni.stopPullDownRefresh();
 			uni.hideNavigationBarLoading();
 			this.getData();
-			
-		}
+		},
+		
 	}
 </script>
 
 <style lang="scss" scoped>
+	.page{
+		height: 1000rpx;
+	}
+	uni-goods-nav{
+		position: fixed;
+		bottom: 0px;
+		width: 100%;
+	}
 	.bg {
 		width: 100%;
 		height: 280rpx;
 		display: block;
 		z-index: -999;
 		color: #FFFFFF;
-		background-color: #cccccc;
+		background-color: #b0b0b0;
 		padding-top: 50rpx;
-
 		image {
 			width: 178rpx;
 			height: 238rpx;
 			float: right;
 			margin-right: 50rpx;
 		}
-
 		.bg-left {
 			padding-left: 50rpx;
-
 			p {
 				font-weight: 1000;
 				font-size: 40rpx;
 			}
-
 			text {
 				display: block;
 				margin-top: 10rpx;
 			}
 		}
 	}
-
 	.info {
-		color: #C0C0C0;
+		color: #8c8c8c;
 		line-height: 50rpx;
 		padding: 20rpx;
-
 		.desc {
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -216,11 +333,9 @@
 			-webkit-line-clamp: 3;
 			-webkit-box-orient: vertical;
 		}
-
 		.tags {
 			border-bottom: solid rgba(220, 220, 220, 0.3) 2rpx;
 			padding-bottom: 30rpx;
-
 			text {
 				display: inline-block;
 				height: 40rpx;
@@ -231,50 +346,40 @@
 				border-radius: 20rpx;
 				margin-right: 20rpx;
 			}
-
 			view {
 				display: inline-block;
 				float: right;
 				margin-right: 20rpx;
 			}
 		}
-
 		.state {
 			margin-top: 20rpx;
-
 			.catalog {
 				color: #000000;
 				font-size: 40rpx;
 			}
-
 			.completeState {
 				color: red;
 				float: right;
 				margin-right: 25rpx;
 			}
-
 			.chapter {
 				float: right;
 			}
 		}
 	}
-
 	.comment {
 		border-top: solid rgba(220, 220, 220, 0.3) 20rpx;
 		padding: 20rpx;
-
 		p {
 			font-size: 40rpx;
 		}
-
 		.nocomment {
 			color: #C0C0C0;
 			text-align: center;
 		}
-
 		.commentlist {
 			margin-top: 30rpx;
-
 			image {
 				width: 60rpx;
 				height: 60rpx;
@@ -282,7 +387,6 @@
 				display: inline-block;
 				// vertical-align: bottom;
 			}
-
 			p {
 				vertical-align: bottom;
 				display: inline-block;
@@ -291,7 +395,6 @@
 				height: 60rpx;
 				margin-left: 20rpx;
 			}
-
 			text {
 				display: block;
 				overflow: hidden;
@@ -302,32 +405,25 @@
 				line-height: 45rpx;
 			}
 		}
-
 	}
-
 	.bottom {
 		border-top: solid rgba(220, 220, 220, 0.3) 20rpx;
 		padding: 20rpx;
-
 		p {
 			font-size: 40rpx;
 		}
-		
 		.recommenList {
+			height: 425rpx;
 			display: flex;
 			margin-top: 30rpx;
-
 			.recommend {
-				
 				flex: 1;
-
 				image {
 					width: 178rpx;
 					height: 238rpx;
 					display: block;
 					margin: 0 auto;
 				}
-
 				text {
 					display: block;
 					width: 178rpx;

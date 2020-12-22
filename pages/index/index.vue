@@ -2,12 +2,12 @@
 	<view class="content">
 		<aloys-tab :tabs="tabs" @change="onTabChange">
 			<view slot="content0" class="xxx">
-			  <lv-select
+			 <lv-select
 			        @handleSearch = "handleSearch"
 			        @change = "change"
 			        placeholder = "请输入信息"
 			        :infoList = "infoList"
-			        :showValue = "showValue"
+					:showValue = "showValue"
 			        v-model = "searchValue"
 			        :loading = "loading"
 			        type = "success "
@@ -15,8 +15,23 @@
 			        ></lv-select>
 			<booklist></booklist>
 			</view>
-			<view slot="content1" class="xxx">B</view>
-			<view slot="content2" class="xxx">C</view>
+			<view slot="content1" class="xxx">
+				<lv-select
+				        @handleSearch = "handleSearch"
+				        @change = "change"
+				        placeholder = "请输入信息"
+				        :infoList = "infoList"
+						:showValue = "showValue"
+				        v-model = "searchValue"
+				        :loading = "loading"
+				        type = "success "
+				        :uniShadow = "true"
+				        ></lv-select>
+				<booklistworman></booklistworman>
+			</view>
+			<view slot="content2" class="xxx">
+				<publish></publish>
+			</view>
 		</aloys-tab>
 	</view>
 </template>
@@ -26,29 +41,35 @@
 	import lvSelect from '../../components/lv-select/lv-select'
 	import booklist from '../../components/booklist/booklist.vue'
 	import icon from '../../components/dn-icon/dn-icon.vue'
+	import booklistworman from '../../components/booklist/booklistworman.vue'
+	import publish from "../../components/publish/publish.vue"
 
 	export default {
+		
 		components: {
 			aloysTab,
 			lvSelect,
 			booklist,
-			icon
+			icon,
+			booklistworman,
+			publish,
 		
 		},
 		data() {
 			return {
+				picUrl:"",
 				 loading: false,
                 showValue: 'name', // 需要显示的数据，必须与infoList中的name对应
                 searchValue: '',
                 infoList: [],
                 infoLists: [{
-                    name: '吕星辰1'
+                    name: '遮天'
                 },{
-                    name: '吕星辰2'
+                    name: '神墓'
                 },{
-                    name: '吕星辰3'
+                    name: '完美世界'
                 },{
-                    name: '吕星辰4'
+                    name: '圣墟'
                 }],
 				tabs: [{
 					title: '男生'
@@ -59,9 +80,7 @@
 				}]
 			}
 		},
-		onLoad() {
-
-		},
+		
 		methods: {
 			onTabChange(obj) {
 				uni.showToast({
@@ -79,8 +98,24 @@
 			                    this.infoList = this.infoLists
 			                }, 2000)
 			            },
-		}
+						
+						
+
+		},
+		
+		      // onLoad: function (options) {
+		      //      setTimeout(function () {
+		      //          console.log('start pulldown');
+		      //      }, 1000);
+		      //      uni.startPullDownRefresh();
+		      //  },
+		      onPullDownRefresh(){
+		      	console.log('触发下拉刷新了')
+		      }
+
+		
 	}
+	
 </script>
 
 <style>

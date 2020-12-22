@@ -1,15 +1,13 @@
 <template>
-	<view>
-
-
+	<view v-if="isshow">
 		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
 			<swiper-item>
-				<view class="swiper-item">
+				<view class="swiper-item" @click="swiperClick1({items})">
 					<image v-bind:src="items[0].picUrl" mode="widthFix"></image>
 				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item">
+				<view class="swiper-item" @click="swiperClick2({items})">
 					<image v-bind:src="items[1].picUrl" mode="widthFix"></image>
 				</view>
 			</swiper-item>
@@ -34,15 +32,19 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[0].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick1({recommend})">
+					<image v-bind:src="recommend[0].picUrl" mode="widthFix" class="img001">
+						<view class="ranking">1</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[0].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[0].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[1].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick2({recommend})">
+					<image v-bind:src="recommend[1].picUrl" mode="widthFix" class="img001">
+						<view class="ranking">2</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[1].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[1].rankValue}}</text> </view>
@@ -53,15 +55,19 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[2].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick3({recommend})">
+					<image v-bind:src="recommend[2].picUrl" mode="widthFix" class="img001">
+						<view class="ranking">3</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[2].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[2].rankValue}}</text> </view>
 					</view>
 				</view>
 				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[3].picUrl" mode="widthFix" class="img001"></image>
+					<image v-bind:src="recommend[3].picUrl" mode="widthFix" class="img001" @click="recommendClick4({recommend})">
+						<view class="ranking rankingmiddle">4</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[3].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[3].rankValue}}</text> </view>
@@ -72,15 +78,19 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[4].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick5({recommend})">
+					<image v-bind:src="recommend[4].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankingmiddle">5</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[4].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[4].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[5].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick6({recommend})">
+					<image v-bind:src="recommend[5].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankingmiddle">6</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[5].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[5].rankValue}}</text> </view>
@@ -91,15 +101,19 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[6].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick7({recommend})">
+					<image v-bind:src="recommend[6].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">7</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[6].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[6].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[7].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick8({recommend})">
+					<image v-bind:src="recommend[7].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">8</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[7].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[7].rankValue}}</text> </view>
@@ -110,15 +124,19 @@
 			<view class="bookbox">
 
 
-				<view class="recommendbox1" id="recommendbox">
-					<image v-bind:src="recommend[8].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox1" id="recommendbox" @click="recommendClick9({recommend})">
+					<image v-bind:src="recommend[8].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">9</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[8].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[8].rankValue}}</text> </view>
 					</view>
 				</view>
-				<view class="recommendbox2" id="recommendbox">
-					<image v-bind:src="recommend[9].picUrl" mode="widthFix" class="img001"></image>
+				<view class="recommendbox2" id="recommendbox" @click="recommendClick10({recommend})">
+					<image v-bind:src="recommend[9].picUrl" mode="widthFix" class="img001">
+						<view class="ranking rankinglast">10</view>
+					</image>
 					<view class="righttext">
 						<text class="top">{{recommend[9].bookName}}</text>
 						<view class="bottom">力荐值:<text>{{recommend[9].rankValue}}</text> </view>
@@ -137,19 +155,12 @@
 			</view>
 		</view>
 
-		<view class="hotbooks">
+		<view class="hotbooks" v-for="(item, index) in hotbooks" :key="index" @click="itemClick({item})">
 			<view class="hotbooks1">
-				<image :src="hotbooks[0].picUrl" mode="widthFix"></image>
-				<text>{{hotbooks[0].bookName}}</text>
+				<image :src="item.picUrl" mode="widthFix"></image>
+				<text>{{item.bookName}}</text>
 			</view>
-			<view class="hotbooks2">
-				<image :src="hotbooks[1].picUrl" mode="widthFix"></image>
-				<text>{{hotbooks[1].bookName}}</text>
-			</view>
-			<view class="hotbooks3">
-				<image :src="hotbooks[2].picUrl" mode="widthFix"></image>
-				<text>{{hotbooks[2].bookName}}</text>
-			</view>
+
 		</view>
 		<!-- 玄幻人气榜 -->
 		<view class="Fantasy">
@@ -165,7 +176,8 @@
 
 				</view>
 				<view class="Fantasybody">
-					<view class="recommendbox1" :wx:for="Fantasybooks" wx:for-item="Fantasybooks" style="margin-top: 30rpx;font-size: 20rpx;">
+					<view class="recommendbox1" v-for="(Fantasybooks, index) in hotbooks" :key="index" @click="FantasybooksClick({Fantasybooks})"
+					 style="margin-top: 30rpx;font-size: 20rpx;">
 						<image v-bind:src="Fantasybooks.picUrl" mode="widthFix" class="img001"></image>
 						<view class="righttext">
 							<text class="top Citytop">{{Fantasybooks.bookName}}</text>
@@ -188,7 +200,8 @@
 				</view>
 
 				<view class="Fantasybody" style="font-size: 20rpx;">
-					<view class="recommendbox1" :wx:for="Citybooks" wx:for-item="Citybooks" style="margin-top: 30rpx;font-size: 20rpx;">
+					<view class="recommendbox1" v-for="(Citybooks, index) in Citybooks" :key="index" @click="CitybooksClick({Citybooks})"
+					 style="margin-top: 30rpx;font-size: 20rpx;">
 						<image v-bind:src="Citybooks.picUrl" mode="widthFix" class="img001"></image>
 						<view class="righttext">
 							<text class="top Citytop">{{Citybooks.bookName}}</text>
@@ -205,29 +218,79 @@
 				</view>
 			</view>
 
-			<view class="HotBoutiquebox" :wx:for="HotBoutique" wx:for-item="HotBoutique">
+			<view class="HotBoutiquebox" v-for="(HotBoutique, index) in hotbooks" :key="index" @click="HotBoutiqueClick({HotBoutique})">
 				<view class="HotBoutiquebooks">
 					<image :src="HotBoutique.picUrl" mode="widthFix"></image>
 					<view class="HotBoutiquebooksname">
 						<view class="HotBoutiquebookstitle">{{HotBoutique.bookName}}</view>
-						<view class="completeState">{{HotBoutique.completeState}} </view>
+						<view class="completeState" style="hotbookscolor[index]">{{HotBoutique.completeState}} </view>
 					</view>
 
-					<!-- <text class="state">{{HotBoutique[0].completeState}}</text> -->
+
 					<view class="author">{{HotBoutique.author}}</view>
 					<text class="desc">{{HotBoutique.desc}}</text>
-
+					<view class="category">{{HotBoutique.category}}</view>
 				</view>
 			</view>
 
 		</view>
+		<!-- 口碑佳作区域 -->
+
+		<view class="titlebox2">
+			<view class="hotname">{{good.name}}</view>
+			<view class="change">换一换<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
+			</view>
+		</view>
+
+		<scroll-view scroll-x="true" class="goodworks">
+
+			<view class="hotbooks" v-for="(goodworks, index) in goodworks" :key="index" @click="goodworksClick({goodworks})">
+				<view class="hotbooks1">
+					<image :src="goodworks.picUrl" mode="widthFix"></image>
+					<text class="goodname">{{goodworks.bookName}}</text>
+				</view>
+			</view>
+
+		</scroll-view>
+
+		<!-- 新书优选 -->
+		<view class="newbook ">
+
+
+			<view class="HotBoutique">
+				<view class="titlebox2">
+					<view class="hotname">{{newbookname.name}}</view>
+					<view class="change">查看更多<dn-icon :type="'shuaxin'" size="20" color=""></dn-icon>
+					</view>
+				</view>
+
+				<view class="HotBoutiquebox" v-for="(newbook, index) in newbook" :key="index" @click="newbookClick({newbook})">
+					<view class="HotBoutiquebooks">
+						<image :src="newbook.picUrl" mode="widthFix"></image>
+						<view class="HotBoutiquebooksname">
+							<view class="HotBoutiquebookstitle">{{newbook.bookName}}</view>
+							<view class="completeState" :style="newbookcolor[index]">{{newbook.completeState}} </view>
+						</view>
+
+
+						<view class="author">{{newbook.author}}</view>
+						<text class="desc">{{newbook.desc}}</text>
+						<view class="category">{{newbook.category}}</view>
+					</view>
+				</view>
+
+			</view>
+
+		</view>
+
 	</view>
-
-
 
 </template>
 
 <script>
+	import {
+		myRequestGet
+	} from "@/utils/xsrequest.js"
 	import icon from "../dn-icon/dn-icon.vue"
 	export default {
 		components: {
@@ -235,75 +298,481 @@
 		},
 		data() {
 			return {
+
+				isshow: false,
+				// picUrl:"",
 				items: [],
 				title: "",
 				recommend: [],
 				hot: [],
 				hotbooks: [],
+				hotbookscolor: [],
 				headtitle: "",
 				headtitle1: "",
 				Fantasybooks: [],
 				Citybooks: [],
 				HotBoutique: [],
 				hotname: "",
+				good: "",
+				goodworks: [],
 				// HotBoutiquebooks:[],
+				newbook: [],
+				newbookname: "",
+				newbookcolor: [],
+				hotitem: {},
+				bookId: "",
 			}
 		},
-		onReady: function() {
-			uni.request({
-				url: 'https://wechat.idejian.com/api/wechat/index',
-				success: (res) => {
-					// 轮播图
-					const resobj = res.data.body.data[0].items;
-					// console.log(resobj,"xxxxxxxxx")
-					this.items = resobj;
-					// 标题
-					const title = res.data.body.data[1].name
-					// console.log(title)
-					this.title = title
-					// 推荐
-					const recommend = res.data.body.data[1].books
-					// console.log(recommend)
-					this.recommend = recommend
-					// 热读
-					const hot = res.data.body.data[2]
-					this.hot = hot
-					// console.log(hot)
-					const hotbooks = res.data.body.data[2].books
-					this.hotbooks = hotbooks
-					// 玄幻人气榜
-					const headtitle = res.data.body.data[3].sectionCategory[0]
-					this.headtitle = headtitle
-					const Fantasybooks = res.data.body.data[3].sectionCategory[0].books
-					this.Fantasybooks = Fantasybooks
-					// 都市人气榜
-					const headtitle1 = res.data.body.data[3].sectionCategory[1]
-					this.headtitle1 = headtitle1
-					const Citybooks = res.data.body.data[3].sectionCategory[1].books
-					this.Citybooks = Citybooks
-					// 火爆精品
-					const HotBoutique = res.data.body.data[4].books
-					this.HotBoutique = HotBoutique
-					console.log(HotBoutique[0].bookName)
-					const hotname = res.data.body.data[4]
-					this.hotname = hotname
-
-
-				}
-			})
+		
+		//#ifdef H5 || MP-WEIXIN
+		created(){
+			this.getBook()
 		},
-		methods: {
 
-		}
+
+		methods: {
+			async getBook() {
+
+				let res = await myRequestGet("/api/wechat/index")
+				console.log(res, "10101010101010")
+
+
+				// 轮播图
+				const resobj = res.body.data[0].items;
+				console.log(resobj,"xxxxxxxxx11")
+				this.items = resobj;
+				// 标题
+				const title = res.body.data[1].name
+				// console.log(title)
+				this.title = title
+				// 推荐
+				const recommend = res.body.data[1].books
+				// console.log(recommend)
+				this.recommend = recommend
+				// 热读
+				const hot = res.body.data[2]
+				this.hot = hot
+				// console.log(hot)
+				const hotbooks = res.body.data[2].books
+				this.hotbooks = hotbooks
+				console.log(hotbooks[0].bookId9)
+				// 玄幻人气榜
+				const headtitle = res.body.data[3].sectionCategory[0]
+				this.headtitle = headtitle
+				const Fantasybooks = res.body.data[3].sectionCategory[0].books
+				this.Fantasybooks = Fantasybooks
+				// 都市人气榜
+				const headtitle1 = res.body.data[3].sectionCategory[1]
+				this.headtitle1 = headtitle1
+				const Citybooks = res.body.data[3].sectionCategory[1].books
+				this.Citybooks = Citybooks
+				// 火爆精品
+				const HotBoutique = res.body.data[4].books
+				this.HotBoutique = HotBoutique
+				// console.log(HotBoutique[0].bookName)
+				const hotname = res.body.data[4]
+				this.hotname = hotname
+				// 口碑佳作
+				const good = res.body.data[5]
+				this.good = good
+				// console.log(good.name)
+				const goodworks = res.body.data[5].books
+				// console.log(goodworks)
+				this.goodworks = goodworks
+				// 新书优选
+				const newbook = res.body.data[6].books
+				this.newbook = newbook
+				const newbookname = res.body.data[6]
+				this.newbookname = newbookname
+
+				// 新书优选标签颜色筛选
+				const newbook1 = this.newbook;
+				newbook1.forEach((item, index) => {
+					if (item.completeState === "完结") {
+						// console.log("123123");
+						console.log(this)
+						// document.querySelector(".querySelector").style="color=blue"
+						this.newbookcolor[index] = "color:blue;border-color:blue"
+					} else {
+						this.newbookcolor[index] = "color:red;border-color:red"
+						console.log(this.newbookcolor)
+					}
+
+				});
+				// 火爆精品标签颜色筛选
+				const HotBoutique1 = this.HotBoutique;
+				HotBoutique1.forEach((item, index) => {
+					if (item.completeState === "完结") {
+						// console.log("123123");
+						console.log(this)
+						// document.querySelector(".querySelector").style="color=blue"
+						this.hotbookscolor[index] = "color:blue;border-color:blue"
+					} else {
+						this.hotbookscolor[index] = "color:red;border-color:red"
+						console.log(this.hotbookscolor)
+					}
+
+				});
+				this.isshow = true;
+			},
+			// 轮播图
+			swiperClick1(items) {
+				console.log(items.items[0].url, "1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + items.items[0].url,
+
+				})
+			},
+			swiperClick2(items) {
+				console.log(items.items[1].id, "1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + items.items[1].url,
+
+				})
+			},
+			// 力荐榜
+			// 1
+			recommendClick1(recommend) {
+				// console.log(recommend.recommend[0],"1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[0].bookId,
+
+				})
+			},
+			// 2
+			recommendClick2(recommend) {
+
+				console.log(recommend.recommend[1].bookId, "qqqqqqq")
+				uni.navigateTo({
+
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[1].bookId,
+				})
+			},
+			// 3
+			recommendClick3(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[2].bookId,
+				})
+			},
+			// 4
+			recommendClick4(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[3].bookId,
+				})
+			},
+			// 5
+			recommendClick5(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[4].bookId,
+				})
+			},
+			// 6
+			recommendClick6(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[5].bookId,
+				})
+			},
+			// 7
+			recommendClick7(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id='+ recommend.recommend[6].bookId,
+				})
+			},
+			// 8
+			recommendClick8(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[7].bookId,
+				})
+			},
+			// 9
+			recommendClick9(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[8].bookId,
+				})
+			},
+			// 10
+			recommendClick10(recommend) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[9].bookId,
+				})
+			},
+
+			// 热读
+			itemClick(hotitem) {
+				// console.log(hotitem.item.bookI d,"1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + hotitem.item.bookId,
+
+				})
+			},
+			// 玄幻
+			FantasybooksClick(Fantasybooks) {
+				// console.log(Fantasybooks.Fantasybooks.bookId,"1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + Fantasybooks.Fantasybooks.bookId,
+
+				})
+			},
+			// 都市
+			CitybooksClick(Citybooks) {
+				console.log(Citybooks.Citybooks.bookId, "1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + Citybooks.Citybooks.bookId,
+
+				})
+			},
+			// 火爆精品
+			HotBoutiqueClick(HotBoutique) {
+				// console.log(HotBoutique,"1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + HotBoutique.HotBoutique.bookId,
+
+				})
+			},
+			// 口碑佳作
+			goodworksClick(goodworks) {
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + goodworks.goodworks.bookId,
+
+				})
+			},
+			// 新书优选
+			newbookClick(newbook) {
+				console.log(newbook, "1222222222121212")
+				uni.navigateTo({
+					url: '/pages/bookdetail/bookdetail?id=' + newbook.newbook.bookId,
+
+				})
+			},
+		},
+		// #endif
+		// #ifdef MP-ALIPAY
+		  onReady: function() {
+		  			uni.request({
+		  				url: 'https://wechat.idejian.com/api/wechat/index',
+		  				success: (res) => {
+		  					// 轮播图
+		  					const resobj = res.data.body.data[0].items;
+		  					// console.log(resobj,"xxxxxxxxx")
+		  					this.items = resobj;
+		  					// 标题
+		  					const title = res.data.body.data[1].name
+		  					// console.log(title)
+		  					this.title = title
+		  					// 推荐
+		  					const recommend = res.data.body.data[1].books
+		  					// console.log(recommend)
+		  					this.recommend = recommend
+		  					// 热读
+		  					const hot = res.data.body.data[2]
+		  					this.hot = hot
+		  					// console.log(hot)
+		  					const hotbooks = res.data.body.data[2].books
+		  					this.hotbooks = hotbooks
+		  					console.log(hotbooks[0].bookId9)
+		  					// 玄幻人气榜
+		  					const headtitle = res.data.body.data[3].sectionCategory[0]
+		  					this.headtitle = headtitle
+		  					const Fantasybooks = res.data.body.data[3].sectionCategory[0].books
+		  					this.Fantasybooks = Fantasybooks
+		  					// 都市人气榜
+		  					const headtitle1 = res.data.body.data[3].sectionCategory[1]
+		  					this.headtitle1 = headtitle1
+		  					const Citybooks = res.data.body.data[3].sectionCategory[1].books
+		  					this.Citybooks = Citybooks
+		  					// 火爆精品
+		  					const HotBoutique = res.data.body.data[4].books
+		  					this.HotBoutique = HotBoutique
+		  					// console.log(HotBoutique[0].bookName)
+		  					const hotname = res.data.body.data[4]
+		  					this.hotname = hotname
+		  					// 口碑佳作
+		  					const good = res.data.body.data[5]
+		  					this.good = good
+		  					// console.log(good.name)
+		  					const goodworks = res.data.body.data[5].books
+		  					// console.log(goodworks)
+		  					this.goodworks = goodworks
+		  					// 新书优选
+		  					const newbook = res.data.body.data[6].books
+		  					this.newbook = newbook
+		  					const newbookname = res.data.body.data[6]
+		  					this.newbookname = newbookname
+		  					// 新书优选标签颜色筛选
+		  					const newbook1 = this.newbook;
+		  					newbook1.forEach((item ,index)=> {
+		  						if (item.completeState === "完结") {
+		  							// console.log("123123");
+		  							console.log(this)
+		  							// document.querySelector(".querySelector").style="color=blue"
+		  							this.newbookcolor[index] = "color:blue;border-color:blue"
+		  						}else{
+		  							this.newbookcolor[index] = "color:red;border-color:red"
+		  							console.log(this.newbookcolor )
+		  						}
+		  					});
+		  					// 火爆精品标签颜色筛选
+		  					const HotBoutique1 = this.HotBoutique;
+		  					HotBoutique1.forEach((item ,index)=> {
+		  						if (item.completeState === "完结") {
+		  							// console.log("123123");
+		  							console.log(this)
+		  							// document.querySelector(".querySelector").style="color=blue"
+		  							this.hotbookscolor[index] = "color:blue;border-color:blue"
+		  						}else{
+		  							this.hotbookscolor[index] = "color:red;border-color:red"
+		  							console.log(this.hotbookscolor )
+		  						}
+		  					
+		  					});
+		  					
+		  					this.isshow=true;
+		  				}
+		  			})
+		  		},
+		  		methods: {
+		  			// 轮播图
+		  			swiperClick1(items) {
+		  				console.log(items.items[0].url,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id='+items.items[0].url,
+		  					
+		  			    })
+		  			},
+		  			swiperClick2(items) {
+		  				console.log(items.items[1].id,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id='+items.items[1].url,
+		  					
+		  			    })
+		  			},
+		  			// 力荐榜
+		  			// 1
+		  			recommendClick1(recommend) {
+		  				// console.log(recommend.recommend[0],"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[0].bookId,
+		  					
+		  			    })
+		  			},
+		  			// 2
+		  			recommendClick2(recommend) {
+		  				
+		  				console.log(recommend.recommend[1].bookId,"qqqqqqq" )
+		  			    uni.navigateTo({
+		  					
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[1].bookId,
+		  			    })
+		  			},
+		  			// 3
+		  			recommendClick3(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[2].bookId,
+		  			    })
+		  			},
+		  			// 4
+		  			recommendClick4(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[3].bookId,
+		  			    })
+		  			},
+		  			// 5
+		  			recommendClick5(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[4].bookId,
+		  			    })
+		  			},
+		  			// 6
+		  			recommendClick6(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[5].bookId,
+		  			    })
+		  			},
+		  			// 7
+		  			recommendClick7(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[6].bookId,
+		  			    })
+		  			},
+		  			// 8
+		  			recommendClick8(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[7].bookId,
+		  			    })
+		  			},
+		  			// 9
+		  			recommendClick9(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[8].bookId,
+		  			    })
+		  			},
+		  			// 10
+		  			recommendClick10(recommend) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + recommend.recommend[9].bookId,
+		  			    })
+		  			},
+		  			
+		  			// 热读
+		  			itemClick(hotitem) {
+		  				// console.log(hotitem.item.bookI d,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + hotitem.item.bookId,
+		  					
+		  			    })
+		  			},
+		  			// 玄幻
+		  			FantasybooksClick(Fantasybooks) {
+		  				// console.log(Fantasybooks.Fantasybooks.bookId,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + Fantasybooks.Fantasybooks.bookId,
+		  					
+		  			    })
+		  			},
+		  			// 都市
+		  			CitybooksClick(Citybooks) {
+		  				console.log(Citybooks.Citybooks.bookId,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + Citybooks.Citybooks.bookId,
+		  					
+		  			    })
+		  			},
+		  			// 火爆精品
+		  			HotBoutiqueClick(HotBoutique) {
+		  				// console.log(HotBoutique,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + HotBoutique.HotBoutique.bookId,
+		  					
+		  			    })
+		  			},
+		  			// 口碑佳作
+		  			goodworksClick(goodworks) {
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + goodworks.goodworks.bookId,
+		  					
+		  			    })
+		  			},
+		  			// 新书优选
+		  			newbookClick(newbook) {
+		  				console.log(newbook,"1222222222121212")
+		  			    uni.navigateTo({
+		  			        url: '/pages/bookdetail/bookdetail?id=' + newbook.newbook.bookId,
+		  					
+		  			    })
+		  			},
+		  		}
+		  
+		  //#endif
 	}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	// body{
 	// 	background-color: #0055ff;
 	// }
 	swiper-item {
 		image {
 			width: 100%;
+			
 		}
 	}
 
@@ -318,7 +787,6 @@
 		font-size: 35rpx;
 		padding: 30rpx;
 		padding-bottom: 15rpx;
-
 	}
 
 	.more {
@@ -339,7 +807,6 @@
 
 	.newstext {
 		display: inline-block;
-
 		position: absolute;
 		left: 30rpx;
 	}
@@ -353,8 +820,6 @@
 		padding-left: 30rpx;
 		padding-right: 30rpx;
 		// background-color: #e8e8e8;
-
-
 	}
 
 	.fengequyu {
@@ -370,7 +835,6 @@
 	// 	border: 2px solid black;
 	// 	border-radius: 10px;
 	// 	image{
-
 	// 	}
 	// }
 	.recommendbox1 {
@@ -378,9 +842,7 @@
 			width: 100rpx;
 			position: absolute;
 			left: 0rpx;
-
 		}
-
 	}
 
 	.recommendbox2 {
@@ -401,7 +863,7 @@
 		font-size: 28rpx;
 		// display: block;
 		overflow: hidden;
-		white-space:nowrap; 
+		white-space: nowrap;
 		text-overflow: ellipsis;
 		text-align: left;
 		font-weight: 500;
@@ -426,7 +888,6 @@
 		// border: 1px solid black;
 		border-radius: 10rpx;
 		position: relative;
-
 	}
 
 	.recommendbox2 {
@@ -437,7 +898,6 @@
 		// border: 1px solid black;
 		border-radius: 10rpx;
 		position: relative;
-
 	}
 
 	.bookbox {
@@ -452,7 +912,6 @@
 
 		view {
 			display: inline;
-
 		}
 	}
 
@@ -467,11 +926,11 @@
 		color: #a6a6a6;
 		font-size: 27rpx;
 		line-height: 40rpx;
-
 	}
 
 	.hotbooks {
-		width: 100%;
+		width: 29%;
+		display: inline-block;
 		height: 300rpx;
 		padding-left: 30rpx;
 
@@ -480,10 +939,9 @@
 			font-size: 28rpx;
 			float: left;
 			text-align: left;
-
-
 		}
-		text{
+
+		text {
 			font-weight: 500;
 		}
 	}
@@ -504,18 +962,14 @@
 		// padding-left: 30rpx;
 		// padding-right: 30rpx;
 		padding-top: 30rpx;
-
 	}
 
 	.Fantasybox {
 		width: 690rpx;
-
 		height: 740rpx;
 		margin: 0rpx 0rpx 10rpx 30rpx;
 		border-radius: 10rpx;
 		background-color: white;
-
-
 	}
 
 	.Fantasyhead {
@@ -542,7 +996,6 @@
 		top: 25rpx;
 		left: 50rpx;
 		color: white;
-
 	}
 
 	.Fantasymore {
@@ -588,7 +1041,6 @@
 			width: 200rpx;
 			position: absolute;
 			left: 0px;
-
 		}
 	}
 
@@ -602,7 +1054,6 @@
 		height: 40rpx;
 		text-align: left;
 		// overflow: hidden;
-
 	}
 
 	.HotBoutiquebookstitle {
@@ -620,13 +1071,13 @@
 		// -webkit-line-clamp: 1;
 		text-overflow: ellipsis;
 		float: left;
-
 	}
 
 	.completeState {
-		display: -webkit-flex;
-		display: flex;
-		flex: 1;
+		text-align: center;
+		// display: -webkit-flex;
+		// display: flex;
+		// flex: 1;
 		margin: 0rpx;
 		font-weight: 400;
 		font-size: 20rpx;
@@ -635,7 +1086,7 @@
 		height: 30rpx;
 		line-height: 30rpx;
 		color: #ff5101;
-		border-radius: 10rpx;
+		border-radius: 6rpx;
 		margin-left: 30rpx;
 		float: right;
 	}
@@ -646,7 +1097,7 @@
 		top: 80rpx;
 		font-size: 25rpx;
 		color: #a8a8a8;
-		font-weight: 400;
+		font-weight: 500;
 	}
 
 	.desc {
@@ -654,7 +1105,7 @@
 		font-size: 25rpx;
 		position: absolute;
 		left: 220rpx;
-		top: 160rpx;
+		top: 120rpx;
 		width: 460rpx;
 		height: 100rpx;
 		overflow: hidden;
@@ -664,5 +1115,57 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 		text-overflow: ellipsis;
+	}
+
+	.category {
+		font-weight: 400;
+		font-size: 20rpx;
+		position: absolute;
+		left: 220rpx;
+		top: 234rpx;
+		width: 120rpx;
+		height: 30rpx;
+		line-height: 30rpx;
+		border: 1px solid #a8a8a8;
+		border-radius: 4rpx;
+		color: #a8a8a8;
+	}
+
+	.goodworks {
+		width: 100%;
+		white-space: nowrap;
+		// height: 160rpx;
+	}
+
+	.goodname {
+		display: block;
+		overflow: visible;
+		white-space:nowrap;
+		
+		 overflow:hidden;
+		
+		 text-overflow:ellipsis;
+	}
+
+	.newbook {
+		margin-top: 20rpx;
+	}
+	.ranking{
+		width: 30rpx;
+		height: 50rpx;
+		background: linear-gradient(to bottom right, #ff5500, #ff6e70);
+		color: #ffffff;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		font-size: 25rpx;
+		text-align: center;
+		line-height: 50rpx;
+	}
+	.rankinglast{
+		background: linear-gradient(to bottom right, #b4b2b3, #eae4e8);
+	}
+	.rankingmiddle{
+		background: linear-gradient(to bottom right, #ff7802, #ffae4a);
 	}
 </style>
