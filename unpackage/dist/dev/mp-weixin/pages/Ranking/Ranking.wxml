@@ -1,1 +1,1 @@
-<view><text>排行</text></view>
+<view class="content data-v-2adde134"><aloys-tab vue-id="30dec652-1" tabs="{{tabs}}" class="data-v-2adde134" bind:__l="__l" vue-slots="{{['content0','content1']}}"><view class="xxx data-v-2adde134" slot="content0"><man-ranking vue-id="{{('30dec652-2')+','+('30dec652-1')}}" class="data-v-2adde134" bind:__l="__l"></man-ranking></view><view class="xxx data-v-2adde134" slot="content1"><woman-ranking vue-id="{{('30dec652-3')+','+('30dec652-1')}}" class="data-v-2adde134" bind:__l="__l"></woman-ranking></view></aloys-tab></view>

@@ -1,5 +1,5 @@
 {
   "navigationBarTitleText": "分类",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "usingComponents": {}
 }

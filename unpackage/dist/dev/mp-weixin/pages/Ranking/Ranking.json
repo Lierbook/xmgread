@@ -1,5 +1,9 @@
 {
   "navigationBarTitleText": "排行",
-  "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "aloys-tab": "/components/aloys-tab/aloys-tab",
+    "man-ranking": "/components/rankinglist/man-ranking",
+    "woman-ranking": "/components/rankinglist/woman-ranking"
+  }
 }

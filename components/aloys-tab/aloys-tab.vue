@@ -1,7 +1,7 @@
 <template>
   <view style="width: 100%; height: 100%;">
     <view class="tabs">
-      <view v-for="(tab, index) in tabs" class="tab-item" :class="current==index&&'active'" @click="current = index">
+      <view v-for="(tab, index) in tabs" :key="index" class="tab-item" :class="current==index&&'active'" @click="current = index">
       {{tab.title}}
       </view>
     </view>

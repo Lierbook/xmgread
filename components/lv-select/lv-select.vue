@@ -41,7 +41,7 @@
 </template>
 <script>
 	export default {
-		name: 'select',
+		// name: 'select',
 		props: {
 			// placeholder: {
 			// 	type: String,

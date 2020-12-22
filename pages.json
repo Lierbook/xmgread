@@ -1,110 +1,149 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+
+
+		// {
+		//     "path" : "pages/weChatLogin/weChatLogin",
+		//     "style" :                                                                                    
+		//     {
+		//         "navigationBarTitleText": "",
+		//         "enablePullDownRefresh": false
+		//     }
+		// },
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "书城"
-				
+				"navigationBarTitleText": "小马哥小说",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/bookshelf/bookshelf",
+			"style": {
+				"navigationBarTitleText": "书架",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/Ranking/Ranking",
+			"style": {
+				"navigationBarTitleText": "排行",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/tobiao/tobiao",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/classification/classification",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": true
+			}
+
+		}, {
+			"path": "pages/bookdetail/bookdetail",
+			"style": {
+				"navigationBarTitleText": "书籍详情",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#b0b0b0"
+
+			}
+
+		},
+		{
+			"path": "pages/details/details",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
 			}
 		}
-	    ,{
-            "path" : "pages/my/my",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "我的",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/bookshelf/bookshelf",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "书架",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/Ranking/Ranking",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "排行",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/tobiao/tobiao",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "pages/classification/classification",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "分类",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-        ,{
-            "path" : "components/booklist/booklist",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+
+
+
+
+
+
+		,
+		{
+			"path": "pages/bookshelfs/bookshelfs",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"onReachBottomDistance": 20
+			}
+		}, {
+			"path": "pages/mulv/mulv",
+			"style": {
+				"navigationBarTitleText": "目录"
+			}
+		}, {
+			"path": "pages/mys/mys",
+			"style": {}
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#ffffff",
-		"backgroundColor": "#d0fffe"
+		"backgroundColor": "#f1f1f1",
+		"enablePullDownRefresh": true,
+		"backgroundTextStyle": "dark"
+
 	},
-	"tabBar":{
-		 "color": "#ffffff",
-		    "selectedColor": "#aaaa00",
-		    "borderStyle": "white",
-		    "backgroundColor": "#CCCCCC",
-		    "list": [
-		      {
-		        "pagePath": "pages/index/index",
-		        "iconPath": "static/tabbar/书城.png",
-		        "selectedIconPath": "static/logo.png",
-		        "text": "书城"
-		      },
-		      {
-		        "pagePath": "pages/bookshelf/bookshelf",
-		        "iconPath": "static/tabbar/书架.png",
-		        "selectedIconPath": "static/logo.png",
-		        "text": "书架"
-		      },
-		      {
-		        "pagePath": "pages/Ranking/Ranking",
-		        "iconPath": "static/tabbar/排行.png",
-		        "selectedIconPath": "static/logo.png",
-		        "text": "排行"
-		      },
-			    {
-			    "pagePath": "pages/classification/classification",
-			    "iconPath": "static/tabbar/分类.png",
-			    "selectedIconPath": "static/logo.png",
-			    "text": "分类"
-			  },
-		      {
-		        "pagePath": "pages/my/my",
-		        "iconPath": "static/tabbar/我的.png",
-		        "selectedIconPath": "static/logo.png",
-		        "text": "我的"
-		      }
-			
-		    ]
+	"tabBar": {
+		"color": "#ffffff",
+		"selectedColor": "#aaaa00",
+		"borderStyle": "white",
+		"backgroundColor": "#CCCCCC",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/shucheng.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "书城"
+			},
+			{
+				"pagePath": "pages/bookshelf/bookshelf",
+				"iconPath": "static/tabbar/shujia.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "书架"
+			},
+			{
+				"pagePath": "pages/Ranking/Ranking",
+				"iconPath": "static/tabbar/paihang.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "排行"
+			},
+			{
+				"pagePath": "pages/classification/classification",
+				"iconPath": "static/tabbar/fenlei.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "分类"
+			},
+			{
+				"pagePath": "pages/mys/mys",
+				"iconPath": "static/tabbar/wode.png",
+				"selectedIconPath": "static/logo.png",
+				"text": "我的"
+			}
+
+		]
 	}
 }
